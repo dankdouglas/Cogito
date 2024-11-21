@@ -2,7 +2,7 @@ extends CogitoWieldable
 
 @export_group("Laser Rifle Settings")
 ## Determines delay between shots aka fire rate.
-@export var firing_delay : float = 0.2
+@export var firing_delay : float = 0.05
 ## Node for the laser origin
 @onready var bullet_point: Node3D = %Bullet_Point
 ## Prefab of laser_ray

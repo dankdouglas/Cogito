@@ -1,12 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://kicjwmh02uwf"]
+[gd_scene load_steps=25 format=3 uid="uid://kicjwmh02uwf"]
 
 [ext_resource type="Script" path="res://addons/cogito/CogitoObjects/cogito_player.gd" id="1_87we8"]
 [ext_resource type="Resource" uid="uid://ll11y3yjbqt" path="res://addons/cogito/InventoryPD/Inventories/PlayerInventory_FIXED.tres" id="2_iyhv4"]
 [ext_resource type="AudioStream" uid="uid://ba8gpptnnapyh" path="res://addons/cogito/Assets/Audio/Kenney/cloth2.ogg" id="3_7ds3n"]
 [ext_resource type="AudioStream" uid="uid://b7wmxwvtbpfu1" path="res://addons/cogito/Assets/Audio/537275__laughingfish78__dirt-sliding.ogg" id="4_1i2kv"]
 [ext_resource type="PackedScene" uid="uid://n1doui0jpn1v" path="res://addons/cogito/InventoryPD/CustomResources/CogtoTestCurrency.tscn" id="5_opu5d"]
-[ext_resource type="PackedScene" uid="uid://dorp3auw3s65q" path="res://addons/cogito/Components/Attributes/LightMeterAttribute.tscn" id="5_v3qv3"]
-[ext_resource type="PackedScene" uid="uid://cetc123v5gnff" path="res://addons/cogito/Components/Attributes/SanityAttribute.tscn" id="7_27cpi"]
 [ext_resource type="PackedScene" uid="uid://ce7bjv28uakxl" path="res://addons/cogito/Components/Attributes/StaminaAttribute.tscn" id="8_kodbk"]
 [ext_resource type="PackedScene" uid="uid://cqgg1nng0vvbh" path="res://addons/cogito/Components/Attributes/HealthAttribute.tscn" id="9_ky5mf"]
 [ext_resource type="PackedScene" uid="uid://cbd2ojah4nun6" path="res://addons/cogito/Components/interaction_raycast.tscn" id="10_2dndr"]
@@ -50,20 +48,16 @@ slide_sound = ExtResource("4_1i2kv")
 JUMP_VELOCITY = 4.0
 WALKING_SPEED = 4.0
 SPRINTING_SPEED = 7.0
-SLIDE_JUMP_MOD = 1.3
-HEADBOBBLE = 1
 STEP_MAX_SLOPE_DEGREE = 1.0
 
 [node name="CogtoTestCurrency" parent="." instance=ExtResource("5_opu5d")]
 
-[node name="LightMeterAttribute" parent="." instance=ExtResource("5_v3qv3")]
-
-[node name="SanityAttribute" parent="." instance=ExtResource("7_27cpi")]
-decay_in_darkness = false
-
 [node name="StaminaAttribute" parent="." instance=ExtResource("8_kodbk")]
+stamina_regen_speed = 4.0
+attribute_color = Color(0.16, 0.37, 1, 1)
 
 [node name="HealthAttribute" parent="." instance=ExtResource("9_ky5mf")]
+attribute_color = Color(1, 1, 1, 1)
 
 [node name="StandingCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

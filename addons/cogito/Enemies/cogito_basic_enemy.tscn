@@ -73,7 +73,7 @@ light_color = Color(1, 0, 0, 1)
 light_energy = 0.1
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_height_offset = 0.2
+path_height_offset = 1.0
 
 [node name="SecurityCamera" type="Node3D" parent="." node_paths=PackedStringArray("detection_ray_cast_3d", "indicator_light", "detection_area", "indicator_mesh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.29646, -0.464078)

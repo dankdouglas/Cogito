@@ -29,11 +29,7 @@ MenuTemplateManager="*res://addons/cogito/EasyMenus/Nodes/menu_template_manager.
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
-window/size/initial_position_type=3
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 

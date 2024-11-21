@@ -23,5 +23,5 @@ is_droppable = true
 stack_size = 0
 drop_scene = "res://addons/cogito/PackedScenes/Pickups/pickup_laser_rifle.tscn"
 hint_text_on_use = ""
-item_size = Vector2(3, 2)
+item_size = Vector2(1, 1)
 sound_pickup = ExtResource("3_yhudh")

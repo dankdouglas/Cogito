@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcemql6ecfojr"]
+
+[ext_resource type="PackedScene" uid="uid://cfqsiw7e3omhi" path="res://addons/cogito/BS Assets/testcanyon/test canyon.glb" id="1_laluc"]
+
+[node name="test canyon" instance=ExtResource("1_laluc")]

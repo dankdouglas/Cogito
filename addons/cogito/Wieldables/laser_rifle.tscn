@@ -1,30 +1,332 @@
-[gd_scene load_steps=20 format=4 uid="uid://bb8pm2nk8hwon"]
+[gd_scene load_steps=37 format=4 uid="uid://bb8pm2nk8hwon"]
 
 [ext_resource type="Script" path="res://addons/cogito/Wieldables/wieldable_laser_rifle.gd" id="1_2rut3"]
-[ext_resource type="AudioStream" uid="uid://clsajk36s7luk" path="res://addons/cogito/Assets/Audio/Kenney/error_004.ogg" id="2_f7ale"]
 [ext_resource type="PackedScene" uid="uid://dnauxhdncgngx" path="res://addons/cogito/PackedScenes/laser_ray.tscn" id="2_ic084"]
 [ext_resource type="AnimationLibrary" uid="uid://c1du0rcgmr542" path="res://addons/cogito/Wieldables/Animations/Wieldable_LaserRifle.res" id="3_fjq23"]
+[ext_resource type="AudioStream" uid="uid://cuaymggc28l5u" path="res://addons/cogito/BS Assets/hks1.wav" id="3_gv4jp"]
+[ext_resource type="Script" path="res://addons/cogito/Assets/Shader/ConvertedStandardMaterial3D.gd" id="5_7s4wh"]
 [ext_resource type="Script" path="res://addons/cogito/Assets/Shader/ViewmodelSpace.gd" id="5_fa3wp"]
+[ext_resource type="PackedScene" uid="uid://dae56tdxx7o0f" path="res://addons/cogito/BS Assets/Smg1.glb" id="6_0igmq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g84md"]
 resource_name = "metal"
 albedo_color = Color(0.796078, 0.815686, 0.878431, 1)
 metallic = 1.0
 
+[sub_resource type="Shader" id="Shader_ajg3y"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+
+	global uniform float viewmodel_fov = 75.0f;
+	instance uniform bool viewmodel_enabled = true;uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform sampler2D texture_roughness : filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+
+		UV = UV * uv1_scale.xy + uv1_offset.xy;
+	
+		/* begin shader magic*/
+		float onetanfov = 1.0f / tan(0.5f * (viewmodel_fov * PI / 180.0f));
+		float aspect = VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
+		// modify projection matrix to match FOV
+		PROJECTION_MATRIX[1][1] = -onetanfov;
+		PROJECTION_MATRIX[0][0] = onetanfov / aspect;
+		// this next part draws the viewmodel over everything (disable if you want dof near on viewmodel)
+			
+		POSITION = PROJECTION_MATRIX * MODELVIEW_MATRIX * vec4(VERTEX.xyz, 1.0);
+		
+		if(viewmodel_enabled){
+			POSITION.z = mix(POSITION.z, 0, -2.999);
+		}
+		/* end shader magic */
+	}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eiwv2"]
+render_priority = 0
+shader = SubResource("Shader_ajg3y")
+shader_parameter/albedo = Color(0.796078, 0.815686, 0.878431, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+script = ExtResource("5_7s4wh")
+original_material = ""
+original_material_cache = SubResource("StandardMaterial3D_g84md")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5h0cy"]
 resource_name = "dark"
 albedo_color = Color(0.196244, 0.237565, 0.283019, 1)
 metallic = 1.0
+
+[sub_resource type="Shader" id="Shader_5x2j6"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+
+	global uniform float viewmodel_fov = 75.0f;
+	instance uniform bool viewmodel_enabled = true;uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform sampler2D texture_roughness : filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+
+		UV = UV * uv1_scale.xy + uv1_offset.xy;
+	
+		/* begin shader magic*/
+		float onetanfov = 1.0f / tan(0.5f * (viewmodel_fov * PI / 180.0f));
+		float aspect = VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
+		// modify projection matrix to match FOV
+		PROJECTION_MATRIX[1][1] = -onetanfov;
+		PROJECTION_MATRIX[0][0] = onetanfov / aspect;
+		// this next part draws the viewmodel over everything (disable if you want dof near on viewmodel)
+			
+		POSITION = PROJECTION_MATRIX * MODELVIEW_MATRIX * vec4(VERTEX.xyz, 1.0);
+		
+		if(viewmodel_enabled){
+			POSITION.z = mix(POSITION.z, 0, -2.999);
+		}
+		/* end shader magic */
+	}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y04sl"]
+render_priority = 0
+shader = SubResource("Shader_5x2j6")
+shader_parameter/albedo = Color(0.196244, 0.237565, 0.283019, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+script = ExtResource("5_7s4wh")
+original_material = ""
+original_material_cache = SubResource("StandardMaterial3D_5h0cy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w8jn"]
 resource_name = "darkMetal"
 albedo_color = Color(0.592157, 0.635294, 0.768627, 1)
 metallic = 1.0
 
+[sub_resource type="Shader" id="Shader_gqe5o"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+
+	global uniform float viewmodel_fov = 75.0f;
+	instance uniform bool viewmodel_enabled = true;uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform sampler2D texture_roughness : filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+
+		UV = UV * uv1_scale.xy + uv1_offset.xy;
+	
+		/* begin shader magic*/
+		float onetanfov = 1.0f / tan(0.5f * (viewmodel_fov * PI / 180.0f));
+		float aspect = VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
+		// modify projection matrix to match FOV
+		PROJECTION_MATRIX[1][1] = -onetanfov;
+		PROJECTION_MATRIX[0][0] = onetanfov / aspect;
+		// this next part draws the viewmodel over everything (disable if you want dof near on viewmodel)
+			
+		POSITION = PROJECTION_MATRIX * MODELVIEW_MATRIX * vec4(VERTEX.xyz, 1.0);
+		
+		if(viewmodel_enabled){
+			POSITION.z = mix(POSITION.z, 0, -2.999);
+		}
+		/* end shader magic */
+	}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rw5fj"]
+render_priority = 0
+shader = SubResource("Shader_gqe5o")
+shader_parameter/albedo = Color(0.592157, 0.635294, 0.768627, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+script = ExtResource("5_7s4wh")
+original_material = ""
+original_material_cache = SubResource("StandardMaterial3D_6w8jn")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lywg"]
 resource_name = "purple"
 albedo_color = Color(0.618066, 0.429245, 1, 1)
 metallic = 1.0
+
+[sub_resource type="Shader" id="Shader_sycsy"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+
+	global uniform float viewmodel_fov = 75.0f;
+	instance uniform bool viewmodel_enabled = true;uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform sampler2D texture_roughness : filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+
+		UV = UV * uv1_scale.xy + uv1_offset.xy;
+	
+		/* begin shader magic*/
+		float onetanfov = 1.0f / tan(0.5f * (viewmodel_fov * PI / 180.0f));
+		float aspect = VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
+		// modify projection matrix to match FOV
+		PROJECTION_MATRIX[1][1] = -onetanfov;
+		PROJECTION_MATRIX[0][0] = onetanfov / aspect;
+		// this next part draws the viewmodel over everything (disable if you want dof near on viewmodel)
+			
+		POSITION = PROJECTION_MATRIX * MODELVIEW_MATRIX * vec4(VERTEX.xyz, 1.0);
+		
+		if(viewmodel_enabled){
+			POSITION.z = mix(POSITION.z, 0, -2.999);
+		}
+		/* end shader magic */
+	}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lo1xt"]
+render_priority = 0
+shader = SubResource("Shader_sycsy")
+shader_parameter/albedo = Color(0.618066, 0.429245, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+script = ExtResource("5_7s4wh")
+original_material = ""
+original_material_cache = SubResource("StandardMaterial3D_0lywg")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6cre2"]
 _surfaces = [{
@@ -78,7 +380,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 420,
 "index_data": PackedByteArray("AgAAAAEAAwACAAEABAADAAEAAQAFAAQACAAGAAcABwAJAAgACQAKAAgACgALAAgADgAMAA0ADQAPAA4AEgAQABEAEQATABIAFgAUABUAFQAXABYAGgAYABkAGQAbABoAHgAcAB0AHQAfAB4AIgAgACEAIQAjACIAJgAkACUAJQAnACYAJwAoACYAKwApACoAKgAsACsALwAtAC4ALgAwAC8AMwAxADIAMgA0ADMANwA1ADYANgA4ADcANgA5ADgAPAA6ADsAOwA9ADwAPQA+ADwAQQA/AEAAQABCAEEAQABDAEIARgBEAEUARQBHAEYASgBIAEkASQBLAEoASwBMAEoATABNAEoATQBOAEoATgBPAEoAUABLAEkAUABJAFEAUABRAFIAUwBQAFIAVABTAFIAVQBUAFIAVgBVAFIAUgBXAFYAWgBYAFkAWQBbAFoAXgBcAF0AXgBdAF8AXgBfAGAAYQBeAGAAYgBhAGAAYgBgAGMAZABiAGMAYwBlAGQAZgBkAGUAZgBlAGcAZgBnAGgAZgBoAGkAagBmAGkAaQBrAGoAbgBsAG0AbQBvAG4AcgBwAHEAcQBzAHIAdgB0AHUAdQB3AHYAegB4AHkAeQB7AHoAfgB8AH0AfQB/AH4AggCAAIEAgQCDAIIAhgCEAIUAhQCHAIYAigCIAIkAiQCLAIoAjgCMAI0AjQCPAI4AkgCQAJEAkQCTAJIAlgCUAJUAlQCXAJYAmgCYAJkAmQCbAJoAngCcAJ0AnQCfAJ4AogCgAKEAoQCjAKIApgCkAKUApQCnAKYAqgCoAKkAqQCrAKoArgCsAK0ArQCvAK4AsgCwALEAsQCzALIAtgC0ALUAtQC3ALYAugC4ALkAuQC7ALoAvgC8AL0AvQC/AL4AvwDAAL4AvwDBAMAAwQDCAMAAwQDDAMIAxgDEAMUAxgDFAMcAxwDIAMYAyQDGAMgAzADKAMsAywDNAMwAywDOAM0AzgDPAM0A0gDQANEA0gDTANAA1ADSANEA1ADRANUA1QDWANQA1gDXANQA0gDYANMA2ADZANMA2gDYANIA2QDYANsA1gDZANsA2gDSANwA2wDdANYA3QDXANYA3ADXAN0A3QDaANwA"),
-"material": SubResource("StandardMaterial3D_g84md"),
+"material": SubResource("ShaderMaterial_eiwv2"),
 "name": "metal",
 "primitive": 3,
 "uv_scale": Vector4(32.2835, 34.2835, 0, 0),
@@ -90,7 +392,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 192,
 "index_data": PackedByteArray("4ADeAN8A4QDgAN8A4gDhAN8A3wDjAOIA5gDkAOUA5QDnAOYA6gDoAOkA6QDrAOoA6wDsAOoA7ADtAOoA8ADuAO8A7wDxAPAA9ADyAPMA8wD1APQA+AD2APcA9wD5APgA/AD6APsA+wD9APwAAAH+AP8A/wABAQABBAECAQMBAwEFAQQBCAEGAQcBBwEJAQgBDAEKAQsBCwENAQwBEAEOAQ8BDwERARABEwESAc8AzwDOABMBzgAUARMBFAEVARMBxAAWARcBFwHFAMQAFwEYAcUAFwEZARgBFwEaARkBHQEbARwBHAEeAR0BIQEfASABIAEiASEBJQEjASQBJAEmASUBKQEnASgBKAEqASkBKgErASkBLgEsAS0BLQEvAS4BMgEwATEBMQEzATIBMAE0ATEBMwExATUBMAE2ATQBNQE3ATMBNQE2ATcBNgEwATcBOgE4ATkBOQE7AToBPAE5ATgBOQE9ATsBOAE+ATwBPQE/ATsBPgE/ATwBPgE7AT8B"),
-"material": SubResource("StandardMaterial3D_5h0cy"),
+"material": SubResource("ShaderMaterial_y04sl"),
 "name": "dark",
 "primitive": 3,
 "uv_scale": Vector4(32.2835, 34.2835, 0, 0),
@@ -102,7 +404,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 294,
 "index_data": PackedByteArray("QgFAAUEBQQFDAUIBRAFCAUMBRAFFAUIBRAFGAUUBRAFHAUYBSAFEAUMBQwFJAUgBTAFKAUsBSwFNAUwBUAFOAU8BTwFRAVABUQFSAVABUQFTAVIBUwFUAVIBVAFVAVIBVgFUAVMBUwFXAVYBWgFYAVkBWQFbAVoBXgFcAV0BXQFfAV4BXwFgAV4BYwFhAWIBYgFkAWMBZwFlAWYBZgFoAWcBaAFpAWcBbAFqAWsBawFtAWwBcAFuAW8BbwFxAXABdAFyAXMBcwF1AXQBeAF2AXcBdwF5AXgBegF4AXkBAwB6AXkBAgADAHkBeQF7AQIAfgF8AX0BfQF/AX4BgAF/AX0BgAGBAX8BggGAAX0BgwF/AYEBgwGEAX8BgwGBAYUBhgGDAYUBhQGCAYYBhgGCAX0BfQGHAYYBigGIAYkBiQGLAYoBjgGMAY0BjQGPAY4BkAGPAY0BjQGRAZABlAGSAZMBkwGVAZQBmAGWAZcBlwGZAZgBlwGaAZkBmgGbAZkBngGcAZ0BnQGfAZ4BogGgAaEBoQGjAaIBpgGkAaUBpQGnAaYBqgGoAakBqQGrAaoBrgGsAa0BrQGvAa4BrwGwAa4BrwGxAbABtAGyAbMBswG1AbQBuAG2AbcBtwG5AbgBugEXABUAFQC7AboBuwG8AboB0AC9AdEAvgHRAL0BvgG9ARsAvQG/ARsAvgEbABkAGQDAAb4BwQEIAAsACwDCAcEBwgHDAcEBwwHEAcEBwwHFAcQBxQHGAcQBxwEfAB0AHQDIAccByAHJAccB"),
-"material": SubResource("StandardMaterial3D_6w8jn"),
+"material": SubResource("ShaderMaterial_rw5fj"),
 "name": "darkMetal",
 "primitive": 3,
 "uv_scale": Vector4(32.2835, 34.2835, 0, 0),
@@ -114,7 +416,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 240,
 "index_data": PackedByteArray("zAHKAcsBywHNAcwB0AHOAc8BzwHRAdAB1AHSAdMB1QHUAdMB1QHWAdQB1wHVAdMB2AHUAdYB1wHTAcEBwQHEAdcBxgHYAdYBxAHZAdcB2gHXAdkB2wHZAcQBxAHGAdsB2QHcAdoB3AHWAdoBxgHdAdsB3AHdAdYB3QHGAdYB4AHeAd8B4QHgAd8B4gHhAd8B4wHhAeIB5AHiAd8B4gHlAeMB5gHjAeUB5wHmAeUB6AHkAd8B5QHoAecB6AHfAekB6QHnAegB7AHqAesB6wHtAewB8AHuAe8B7wHxAfAB9AHyAfMB8wH1AfQB+AH2AfcB9wH5AfgB+gH5AfcB9wH7AfoB/gH8Af0B/QH/Af4BAgIAAgECAQIDAgICBgIEAgUCBQIHAgYCCgIIAgkCCQILAgoCDgIMAg0CDQIPAg4CEgIQAhECEQITAhICFALJAcgByAEVAhQCGAIWAhcCFwIZAhgCHAIaAhsCGwIdAhwCIAIeAh8CIAIfAiECIQIfAiICIAIhAiMCJAIhAiICegEgAiMCJAIiAnYBIwIlAnoBIwImAiUCJwIlAiYCJgIkAicCJAIoAicCJAJ2ASgCegElAikCKQIoAnYBeAF6ASkCKQJ2AXgBKgK6AbwBvAErAioC"),
-"material": SubResource("StandardMaterial3D_0lywg"),
+"material": SubResource("ShaderMaterial_lo1xt"),
 "name": "purple",
 "primitive": 3,
 "uv_scale": Vector4(32.2835, 34.2835, 0, 0),
@@ -129,10 +431,160 @@ resource_name = "metal"
 albedo_color = Color(0.796078, 0.815686, 0.878431, 1)
 metallic = 1.0
 
+[sub_resource type="Shader" id="Shader_7gx7q"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+
+	global uniform float viewmodel_fov = 75.0f;
+	instance uniform bool viewmodel_enabled = true;uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform sampler2D texture_roughness : filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+
+		UV = UV * uv1_scale.xy + uv1_offset.xy;
+	
+		/* begin shader magic*/
+		float onetanfov = 1.0f / tan(0.5f * (viewmodel_fov * PI / 180.0f));
+		float aspect = VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
+		// modify projection matrix to match FOV
+		PROJECTION_MATRIX[1][1] = -onetanfov;
+		PROJECTION_MATRIX[0][0] = onetanfov / aspect;
+		// this next part draws the viewmodel over everything (disable if you want dof near on viewmodel)
+			
+		POSITION = PROJECTION_MATRIX * MODELVIEW_MATRIX * vec4(VERTEX.xyz, 1.0);
+		
+		if(viewmodel_enabled){
+			POSITION.z = mix(POSITION.z, 0, -2.999);
+		}
+		/* end shader magic */
+	}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jeva1"]
+render_priority = 0
+shader = SubResource("Shader_7gx7q")
+shader_parameter/albedo = Color(0.796078, 0.815686, 0.878431, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+script = ExtResource("5_7s4wh")
+original_material = ""
+original_material_cache = SubResource("StandardMaterial3D_biddi")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iemqb"]
 resource_name = "darkMetal"
 albedo_color = Color(0.592157, 0.635294, 0.768627, 1)
 metallic = 1.0
+
+[sub_resource type="Shader" id="Shader_6u7ud"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+
+	global uniform float viewmodel_fov = 75.0f;
+	instance uniform bool viewmodel_enabled = true;uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform sampler2D texture_roughness : filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+
+		UV = UV * uv1_scale.xy + uv1_offset.xy;
+	
+		/* begin shader magic*/
+		float onetanfov = 1.0f / tan(0.5f * (viewmodel_fov * PI / 180.0f));
+		float aspect = VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
+		// modify projection matrix to match FOV
+		PROJECTION_MATRIX[1][1] = -onetanfov;
+		PROJECTION_MATRIX[0][0] = onetanfov / aspect;
+		// this next part draws the viewmodel over everything (disable if you want dof near on viewmodel)
+			
+		POSITION = PROJECTION_MATRIX * MODELVIEW_MATRIX * vec4(VERTEX.xyz, 1.0);
+		
+		if(viewmodel_enabled){
+			POSITION.z = mix(POSITION.z, 0, -2.999);
+		}
+		/* end shader magic */
+	}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_83rl0"]
+render_priority = 0
+shader = SubResource("Shader_6u7ud")
+shader_parameter/albedo = Color(0.592157, 0.635294, 0.768627, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+script = ExtResource("5_7s4wh")
+original_material = ""
+original_material_cache = SubResource("StandardMaterial3D_iemqb")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0vlt"]
 resource_name = "yellow"
@@ -181,7 +633,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 168,
 "index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYACgAIAAkACQALAAoADgAMAA0ADQAPAA4AEgAQABEAEQATABIAFgAUABUAFQAXABYAGgAYABkAGQAbABoAHgAcAB0AHQAfAB4AIgAgACEAIQAjACIAJgAkACUAJQAnACYAKgAoACkAKQArACoALgAsAC0ALQAvAC4AMgAwADEAMQAzADIANgA0ADUANQA3ADYAOgA4ADkAOQA7ADoAPAA5ADgAOQA9ADsAOAA+ADwAPQA/ADsAPgBAADwAQQA7AD8APgBBAEAAQQA/AEAARABCAEMAQwBFAEQARgBDAEIAQwBHAEUAQgBIAEYASABJAEYARwBKAEUASABKAEkARwBLAEoASwBJAEoATgBMAE0ATABPAE0ATgBNAFAAUQBNAE8AUABSAE4AUQBPAFMAUgBRAFMAUwBOAFIA"),
-"material": SubResource("StandardMaterial3D_biddi"),
+"material": SubResource("ShaderMaterial_jeva1"),
 "name": "metal",
 "primitive": 3,
 "uv_scale": Vector4(5.90551, 11.4488, 0, 0),
@@ -193,7 +645,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 18,
 "index_data": PackedByteArray("VgBUAFUAVQBXAFYAVwBYAFYAWwBZAFoAWgBcAFsAXABdAFsA"),
-"material": SubResource("StandardMaterial3D_iemqb"),
+"material": SubResource("ShaderMaterial_83rl0"),
 "name": "darkMetal",
 "primitive": 3,
 "uv_scale": Vector4(5.90551, 11.4488, 0, 0),
@@ -220,6 +672,90 @@ albedo_color = Color(1, 0.266667, 1, 1)
 emission_enabled = true
 emission = Color(1, 0.384314, 1, 1)
 emission_energy_multiplier = 2.0
+
+[sub_resource type="Shader" id="Shader_v4dtc"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+
+	global uniform float viewmodel_fov = 75.0f;
+	instance uniform bool viewmodel_enabled = true;uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+uniform sampler2D texture_roughness : filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform sampler2D texture_emission : source_color, hint_default_black,filter_linear_mipmap,repeat_enable;
+uniform vec4 emission : source_color;
+uniform float emission_energy;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+
+		UV = UV * uv1_scale.xy + uv1_offset.xy;
+	
+		/* begin shader magic*/
+		float onetanfov = 1.0f / tan(0.5f * (viewmodel_fov * PI / 180.0f));
+		float aspect = VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
+		// modify projection matrix to match FOV
+		PROJECTION_MATRIX[1][1] = -onetanfov;
+		PROJECTION_MATRIX[0][0] = onetanfov / aspect;
+		// this next part draws the viewmodel over everything (disable if you want dof near on viewmodel)
+			
+		POSITION = PROJECTION_MATRIX * MODELVIEW_MATRIX * vec4(VERTEX.xyz, 1.0);
+		
+		if(viewmodel_enabled){
+			POSITION.z = mix(POSITION.z, 0, -2.999);
+		}
+		/* end shader magic */
+	}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+	vec3 emission_tex = texture(texture_emission,base_uv).rgb;
+	EMISSION = (emission.rgb+emission_tex)*emission_energy;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l2acv"]
+render_priority = 0
+shader = SubResource("Shader_v4dtc")
+shader_parameter/albedo = Color(1, 0.266667, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/emission = Color(1, 0.384314, 1, 1)
+shader_parameter/emission_energy = null
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+script = ExtResource("5_7s4wh")
+original_material = ""
+original_material_cache = SubResource("StandardMaterial3D_lb5c8")
+
+[sub_resource type="BoxMesh" id="BoxMesh_x3w6g"]
 
 [sub_resource type="Animation" id="Animation_unao5"]
 length = 0.001
@@ -278,6 +814,18 @@ tracks/4/keys = {
 "points": PackedFloat32Array(0, -0.095, 0, 0.095, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LaserRifleMesh:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cc27k"]
 _data = {
@@ -287,10 +835,11 @@ _data = {
 [node name="Laser Rifle" type="Node3D" node_paths=PackedStringArray("wieldable_mesh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329, -0.264, -0.535)
 script = ExtResource("1_2rut3")
+firing_delay = 0.002
 laser_ray_prefab = ExtResource("2_ic084")
-ray_lifespan = 3.0
+ads_fov = 40
 default_position = Vector3(0.329, -0.264, -0.535)
-sound_primary_use = ExtResource("2_f7ale")
+sound_primary_use = ExtResource("3_gv4jp")
 wieldable_mesh = NodePath("LaserRifleMesh")
 anim_equip = "LaserRifle/equip"
 anim_unequip = "LaserRifle/unequip"
@@ -301,28 +850,58 @@ anim_reload = "LaserRifle/reload"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0083878, 0, 0)
 bus = &"SFX"
 
-[node name="LaserRifleMesh" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.540302, 0.841471, 0, -0.841471, 0.540302, 0, -0.31, 0)
-visible = false
+[node name="LaserRifleMesh" type="Node3D" parent="." node_paths=PackedStringArray("tracked_nodes")]
 script = ExtResource("5_fa3wp")
+disable_viewmodel_clipping = false
+bake = true
+tracked_nodes = [NodePath("blasterA"), NodePath("clipA"), NodePath("Smg1/Cube_001"), NodePath("Smg1/Cube_004"), NodePath("Smg1/Cube_006"), NodePath("Smg1/Cube_005"), NodePath("Smg1/Cube_007"), NodePath("Smg1/Cube_008"), NodePath("Smg1/Cube_009"), NodePath("Smg1/Cube_011"), NodePath("Smg1/Cube_012"), NodePath("Smg1/Cube_013"), NodePath("Smg1/Cube_015"), NodePath("Smg1/Cylinder")]
 
 [node name="blasterA" type="MeshInstance3D" parent="LaserRifleMesh"]
 transform = Transform3D(-0.8, 0, 1.20797e-07, 0, 0.8, 0, -1.20797e-07, 0, -0.8, 0, 0, 0)
+visible = false
+instance_shader_parameters/viewmodel_enabled = false
 mesh = SubResource("ArrayMesh_us24q")
 skeleton = NodePath("")
 
 [node name="Bullet_Point" type="Node3D" parent="LaserRifleMesh"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, -1.81899e-12, 0, 1, 0, 0, 0, 1, 0.00251591, 0.0906586, -0.331559)
+transform = Transform3D(1, 0, -1.81899e-12, 0, 1, 0, 0, 0, 1, -0.00772899, 0.0292861, -0.519817)
 
 [node name="clipA" type="MeshInstance3D" parent="LaserRifleMesh"]
 transform = Transform3D(-1, -6.0536e-09, 1.3411e-07, -5.12227e-09, 1, 0, -1.49012e-07, 1.86265e-09, -1, 0, -0.1, -0.164193)
+visible = false
+instance_shader_parameters/viewmodel_enabled = false
 mesh = SubResource("ArrayMesh_7s5kr")
 skeleton = NodePath("")
-surface_material_override/2 = SubResource("StandardMaterial3D_lb5c8")
+surface_material_override/2 = SubResource("ShaderMaterial_l2acv")
+
+[node name="Smg1" parent="LaserRifleMesh" instance=ExtResource("6_0igmq")]
+transform = Transform3D(-0.055, 0, 4.80825e-09, 0, 0.055, 0, -4.80825e-09, 0, -0.055, 0.0021508, 0.0472897, -0.0170799)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LaserRifleMesh"]
+transform = Transform3D(0.0608137, 0, -0.0805309, 0, 0.151939, 0, 0.00548418, 0, 0.893001, -0.0481219, -0.131808, 0.189086)
+sorting_use_aabb_center = false
+mesh = SubResource("BoxMesh_x3w6g")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="LaserRifleMesh/MeshInstance3D"]
+transform = Transform3D(1.13921, 0, 0, 0, 1, 0, 0, 0, 0.236741, 0, 0, -0.327276)
+mesh = SubResource("BoxMesh_x3w6g")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="LaserRifleMesh/MeshInstance3D"]
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, 4.65661e-10, 0, 1, 0.511056, 0.306253, 0.321052)
+mesh = SubResource("BoxMesh_x3w6g")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="LaserRifleMesh/MeshInstance3D/MeshInstance3D3"]
+transform = Transform3D(1.13921, 0, 0, 0, 1, 0, 0, 0, 0.236741, 0, 0, -0.327276)
+mesh = SubResource("BoxMesh_x3w6g")
+skeleton = NodePath("../../../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_cc27k"),
 "LaserRifle": ExtResource("3_fjq23")
 }
+speed_scale = 1.5

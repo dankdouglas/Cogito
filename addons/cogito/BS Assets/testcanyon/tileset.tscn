@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1s2k1y4aabgi"]
+
+[ext_resource type="PackedScene" uid="uid://d5lon2xwuj00" path="res://addons/cogito/BS Assets/corridor-a.glb" id="1_tnoov"]
+
+[node name="corridor-a" instance=ExtResource("1_tnoov")]

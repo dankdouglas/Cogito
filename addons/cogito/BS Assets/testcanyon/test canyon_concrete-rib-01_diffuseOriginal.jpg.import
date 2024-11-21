@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cm2uv0hgjcy5x"
+path.s3tc="res://.godot/imported/test canyon_concrete-rib-01_diffuseOriginal.jpg-4e4749a08b75343837331e536d77a914.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "77b021378cdafb65a0f4a7d2afd287ac"
+}
+
+[deps]
+
+source_file="res://addons/cogito/BS Assets/testcanyon/test canyon_concrete-rib-01_diffuseOriginal.jpg"
+dest_files=["res://.godot/imported/test canyon_concrete-rib-01_diffuseOriginal.jpg-4e4749a08b75343837331e536d77a914.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

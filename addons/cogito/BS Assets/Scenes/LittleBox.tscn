@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cd5g47eq3kcii"]
+
+[ext_resource type="Script" path="res://addons/cogito/CogitoObjects/cogito_object.gd" id="1_xp22l"]
+[ext_resource type="Material" uid="uid://dhg1uhiq7ywn2" path="res://addons/cogito/Assets/Materials/Prototype_Green.tres" id="2_cdjdh"]
+[ext_resource type="PackedScene" uid="uid://cio4x05ipvslu" path="res://addons/cogito/Components/Interactions/CarryableComponent.tscn" id="2_yuaay"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rabw5"]
+material = ExtResource("2_cdjdh")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3ep4"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+collision_layer = 3
+collision_priority = 4.0
+mass = 3.0
+gravity_scale = 0.5
+script = ExtResource("1_xp22l")
+
+[node name="BoxMesh3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_rabw5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_f3ep4")
+
+[node name="CarryableComponent" parent="." instance=ExtResource("2_yuaay")]
+interaction_text = "Hold"

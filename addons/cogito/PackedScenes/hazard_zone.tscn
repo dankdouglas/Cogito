@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://0n6rmlh8d60u" path="res://addons/cogito/Assets/Fonts/Montserrat/Montserrat-ExtraBold.ttf" id="3_yale6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_in244"]
-size = Vector3(1.5, 3, 1.5)
+size = Vector3(0.81662, 0.997559, 7.19547)
 
 [sub_resource type="BoxMesh" id="BoxMesh_x600l"]
 size = Vector3(1.5, 3, 1.5)
@@ -30,12 +30,14 @@ hint_message = "You're taking damage!"
 shape = SubResource("BoxShape3D_in244")
 
 [node name="TransparentBox" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_x600l")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_84cqo")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+visible = false
 text = "HAZARD
 ZONE"
 font = ExtResource("3_yale6")
