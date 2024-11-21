@@ -45,13 +45,13 @@ theme_override_constants/separation = 15
 [node name="TitleLabel" type="Label" parent="ContentMain"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
-text = "COGITO"
+text = "BLACKSIGHT"
 horizontal_alignment = 1
 
 [node name="TitleLabel2" type="Label" parent="ContentMain"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Template Project 2024"
+text = "InDev 11/20/24"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="ContentMain"]
@@ -127,6 +127,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_n66hi")
 
 [node name="LegacyDemoSceneButton" type="Button" parent="ContentMain/GameMenu/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30

@@ -409,4 +409,3 @@ func find_rigid_body() -> RigidBody3D:
 			return current as RigidBody3D
 		current = current.get_parent()
 	return null
-
