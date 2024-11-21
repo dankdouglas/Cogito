@@ -134,6 +134,7 @@ wieldable_container = NodePath("../Body/Neck/Head/Wieldables")
 player = NodePath("..")
 
 [node name="PauseMenu" parent="." instance=ExtResource("22_haksr")]
+visible = false
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
