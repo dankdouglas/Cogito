@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://6fw8sl34150r"]
+[gd_scene load_steps=23 format=4 uid="uid://6fw8sl34150r"]
 
 [ext_resource type="Script" path="res://addons/cogito/CogitoObjects/cogito_object.gd" id="1_yup6j"]
 [ext_resource type="Texture2D" uid="uid://ygogp4ooc6mp" path="res://addons/cogito/BS Assets/magnum1_mag tex.png" id="2_02ng4"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://addons/cogito/InventoryPD/CustomResources/WieldableItemPD.gd" id="4_dsn5a"]
 [ext_resource type="Texture2D" uid="uid://cg5knuav7df4o" path="res://addons/cogito/Assets/Graphics/HintIcons/Hint_X.png" id="5_b36v2"]
 [ext_resource type="Script" path="res://addons/cogito/InventoryPD/CustomResources/InventorySlotPD.gd" id="5_xajit"]
-[ext_resource type="PackedScene" uid="uid://bn8bpfr63gtfa" path="res://addons/cogito/Wieldables/Magnum.tscn" id="6_hkyao"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uaws8"]
 resource_name = "Material"
@@ -222,7 +221,6 @@ size = Vector3(0.137207, 0.290283, 0.547943)
 
 [sub_resource type="Resource" id="Resource_7blfe"]
 script = ExtResource("4_dsn5a")
-wieldable_scene = ExtResource("6_hkyao")
 wieldable_data_icon = ExtResource("5_b36v2")
 no_reload = false
 hint_on_empty = ""
