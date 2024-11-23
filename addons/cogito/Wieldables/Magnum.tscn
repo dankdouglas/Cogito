@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bn8bpfr63gtfa"]
+[gd_scene load_steps=25 format=4 uid="uid://bn8bpfr63gtfa"]
 
 [ext_resource type="Script" path="res://addons/cogito/Wieldables/wieldable_magnum.gd" id="1_qsjrv"]
 [ext_resource type="PackedScene" uid="uid://dnauxhdncgngx" path="res://addons/cogito/PackedScenes/laser_ray.tscn" id="2_yk7sr"]
@@ -54,6 +54,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/MAGmesh:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m7qoq"]
 _data = {
@@ -84,6 +96,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(1.11298, 0, 0), Vector3(0, 0, 0), Vector3(-0.0892387, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/MAGmesh:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
 }
 
 [sub_resource type="Animation" id="Animation_11v3k"]
@@ -134,7 +158,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.133333, 0.266667, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.241239, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-0.764838, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_nvsji"]
@@ -179,11 +203,39 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0.877944, -0.594031, 0), Vector3(1.88131, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_7ehi8"]
+resource_name = "reload"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/MAGmesh:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.3151, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/MAGmesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.5708, 0, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cvoap"]
 _data = {
 "ads": SubResource("Animation_7omg6"),
 "equip": SubResource("Animation_tgyoo"),
 "fire": SubResource("Animation_11v3k"),
+"reload": SubResource("Animation_7ehi8"),
 "unequip": SubResource("Animation_nvsji")
 }
 
