@@ -26,4 +26,5 @@ mesh = SubResource("BoxMesh_rabw5")
 shape = SubResource("BoxShape3D_f3ep4")
 
 [node name="CarryableComponent" parent="." instance=ExtResource("2_yuaay")]
+is_carryable_while_wielding = true
 interaction_text = "Hold"

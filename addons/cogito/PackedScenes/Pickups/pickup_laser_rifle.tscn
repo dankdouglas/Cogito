@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://ciil8mli32kuk"]
+[gd_scene load_steps=17 format=4 uid="uid://ciil8mli32kuk"]
 
 [ext_resource type="Script" path="res://addons/cogito/CogitoObjects/cogito_object.gd" id="1_u4ubh"]
 [ext_resource type="PackedScene" uid="uid://1xq4y42qkcur" path="res://addons/cogito/Components/Interactions/PickupComponent.tscn" id="2_3uch0"]
 [ext_resource type="Resource" uid="uid://txiu5yxexevm" path="res://addons/cogito/InventoryPD/Items/Cogito_LaserRifle.tres" id="3_auoh1"]
 [ext_resource type="Script" path="res://addons/cogito/InventoryPD/CustomResources/InventorySlotPD.gd" id="3_iw0du"]
+[ext_resource type="PackedScene" uid="uid://dae56tdxx7o0f" path="res://addons/cogito/BS Assets/Smg1.glb" id="5_ypaig"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g84md"]
 resource_name = "metal"
@@ -135,7 +136,7 @@ size = Vector3(0.0973389, 0.0952759, 0.815624)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5bhcv"]
 size = Vector3(0.0973389, 0.0457916, 0.443713)
 
-[sub_resource type="Resource" id="Resource_rl3jc"]
+[sub_resource type="Resource" id="Resource_d0t2k"]
 resource_local_to_scene = true
 script = ExtResource("3_iw0du")
 inventory_item = ExtResource("3_auoh1")
@@ -147,6 +148,7 @@ collision_layer = 3
 script = ExtResource("1_u4ubh")
 
 [node name="blasterA" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("ArrayMesh_7q03c")
 skeleton = NodePath("")
 
@@ -167,4 +169,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00152874, 0.187482, 0.03864
 shape = SubResource("BoxShape3D_5bhcv")
 
 [node name="PickupComponent" parent="." instance=ExtResource("2_3uch0")]
-slot_data = SubResource("Resource_rl3jc")
+slot_data = SubResource("Resource_d0t2k")
+
+[node name="Smg1" parent="." instance=ExtResource("5_ypaig")]
+transform = Transform3D(0.055, 0, -9.6165e-09, 0, 0.055, 0, 9.6165e-09, 0, 0.055, 0.0021508, 0.0472897, -0.0170799)

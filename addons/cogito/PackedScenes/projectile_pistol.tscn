@@ -23,11 +23,11 @@ rings = 1
 height = 0.25
 radius = 0.05
 
-[sub_resource type="Resource" id="Resource_s1k6p"]
+[sub_resource type="Resource" id="Resource_uad6m"]
 resource_local_to_scene = true
 script = ExtResource("4_tbkmk")
 inventory_item = ExtResource("3_7etap")
-quantity = 1
+quantity = 5
 origin_index = -1
 
 [node name="projectile_pistol" type="RigidBody3D"]
@@ -37,8 +37,8 @@ collision_layer = 2
 collision_mask = 3
 mass = 0.1
 continuous_cd = true
-max_contacts_reported = 10
 contact_monitor = true
+max_contacts_reported = 10
 script = ExtResource("1_6pqxf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -62,7 +62,7 @@ wait_time = 30.0
 autostart = true
 
 [node name="PickupComponent" parent="." instance=ExtResource("4_acy7b")]
-slot_data = SubResource("Resource_s1k6p")
+slot_data = SubResource("Resource_uad6m")
 
 [node name="CogitoProperties" parent="." instance=ExtResource("5_6jfy1")]
 material_properties = 1

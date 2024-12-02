@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://wrlyrohell5g"]
+[gd_scene load_steps=11 format=3 uid="uid://wrlyrohell5g"]
 
 [ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="1_hlb73"]
 [ext_resource type="Texture2D" uid="uid://cqctnogbvpy7h" path="res://addons/cogito/BS Assets/tfmap1.png" id="2_6lfqd"]
 [ext_resource type="Material" uid="uid://dkbgl3p3ffd1" path="res://addons/cogito/Assets/Materials/Prototype_DarkGrey.tres" id="3_88jr4"]
 [ext_resource type="PackedScene" uid="uid://cd5g47eq3kcii" path="res://addons/cogito/BS Assets/Scenes/LittleBox.tscn" id="4_hle6l"]
+[ext_resource type="PackedScene" uid="uid://du4ikaspjscdt" path="res://addons/cogito/PackedScenes/Pickups/pickup_magnum.tscn" id="5_3cf3s"]
+[ext_resource type="PackedScene" uid="uid://o0xgl5obc551" path="res://addons/cogito/PackedScenes/Pickups/pickup_pistol.tscn" id="6_gvby3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wi8l4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -340,3 +342,9 @@ material = ExtResource("3_88jr4")
 
 [node name="RigidBody3D" parent="." instance=ExtResource("4_hle6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.45, -28.5)
+
+[node name="pickup_pistol" parent="." instance=ExtResource("5_3cf3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 1, -28)
+
+[node name="pickup_pistol2" parent="." instance=ExtResource("6_gvby3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 1, -28)
