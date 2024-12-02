@@ -48,6 +48,9 @@ slide_sound = ExtResource("4_1i2kv")
 JUMP_VELOCITY = 4.0
 WALKING_SPEED = 4.0
 SPRINTING_SPEED = 7.0
+disable_roll_anim = true
+WIGGLE_ON_SPRINTING_INTENSITY = 0.04
+WIGGLE_ON_SPRINTING_SPEED = 13.0
 STEP_MAX_SLOPE_DEGREE = 1.0
 
 [node name="CogtoTestCurrency" parent="." instance=ExtResource("5_opu5d")]

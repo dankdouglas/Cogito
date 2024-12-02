@@ -271,4 +271,37 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5297
 [node name="projectile_pistol3" parent="." instance=ExtResource("18_rsqby")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
 
+[node name="projectile_pistol4" parent="." instance=ExtResource("18_rsqby")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
+
+[node name="projectile_pistol5" parent="." instance=ExtResource("18_rsqby")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
+
+[node name="projectile_pistol6" parent="." instance=ExtResource("18_rsqby")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
+
+[node name="projectile_pistol7" parent="." instance=ExtResource("18_rsqby")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
+
+[node name="projectile_pistol8" parent="." instance=ExtResource("18_rsqby")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
+
+[node name="projectile_pistol9" parent="." instance=ExtResource("18_rsqby")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
+
+[node name="projectile_pistol10" parent="." instance=ExtResource("18_rsqby")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
+
+[node name="projectile_pistol11" parent="." instance=ExtResource("18_rsqby")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
+
+[node name="projectile_pistol12" parent="." instance=ExtResource("18_rsqby")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
+
+[node name="projectile_pistol13" parent="." instance=ExtResource("18_rsqby")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
+
+[node name="projectile_pistol14" parent="." instance=ExtResource("18_rsqby")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.529771, 0.661307, -4.23529)
+
 [editable path="HazardZone"]
