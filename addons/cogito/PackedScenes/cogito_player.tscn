@@ -55,9 +55,11 @@ STEP_MAX_SLOPE_DEGREE = 1.0
 [node name="StaminaAttribute" parent="." instance=ExtResource("8_kodbk")]
 stamina_regen_speed = 4.0
 attribute_color = Color(0.16, 0.37, 1, 1)
+attribute_icon = null
 
 [node name="HealthAttribute" parent="." instance=ExtResource("9_ky5mf")]
 attribute_color = Color(1, 1, 1, 1)
+value_start = 100.0
 
 [node name="StandingCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

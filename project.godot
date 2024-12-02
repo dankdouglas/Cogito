@@ -201,6 +201,10 @@ ui_prev_tab={
 3d_physics/layer_1="Environment"
 3d_physics/layer_2="Interactables"
 
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
