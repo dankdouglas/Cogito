@@ -1,4 +1,4 @@
-[gd_scene load_steps=365 format=4 uid="uid://e31n36p8i6an"]
+[gd_scene load_steps=368 format=4 uid="uid://e31n36p8i6an"]
 
 [ext_resource type="Script" path="res://addons/cogito/SceneManagement/cogito_scene.gd" id="1_dracg"]
 [ext_resource type="Texture2D" uid="uid://sdcljx8f5dhj" path="res://addons/cogito/Assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_a8imk"]
@@ -101,6 +101,9 @@
 [ext_resource type="PackedScene" uid="uid://bn04jtk86pe0w" path="res://addons/cogito/DemoScenes/DemoPrefabs/cogito_sittable.tscn" id="93_cmkbc"]
 [ext_resource type="PackedScene" uid="uid://tkwv6b5arrw2" path="res://addons/cogito/PackedScenes/Pickups/pickup_coins.tscn" id="93_phwoo"]
 [ext_resource type="PackedScene" uid="uid://dpuhybufkdmcf" path="res://addons/cogito/DemoScenes/DemoPrefabs/bear_trap.tscn" id="96_vec6d"]
+[ext_resource type="PackedScene" uid="uid://cwoyq8vpvqf4c" path="res://addons/cogito/Wieldables/magnum.tscn" id="102_3axka"]
+[ext_resource type="PackedScene" uid="uid://du4ikaspjscdt" path="res://addons/cogito/PackedScenes/Pickups/pickup_magnum.tscn" id="103_chxbq"]
+[ext_resource type="PackedScene" uid="uid://biip7gfisplt5" path="res://addons/cogito/PackedScenes/Magnum_Ammo_Large.tscn" id="104_gxmcu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wjbty"]
 panorama = ExtResource("2_a8imk")
@@ -131,7 +134,7 @@ volumetric_fog_temporal_reprojection_amount = 0.85
 density = 0.04
 albedo = Color(0.694118, 0.694118, 0.694118, 1)
 
-[sub_resource type="Resource" id="Resource_ulj5f"]
+[sub_resource type="Resource" id="Resource_0u74b"]
 resource_local_to_scene = true
 script = ExtResource("4_0kggm")
 grid = true
@@ -2425,7 +2428,7 @@ shadow_mesh = SubResource("ArrayMesh_3ecdw")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_upcaa"]
 data = PackedVector3Array(0.6928, 0.0903, -1.6, 0, 0.0903, -1.2, 0.6128, 0.0903, -0.88, 0.6128, 0.0903, -0.88, 0.7728, 0.0903, -0.88, 0.6928, 0.0903, -1.6, 0.7728, 0.0903, -0.88, 1.3856, 0.0903, -1.2, 0.6928, 0.0903, -1.6, 0.7728, 0.0903, -0.88, 0.7728, 0.0903, -0.72, 1.3856, 0.0903, -1.2, 0.6128, 0.0903, -0.72, 0.6128, 0.0903, -0.88, 0, 0.0903, -1.2, 0.6928, 0.0903, 0, 0.6128, 0.0903, -0.72, 0, 0.0903, -1.2, 0.6928, 0.0903, 0, 0.7728, 0.0903, -0.72, 0.6128, 0.0903, -0.72, 0, 0.0903, -0.4, 0.6928, 0.0903, 0, 0, 0.0903, -1.2, 0, 0.0903, -1.2, 0, 0.0903, -0.8, 0, 0.0903, -0.4, 0.6928, 0.0903, 0, 1.3856, 0.0903, -0.4, 0.7728, 0.0903, -0.72, 1.3856, 0.0903, -0.4, 1.3856, 0.0903, -1.2, 0.7728, 0.0903, -0.72, 1.3856, 0.0903, -0.4, 1.3856, 0.0903, -0.8, 1.3856, 0.0903, -1.2, 0.6928, 0.1935, 0, 0, 0.1935, -0.4, 0, 0.1935, -1.2, 0, 0.1935, -1.2, 0.6928, 0.1935, -1.6, 0.6928, 0.1935, 0, 0.6928, 0.1935, -1.6, 1.3856, 0.1935, -0.4, 0.6928, 0.1935, 0, 0.6928, 0.1935, -1.6, 1.3856, 0.1935, -1.2, 1.3856, 0.1935, -0.4, 0.6928, 0.1935, -1.6, 0.6928, 0.0903, -1.6, 1.3856, 0.0903, -1.2, 1.3856, 0.0903, -1.2, 1.3856, 0.1935, -1.2, 0.6928, 0.1935, -1.6, 1.3856, 0.0903, -0.8, 1.3856, 0.0903, -0.4, 1.3856, 0.1935, -0.4, 1.3856, 0.1935, -0.4, 1.3856, 0.1935, -1.2, 1.3856, 0.0903, -0.8, 1.3856, 0.1935, -1.2, 1.3856, 0.0903, -1.2, 1.3856, 0.0903, -0.8, 1.3856, 0.1935, -0.4, 1.3856, 0.0903, -0.4, 0.6928, 0.0903, 0, 0.6928, 0.0903, 0, 0.6928, 0.1935, 0, 1.3856, 0.1935, -0.4, 0.6928, 0.1935, 0, 0.6928, 0.0903, 0, 0, 0.0903, -0.4, 0, 0.0903, -0.4, 0, 0.1935, -0.4, 0.6928, 0.1935, 0, 0, 0.1935, -1.2, 0, 0.1935, -0.4, 0, 0.0903, -0.4, 0, 0.0903, -0.4, 0, 0.0903, -0.8, 0, 0.1935, -1.2, 0, 0.0903, -0.8, 0, 0.0903, -1.2, 0, 0.1935, -1.2, 0, 0.1935, -1.2, 0, 0.0903, -1.2, 0.6928, 0.0903, -1.6, 0.6928, 0.0903, -1.6, 0.6928, 0.1935, -1.6, 0, 0.1935, -1.2, 0.7728, 0.0903, -0.72, 0.7728, -0.4, -0.72, 0.6128, -0.4, -0.72, 0.6128, -0.4, -0.72, 0.6128, 0.0903, -0.72, 0.7728, 0.0903, -0.72, 0.6128, 0.0903, -0.88, 0.6128, 0.0903, -0.72, 0.6128, -0.4, -0.72, 0.6128, -0.4, -0.72, 0.6128, -0.4, -0.88, 0.6128, 0.0903, -0.88, 0.6128, 0.0903, -0.88, 0.6128, -0.4, -0.88, 0.7728, -0.4, -0.88, 0.7728, -0.4, -0.88, 0.7728, 0.0903, -0.88, 0.6128, 0.0903, -0.88, 0.7728, -0.4, -0.88, 0.7728, -0.4, -0.72, 0.7728, 0.0903, -0.72, 0.7728, 0.0903, -0.72, 0.7728, 0.0903, -0.88, 0.7728, -0.4, -0.88, 0.8128, -0.4, -0.68, 0.8128, -0.44, -0.68, 0.5728, -0.44, -0.68, 0.5728, -0.44, -0.68, 0.5728, -0.4, -0.68, 0.8128, -0.4, -0.68, 0.5728, -0.4, -0.92, 0.5728, -0.4, -0.68, 0.5728, -0.44, -0.68, 0.5728, -0.44, -0.68, 0.5728, -0.44, -0.92, 0.5728, -0.4, -0.92, 0.8128, -0.44, -0.92, 0.8128, -0.44, -0.68, 0.8128, -0.4, -0.68, 0.8128, -0.4, -0.68, 0.8128, -0.4, -0.92, 0.8128, -0.44, -0.92, 0.5728, -0.4, -0.68, 0.5728, -0.4, -0.92, 0.6128, -0.4, -0.72, 0.6128, -0.4, -0.72, 0.8128, -0.4, -0.68, 0.5728, -0.4, -0.68, 0.6128, -0.4, -0.72, 0.7728, -0.4, -0.72, 0.8128, -0.4, -0.68, 0.7728, -0.4, -0.72, 0.7728, -0.4, -0.88, 0.8128, -0.4, -0.68, 0.6128, -0.4, -0.88, 0.6128, -0.4, -0.72, 0.5728, -0.4, -0.92, 0.5728, -0.4, -0.92, 0.8128, -0.4, -0.92, 0.6128, -0.4, -0.88, 0.8128, -0.4, -0.92, 0.7728, -0.4, -0.88, 0.6128, -0.4, -0.88, 0.8128, -0.4, -0.92, 0.8128, -0.4, -0.68, 0.7728, -0.4, -0.88, 0.4928, -0.44, -1, 0.4928, -0.44, -0.6, 0.4928, -0.5, -0.6, 0.4928, -0.5, -0.6, 0.4928, -0.5, -1, 0.4928, -0.44, -1, 0.4928, -0.44, -1, 0.4928, -0.5, -1, 0.8928, -0.5, -1, 0.8928, -0.5, -1, 0.8928, -0.44, -1, 0.4928, -0.44, -1, 0.8928, -0.44, -0.6, 0.8928, -0.5, -0.6, 0.4928, -0.5, -0.6, 0.4928, -0.5, -0.6, 0.4928, -0.44, -0.6, 0.8928, -0.44, -0.6, 0.8928, -0.5, -1, 0.8928, -0.5, -0.6, 0.8928, -0.44, -0.6, 0.8928, -0.44, -0.6, 0.8928, -0.44, -1, 0.8928, -0.5, -1, 0.4928, -0.44, -0.6, 0.4928, -0.44, -1, 0.5728, -0.44, -0.68, 0.5728, -0.44, -0.68, 0.8928, -0.44, -0.6, 0.4928, -0.44, -0.6, 0.5728, -0.44, -0.68, 0.8128, -0.44, -0.68, 0.8928, -0.44, -0.6, 0.8128, -0.44, -0.68, 0.8128, -0.44, -0.92, 0.8928, -0.44, -0.6, 0.5728, -0.44, -0.92, 0.5728, -0.44, -0.68, 0.4928, -0.44, -1, 0.4928, -0.44, -1, 0.8928, -0.44, -1, 0.5728, -0.44, -0.92, 0.8928, -0.44, -1, 0.8128, -0.44, -0.92, 0.5728, -0.44, -0.92, 0.8928, -0.44, -1, 0.8928, -0.44, -0.6, 0.8128, -0.44, -0.92, 0.9128, -0.54, -1.02, 0.4728, -0.54, -1.02, 0.4728, -0.54, -0.58, 0.4728, -0.54, -0.58, 0.9128, -0.54, -0.58, 0.9128, -0.54, -1.02, 0.4928, -0.5, -1, 0.4728, -0.54, -1.02, 0.9128, -0.54, -1.02, 0.9128, -0.54, -1.02, 0.8928, -0.5, -1, 0.4928, -0.5, -1, 0.9128, -0.54, -1.02, 0.9128, -0.54, -0.58, 0.8928, -0.5, -0.6, 0.8928, -0.5, -0.6, 0.8928, -0.5, -1, 0.9128, -0.54, -1.02, 0.8928, -0.5, -0.6, 0.9128, -0.54, -0.58, 0.4728, -0.54, -0.58, 0.4728, -0.54, -0.58, 0.4928, -0.5, -0.6, 0.8928, -0.5, -0.6, 0.4928, -0.5, -0.6, 0.4728, -0.54, -0.58, 0.4728, -0.54, -1.02, 0.4728, -0.54, -1.02, 0.4928, -0.5, -1, 0.4928, -0.5, -0.6, 0.5728, -0.4, -0.92, 0.5728, -0.44, -0.92, 0.8128, -0.44, -0.92, 0.8128, -0.44, -0.92, 0.8128, -0.4, -0.92, 0.5728, -0.4, -0.92)
 
-[sub_resource type="Resource" id="Resource_g85us"]
+[sub_resource type="Resource" id="Resource_m5cty"]
 resource_local_to_scene = true
 script = ExtResource("4_0kggm")
 grid = true
@@ -3167,7 +3170,7 @@ material = SubResource("FogMaterial_4avjx")
 
 [node name="Player" parent="." instance=ExtResource("3_mgle8")]
 transform = Transform3D(-1, 0, 7.45058e-07, 0, 1, 0, -7.45058e-07, 0, -1, 3.03073, 0.905039, -17.9321)
-inventory_data = SubResource("Resource_ulj5f")
+inventory_data = SubResource("Resource_0u74b")
 step_height_camera_lerp = 1.5
 
 [node name="QUESTS" type="Node3D" parent="."]
@@ -6991,7 +6994,7 @@ shape = SubResource("ConcavePolygonShape3D_upcaa")
 
 [node name="kitchenFridgeContainer2" parent="BREAK_ROOM" instance=ExtResource("57_fdyfl")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 3.65301, -4.84288e-08, 6.17191)
-inventory_data = SubResource("Resource_g85us")
+inventory_data = SubResource("Resource_m5cty")
 
 [node name="kitchenMicrowave" parent="BREAK_ROOM" instance=ExtResource("43_rl17a")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.98491, 0.84, 6.39503)
@@ -7847,6 +7850,33 @@ transform = Transform3D(0.225393, 0, -0.974268, 0, 1, 0, 0.974268, 0, 0.225393, 
 
 [node name="Coins2" parent="." instance=ExtResource("93_phwoo")]
 transform = Transform3D(-0.821508, 0, -0.570197, 0, 1, 0, 0.570197, 0, -0.821508, -1.33015, 0.86935, -11.3396)
+
+[node name="Magnum" parent="." instance=ExtResource("102_3axka")]
+transform = Transform3D(-4.16299e-06, 0, 1.15, 0, 1.15, 0, -1.15, 0, -4.16299e-06, 3.26472, -0.26394, -17.6422)
+
+[node name="pickup_pistol" parent="." instance=ExtResource("103_chxbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89576, 0.305051, -17.0733)
+
+[node name="projectile_pistol" parent="." instance=ExtResource("104_gxmcu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.64449, 0.233595, -17.1685)
+
+[node name="projectile_pistol2" parent="." instance=ExtResource("104_gxmcu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.64449, 0.233595, -16.8784)
+
+[node name="projectile_pistol3" parent="." instance=ExtResource("104_gxmcu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.64449, 0.233595, -16.6345)
+
+[node name="projectile_pistol4" parent="." instance=ExtResource("104_gxmcu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.64449, 0.233595, -16.3515)
+
+[node name="projectile_pistol5" parent="." instance=ExtResource("104_gxmcu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.64449, 0.233595, -16.0487)
+
+[node name="projectile_pistol6" parent="." instance=ExtResource("104_gxmcu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.64449, 0.233595, -15.7917)
+
+[node name="projectile_pistol7" parent="." instance=ExtResource("104_gxmcu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.64449, 0.233595, -15.5693)
 
 [connection signal="body_entered" from="QUESTS/Archive_QuestStarter" to="QUESTS/Archive_QuestStarter" method="_on_body_entered"]
 [connection signal="body_entered" from="QUESTS/Laptop_QuestStarter" to="QUESTS/Laptop_QuestStarter" method="_on_body_entered"]

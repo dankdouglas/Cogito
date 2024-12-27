@@ -48,6 +48,7 @@ slide_sound = ExtResource("4_1i2kv")
 JUMP_VELOCITY = 4.0
 WALKING_SPEED = 4.0
 SPRINTING_SPEED = 7.0
+AIR_LERP_SPEED = 3.0
 disable_roll_anim = true
 WIGGLE_ON_SPRINTING_INTENSITY = 0.04
 WIGGLE_ON_SPRINTING_SPEED = 13.0
@@ -99,6 +100,7 @@ libraries = {
 }
 
 [node name="Camera" type="Camera3D" parent="Body/Neck/Head/Eyes"]
+near = 0.016
 
 [node name="InteractionRaycast" parent="Body/Neck/Head/Eyes/Camera" instance=ExtResource("10_2dndr")]
 

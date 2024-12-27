@@ -27,8 +27,8 @@ transform = Transform3D(-4.37114e-08, -0.231748, -0.972776, 0, 0.972776, -0.2317
 collision_layer = 3
 mass = 65.0
 continuous_cd = true
-max_contacts_reported = 10
 contact_monitor = true
+max_contacts_reported = 10
 script = ExtResource("1_gqmaj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -41,7 +41,7 @@ pick_up_sound = ExtResource("5_g6e1y")
 drop_sound = ExtResource("6_jxrb3")
 
 [node name="Mesh_Body" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.245856, 0)
+transform = Transform3D(-4.37114e-08, 0.231748, 0.972776, -0.231748, 0.946293, -0.225439, -0.972776, -0.225439, 0.0537071, 0, 0.245856, -3.72529e-09)
 mesh = SubResource("CapsuleMesh_sap26")
 
 [node name="Mesh_Face" type="MeshInstance3D" parent="Mesh_Body"]

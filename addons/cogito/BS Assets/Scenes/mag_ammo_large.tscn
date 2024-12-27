@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw2fs6am5wb6g"]
+
+[ext_resource type="PackedScene" uid="uid://0m2f76jx0nno" path="res://addons/cogito/BS Assets/MagAmmo.glb" id="1_gcwax"]
+
+[node name="MagAmmo" instance=ExtResource("1_gcwax")]

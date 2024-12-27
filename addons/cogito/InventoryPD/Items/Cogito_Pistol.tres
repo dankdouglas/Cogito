@@ -8,13 +8,14 @@
 [resource]
 script = ExtResource("2_dk2he")
 wieldable_scene = ExtResource("4_uk150")
+wieldable_data_icon = ExtResource("1_85am5")
 no_reload = false
 hint_on_empty = "Out of bullets."
 charge_max = 6.0
 ammo_item_name = "Foam Bullets"
 charge_current = 6.0
-wieldable_range = 10.0
-wieldable_damage = 1.0
+wieldable_range = 1000.0
+wieldable_damage = 5.0
 name = "Magnum"
 description = ".357 Action Express"
 icon = ExtResource("1_85am5")

@@ -75,6 +75,8 @@ enum EnemyState{
 
 @onready var footstep_player = $FootstepPlayer
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var animation_player = $"zombie2 rig/AnimationPlayer"
+
 
 var patrol_path_nodepath : NodePath
 var can_play_footstep: bool = true
@@ -111,7 +113,7 @@ func _physics_process(delta: float) -> void:
 		EnemyState.CHASING:
 			handle_chasing(delta)
 		EnemyState.IDLE:
-			pass
+			animation_player.play("Armature_001|mixamo_com|Layer0")
 		EnemyState.DEAD:
 			pass
 	
@@ -119,13 +121,15 @@ func _physics_process(delta: float) -> void:
 		npc_footsteps(delta)
 	
 func handle_chasing(_delta: float):
+	animation_player.play("Armature|mixamo_com|Layer0")
 	#Currently just chasing the player. TODO: Change to have a dynamic target.
 	chase_target = CogitoSceneManager._current_player_node
 	
 	# This is basically a lerped look-at
 	_look_at_target_interpolated(chase_target.global_position)
-	
+	print(_target_in_range())
 	if _target_in_range():
+		
 		is_waiting = true
 		if attack_cooldown <= 0:
 			attack(chase_target)
@@ -135,18 +139,21 @@ func handle_chasing(_delta: float):
 
 
 func handle_patrolling(_delta: float):
+	
 	if !patrol_path:
 		CogitoMain.debug_log(true,"cogito_basic_enemy.gd","No patrol path found. Switching to idle.")
 		switch_to_idle()
 		return
 	
 	if !is_waiting:
+		animation_player.play("Armature|mixamo_com|Layer0")
 		if patrol_path.patrol_points.size() <= 0:
 			CogitoMain.debug_log(true,"cogito_basic_enemy.gd","Patrol points array is empty. Switching to idle.")
 			switch_to_idle()
 			return
 		if global_position.distance_to(patrol_path.patrol_points[patrol_point_index].global_position) < patrol_point_threshold:
 			is_waiting = true
+			animation_player.play("Armature_001|mixamo_com|Layer0")
 			await get_tree().create_timer(patrol_point_wait_time).timeout
 			# Checking to see if we've reached the end of the patrol point list.
 			if patrol_point_index == patrol_path.patrol_points.size() - 1:
@@ -182,10 +189,12 @@ func _look_at_target_interpolated(look_direction: Vector3) -> void:
 
 
 func _target_in_range() -> bool:
+	print(chase_target.global_position.length())
 	return global_position.distance_to(chase_target.global_position) < attack_range
 
 
 func attack(target: Node3D):
+	animation_player.play("Armature_002|mixamo_com|Layer0")
 	attack_cooldown = attack_interval
 	CogitoMain.debug_log(true,"cogito_basic_enemy.gd","Enemy attacks!")
 	var dir = global_position.direction_to(target.global_position)
@@ -208,10 +217,13 @@ func switch_to_aware():
 
 func switch_to_idle():
 	current_state = EnemyState.IDLE
+	
 
 
 func switch_to_chasing():
+	animation_player.play("Armature|mixamo_com|Layer0")
 	current_state = EnemyState.CHASING
+	print("baba booey")
 
 
 # Future method to set object state when a scene state file is loaded.

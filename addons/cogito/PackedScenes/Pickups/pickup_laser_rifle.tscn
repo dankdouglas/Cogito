@@ -136,7 +136,7 @@ size = Vector3(0.0973389, 0.0952759, 0.815624)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5bhcv"]
 size = Vector3(0.0973389, 0.0457916, 0.443713)
 
-[sub_resource type="Resource" id="Resource_d0t2k"]
+[sub_resource type="Resource" id="Resource_x4u1w"]
 resource_local_to_scene = true
 script = ExtResource("3_iw0du")
 inventory_item = ExtResource("3_auoh1")
@@ -169,7 +169,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00152874, 0.187482, 0.03864
 shape = SubResource("BoxShape3D_5bhcv")
 
 [node name="PickupComponent" parent="." instance=ExtResource("2_3uch0")]
-slot_data = SubResource("Resource_d0t2k")
+slot_data = SubResource("Resource_x4u1w")
 
 [node name="Smg1" parent="." instance=ExtResource("5_ypaig")]
 transform = Transform3D(0.055, 0, -9.6165e-09, 0, 0.055, 0, 9.6165e-09, 0, 0.055, 0.0021508, 0.0472897, -0.0170799)

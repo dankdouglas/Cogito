@@ -27,6 +27,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BottomRow"]
+visible = false
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 32
@@ -48,6 +49,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="DynamicInputIcon" parent="MarginContainer/VBoxContainer/BottomRow/MarginContainer2" instance=ExtResource("10_ipb46")]
+visible = false
 position = Vector2(32, 16)
 scale = Vector2(0.5, 0.5)
 action_name = "quickslot_2"
@@ -61,6 +63,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="DynamicInputIcon" parent="MarginContainer/VBoxContainer/BottomRow/MarginContainer3" instance=ExtResource("10_ipb46")]
+visible = false
 position = Vector2(32, 16)
 scale = Vector2(0.5, 0.5)
 action_name = "quickslot_3"
@@ -74,6 +77,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="DynamicInputIcon" parent="MarginContainer/VBoxContainer/BottomRow/MarginContainer4" instance=ExtResource("10_ipb46")]
+visible = false
 position = Vector2(32, 16)
 scale = Vector2(0.5, 0.5)
 action_name = "quickslot_4"

@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://biip7gfisplt5"]
+
+[ext_resource type="Script" path="res://addons/cogito/CogitoObjects/cogito_projectile.gd" id="1_7oaug"]
+[ext_resource type="PackedScene" uid="uid://1xq4y42qkcur" path="res://addons/cogito/Components/Interactions/PickupComponent.tscn" id="2_rlhfc"]
+[ext_resource type="Resource" uid="uid://bqhbrpnp2tt08" path="res://addons/cogito/InventoryPD/Items/Cogito_FoamBullets.tres" id="3_oeya6"]
+[ext_resource type="Script" path="res://addons/cogito/InventoryPD/CustomResources/InventorySlotPD.gd" id="4_7ow7p"]
+[ext_resource type="PackedScene" uid="uid://cj0yaeh3yg7tu" path="res://addons/cogito/Components/Properties/CogitoProperties.tscn" id="5_3fqel"]
+[ext_resource type="PackedScene" uid="uid://bw2fs6am5wb6g" path="res://addons/cogito/BS Assets/Scenes/mag_ammo_large.tscn" id="6_4awxt"]
+[ext_resource type="PackedScene" uid="uid://cio4x05ipvslu" path="res://addons/cogito/Components/Interactions/CarryableComponent.tscn" id="7_hpp02"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ne7t1"]
+size = Vector3(0.155273, 0.318115, 0.198975)
+
+[sub_resource type="Resource" id="Resource_cqbw7"]
+resource_local_to_scene = true
+script = ExtResource("4_7ow7p")
+inventory_item = ExtResource("3_oeya6")
+quantity = 18
+origin_index = -1
+
+[node name="projectile_pistol" type="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+top_level = true
+collision_layer = 2
+collision_mask = 3
+mass = 0.1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_7oaug")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.000366211, -0.00634766, -0.000366211)
+shape = SubResource("BoxShape3D_ne7t1")
+
+[node name="Lifespan" type="Timer" parent="."]
+wait_time = 300000.0
+
+[node name="PickupComponent" parent="." instance=ExtResource("2_rlhfc")]
+slot_data = SubResource("Resource_cqbw7")
+
+[node name="CogitoProperties" parent="." instance=ExtResource("5_3fqel")]
+material_properties = 1
+
+[node name="MagAmmo" parent="." instance=ExtResource("6_4awxt")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="CarryableComponent" parent="." instance=ExtResource("7_hpp02")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
