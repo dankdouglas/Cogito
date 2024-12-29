@@ -62,6 +62,12 @@ WIGGLE_ON_WALKING_SPEED = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_p3jhp")
 
+[node name="IndicatorLight" type="OmniLight3D" parent="."]
+transform = Transform3D(-0.707107, -0.183013, -0.683013, 0, 0.965926, -0.258819, 0.707107, -0.183013, -0.683013, 0.0609554, 1.39668, -0.681181)
+visible = false
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.1
+
 [node name="Mesh_Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 visible = false
@@ -71,11 +77,6 @@ mesh = SubResource("CapsuleMesh_r2sfk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.202423)
 mesh = SubResource("BoxMesh_o5pq8")
 
-[node name="IndicatorLight" type="OmniLight3D" parent="Mesh_Body/Mesh_Face"]
-transform = Transform3D(-0.707107, -0.183013, -0.683013, 0, 0.965926, -0.258819, 0.707107, -0.183013, -0.683013, 0.0609554, -0.00331843, -0.478758)
-light_color = Color(1, 0, 0, 1)
-light_energy = 0.1
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 1.1
 path_height_offset = 0.3
@@ -84,7 +85,7 @@ path_height_offset = 0.3
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.29646, -0.464078)
 script = ExtResource("3_o33l6")
 detection_ray_cast_3d = NodePath("DetectionRayCast3D")
-indicator_light = NodePath("../Mesh_Body/Mesh_Face/IndicatorLight")
+indicator_light = NodePath("../IndicatorLight")
 detection_area = NodePath("DetectionArea3D")
 detection_threshold = 1.0
 alarm_sound = ExtResource("4_qchom")
@@ -129,7 +130,8 @@ burn_damage_amount = 1.0
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0020133, 0)
 stream = SubResource("AudioStreamRandomizer_hnplu")
-volume_db = -10.0
+volume_db = 5.0
+unit_size = 0.5
 max_polyphony = 2
 bus = &"SFX"
 script = ExtResource("15_axo4y")

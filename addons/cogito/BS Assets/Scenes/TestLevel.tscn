@@ -1,16 +1,17 @@
-[gd_scene load_steps=45 format=4 uid="uid://78ijq4suhymn"]
+[gd_scene load_steps=46 format=4 uid="uid://78ijq4suhymn"]
 
 [ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="1_tr4um"]
 [ext_resource type="Script" path="res://addons/cogito/SceneManagement/cogito_scene.gd" id="2_aj5jq"]
 [ext_resource type="Material" uid="uid://dkbgl3p3ffd1" path="res://addons/cogito/Assets/Materials/Prototype_DarkGrey.tres" id="2_ugrfq"]
 [ext_resource type="Material" uid="uid://hhhudvarh7gk" path="res://addons/cogito/Assets/Materials/Prototype_Orange.tres" id="3_vvscg"]
-[ext_resource type="PackedScene" uid="uid://co1opmwyvl27" path="res://addons/cogito/DemoScenes/DemoPrefabs/barrel.tscn" id="5_ey34s"]
 [ext_resource type="PackedScene" uid="uid://dn4e1k7u3suoo" path="res://addons/cogito/Enemies/cogito_basic_enemy.tscn" id="5_kgcxn"]
 [ext_resource type="PackedScene" uid="uid://cmqx5jkkx5yas" path="res://addons/cogito/DemoScenes/DemoPrefabs/cardboard_box_closed.tscn" id="6_bpqfd"]
 [ext_resource type="PackedScene" uid="uid://drd1xq0u7ua3b" path="res://addons/cogito/DemoScenes/DemoPrefabs/desk.tscn" id="7_to5tf"]
 [ext_resource type="PackedScene" uid="uid://cd5g47eq3kcii" path="res://addons/cogito/BS Assets/Scenes/LittleBox.tscn" id="8_l7dni"]
+[ext_resource type="Script" path="res://addons/cogito/QuestSystem/Components/cogito_quest_updater.gd" id="9_qy24o"]
 [ext_resource type="PackedScene" uid="uid://cxof5rvjpgx1l" path="res://addons/cogito/DemoScenes/DemoPrefabs/door_basic.tscn" id="9_rjkap"]
 [ext_resource type="PackedScene" uid="uid://8h462cd7whew" path="res://addons/cogito/PackedScenes/hazard_zone.tscn" id="10_1m18g"]
+[ext_resource type="Resource" uid="uid://drmtc0tqmwquk" path="res://addons/cogito/QuestSystem/Quests/DemoSceneQuests/Demo_AccessArchive.tres" id="10_3dyh8"]
 [ext_resource type="PackedScene" uid="uid://dpuhybufkdmcf" path="res://addons/cogito/DemoScenes/DemoPrefabs/bear_trap.tscn" id="11_kages"]
 [ext_resource type="PackedScene" uid="uid://ciil8mli32kuk" path="res://addons/cogito/PackedScenes/Pickups/pickup_laser_rifle.tscn" id="12_s8iyx"]
 [ext_resource type="PackedScene" uid="uid://b5ukfmvoxa33e" path="res://addons/cogito/PackedScenes/Pickups/pickup_laser_ammo.tscn" id="13_y1hce"]
@@ -19,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://du4ikaspjscdt" path="res://addons/cogito/PackedScenes/Pickups/pickup_magnum.tscn" id="17_wsbxk"]
 [ext_resource type="FontFile" uid="uid://bu5on5evfoljs" path="res://addons/cogito/Assets/Fonts/Montserrat/Montserrat-Bold.ttf" id="18_ymi66"]
 [ext_resource type="PackedScene" uid="uid://cgce75ts2twkp" path="res://addons/cogito/PackedScenes/Pickups/pickup_pickaxe.tscn" id="19_u5g3n"]
-[ext_resource type="FontFile" uid="uid://0n6rmlh8d60u" path="res://addons/cogito/Assets/Fonts/Montserrat/Montserrat-ExtraBold.ttf" id="19_vfbyd"]
 [ext_resource type="PackedScene" uid="uid://biip7gfisplt5" path="res://addons/cogito/PackedScenes/Magnum_Ammo_Large.tscn" id="20_dcc56"]
 [ext_resource type="PackedScene" uid="uid://bho0nwh5rlnua" path="res://addons/cogito/PackedScenes/target_destructable.tscn" id="20_st3g8"]
 [ext_resource type="PackedScene" uid="uid://c2p1awab5kllv" path="res://addons/cogito/PackedScenes/Magnum_Ammo_Small.tscn" id="21_xm00a"]
@@ -29,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://c2r7ib4rrrdfj" path="res://addons/cogito/DemoScenes/DemoPrefabs/ksi_table_long.tscn" id="26_bsawi"]
 [ext_resource type="Script" path="res://addons/cogito/Scripts/cogito_spawnzone.gd" id="27_gu5cc"]
 [ext_resource type="Script" path="res://addons/cogito/Enemies/cogito_patrol_path.gd" id="34_naxr5"]
-[ext_resource type="PackedScene" uid="uid://bn46d6e3pk5eu" path="res://addons/cogito/Enemies/Zombie Enemy 1.tscn" id="35_kdc3a"]
 [ext_resource type="PackedScene" uid="uid://b2sf7lw1vuact" path="res://addons/cogito/Enemies/Shooter Enemy 1.tscn" id="36_l8yni"]
 [ext_resource type="PackedScene" uid="uid://jfhjbm5mopko" path="res://addons/cogito/PackedScenes/Pickups/pickup_handgun.tscn" id="37_x4gkf"]
 
@@ -47,8 +46,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_y6tkg"]
-vertices = PackedVector3Array(9.79006, 14.7275, -33.7086, 9.79006, 14.7275, 4.54145, 61.5401, 14.7275, 4.54145, 61.5401, 14.7275, -33.7086, 7.79006, -0.02246, 3.54145, 7.29006, -0.02246, 3.79145, 7.29006, -0.02246, 4.54145, 0.04006, -0.02246, -2.20855, 0.04006, -0.02246, -3.70855, -0.45994, -0.02246, -3.70855, -0.45994, -0.02246, -2.20855, 7.29006, -0.02246, 7.79145, -0.95994, -0.02246, -1.95855, -0.45994, -0.02246, 9.04145, 0.79006, -0.02246, 5.54145, 0.79006, -0.02246, -1.95855, 6.04006, -0.02246, 0.0414467, 7.54006, -0.02246, 1.79145, 31.5401, -0.02246, -4.70855, 33.0401, -0.02246, -5.20855, 33.0401, -0.02246, -32.7086, 6.04006, -0.02246, -32.7086, 6.04006, -0.02246, 4.79145, 5.79006, -0.02246, 5.54145, 5.79006, -0.02246, 6.79145, 6.04006, -0.02246, 7.54145, 31.5401, -0.02246, -0.208553, 0.54006, -0.02246, 9.04145, 0.79006, -0.02246, 6.79145, 2.29006, -0.02246, 0.0414467, 2.29006, -0.02246, 1.79145, 7.29006, -0.02246, 8.79145, 32.7901, -0.02246, 8.79145, 32.7901, -0.02246, 0.0414467, 49.7901, -0.02246, -3.20855, 50.0401, -0.02246, -2.20855, 63.0401, -0.02246, -2.20855, 34.2901, -0.02246, -4.95855, 34.2901, -0.02246, -2.20855, 47.5401, -0.02246, -2.20855, 47.7901, -0.02246, -3.20855, 63.0401, -0.02246, -32.7086, 2.29006, -0.02246, -17.4586, 2.29006, -0.02246, -1.45855, 3.79006, -0.02246, -1.45855, 3.79006, -0.02246, -17.4586, 34.2901, -0.02246, -0.208553, 48.7901, -0.02246, 8.79145, 48.7901, -0.02246, -0.958553, 47.5401, -0.02246, -1.20855, 49.7901, -0.02246, -0.958553, 63.0401, -0.02246, 8.79145, 32.5401, 0.97754, -0.958553, 33.2901, 0.72754, -0.958553, 33.0401, 0.72754, -1.70855, 32.5401, 0.72754, -1.70855, -3.20994, -0.02246, 1.29145, -2.20994, -0.02246, 1.04145, -2.20994, -0.02246, 0.0414467, -3.70994, -0.02246, 0.0414467, -3.70994, -0.02246, 9.04145, -2.95994, -0.02246, 9.04145)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(10, 9, 7), PackedInt32Array(7, 9, 8), PackedInt32Array(11, 6, 4), PackedInt32Array(10, 7, 12), PackedInt32Array(12, 7, 15), PackedInt32Array(12, 15, 14), PackedInt32Array(12, 14, 13), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 16), PackedInt32Array(19, 16, 20), PackedInt32Array(20, 16, 21), PackedInt32Array(25, 24, 11), PackedInt32Array(11, 24, 23), PackedInt32Array(11, 23, 22), PackedInt32Array(11, 22, 6), PackedInt32Array(4, 17, 26), PackedInt32Array(26, 17, 18), PackedInt32Array(27, 13, 28), PackedInt32Array(28, 13, 14), PackedInt32Array(29, 16, 30), PackedInt32Array(30, 16, 17), PackedInt32Array(11, 4, 31), PackedInt32Array(31, 4, 26), PackedInt32Array(31, 26, 33), PackedInt32Array(31, 33, 32), PackedInt32Array(24, 28, 23), PackedInt32Array(23, 28, 14), PackedInt32Array(36, 35, 34), PackedInt32Array(39, 38, 40), PackedInt32Array(40, 38, 37), PackedInt32Array(34, 19, 36), PackedInt32Array(36, 19, 20), PackedInt32Array(36, 20, 41), PackedInt32Array(37, 19, 40), PackedInt32Array(40, 19, 34), PackedInt32Array(45, 44, 42), PackedInt32Array(42, 44, 43), PackedInt32Array(33, 46, 32), PackedInt32Array(32, 46, 49), PackedInt32Array(32, 49, 48), PackedInt32Array(32, 48, 47), PackedInt32Array(39, 49, 38), PackedInt32Array(38, 49, 46), PackedInt32Array(47, 48, 50), PackedInt32Array(50, 35, 47), PackedInt32Array(47, 35, 36), PackedInt32Array(47, 36, 51), PackedInt32Array(55, 54, 52), PackedInt32Array(52, 54, 53), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 59), PackedInt32Array(61, 60, 56), PackedInt32Array(56, 60, 59)]
+vertices = PackedVector3Array(9.87141, 14.7275, -33.7086, 9.87141, 14.7275, 4.54145, 61.3714, 14.7275, 4.54145, 61.3714, 14.7275, -33.7086, 3.37141, -0.02246, 0.791447, 3.12141, -0.02246, 0.0414467, 2.12141, -0.02246, 0.0414467, 2.12141, -0.02246, 1.79145, 7.62141, -0.02246, -5.45855, 7.62141, -0.02246, -0.708553, 63.1214, -0.02246, 8.79145, 0.621408, -0.02246, -3.70855, -0.628592, -0.02246, -3.70855, -0.878592, -0.02246, -2.20855, -0.628592, -0.02246, 9.04145, 0.621408, -0.02246, 5.29145, 0.621408, -0.02246, 9.04145, 0.871408, -0.02246, 6.79145, 6.12141, -0.02246, -0.458553, 5.37141, -0.02246, 0.791447, 6.12141, -0.02246, 1.79145, 63.1214, -0.02246, -32.7086, 6.12141, -0.02246, -32.7086, 5.87141, -0.02246, 5.54145, 5.87141, -0.02246, 6.79145, 6.12141, -0.02246, 8.79145, 6.12141, -0.02246, -5.70855, 2.12141, -0.02246, -17.4586, 2.12141, -0.02246, -1.45855, 3.87141, -0.02246, -1.45855, 3.87141, -0.02246, -17.4586, 6.12141, 0.72754, -2.45855, 6.12141, 0.72754, -1.45855, 6.62141, 0.72754, -1.45855, 6.62141, 0.97754, -2.45855, -3.37859, -0.02246, 1.29145, -2.12859, -0.02246, 1.04145, -2.12859, -0.02246, 0.0414467, -10.1286, -0.02246, 0.0414467, -10.1286, -0.02246, 9.04145, -3.12859, -0.02246, 9.04145)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(10, 9, 8), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 15), PackedInt32Array(13, 15, 14), PackedInt32Array(16, 14, 17), PackedInt32Array(17, 14, 15), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 9), PackedInt32Array(19, 20, 4), PackedInt32Array(4, 20, 7), PackedInt32Array(22, 21, 8), PackedInt32Array(8, 21, 10), PackedInt32Array(24, 17, 23), PackedInt32Array(23, 17, 15), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 20), PackedInt32Array(25, 20, 9), PackedInt32Array(25, 9, 10), PackedInt32Array(8, 26, 22), PackedInt32Array(30, 29, 27), PackedInt32Array(27, 29, 28), PackedInt32Array(34, 33, 31), PackedInt32Array(31, 33, 32), PackedInt32Array(36, 35, 37), PackedInt32Array(37, 35, 38), PackedInt32Array(40, 39, 35), PackedInt32Array(35, 39, 38)]
 agent_height = 1.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qfp3"]
@@ -149,7 +148,13 @@ size = Vector3(0.895866, 0.710388, 1.39068)
 points = PackedVector3Array(0, 0, 0, 0.85, 0, 0, 0.35, 0.3, 0, 0.07, 0.3, 0, 0, 0, 1.4, 0.85, 0, 1.4, 0.35, 0.3, 1.4, 0.07, 0.3, 1.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pe18m"]
-size = Vector3(8, 1, 6.10059)
+size = Vector3(0.791312, 1, 0.860474)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_65m0m"]
+size = Vector3(5, 3.3, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7fe53"]
+size = Vector3(7.6, 2.52949, 7.69082)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("2_aj5jq")
@@ -175,15 +180,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -3.9)
 [node name="DoorBasic" parent="." instance=ExtResource("9_rjkap")]
 transform = Transform3D(-4.37112e-08, 0, 1, 0, 1, 0, -1, 0, -4.37112e-08, 1.55313, -0.5, 0.84818)
 
-[node name="DoorBasic2" parent="." instance=ExtResource("9_rjkap")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.55652, -0.5, -2.03669e-07)
-
 [node name="HazardZone" parent="." instance=ExtResource("10_1m18g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33175, 1.505, 1.5451)
 hint_message = "You're Getting Burnt"
 
 [node name="CollisionShape3D" parent="HazardZone" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1895, -1.49731, 3.35506)
+
+[node name="TransparentBox" parent="HazardZone" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27857, -0.62288, 3.21718)
 
 [node name="BearTrap" parent="." instance=ExtResource("11_kages")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77383, 0.433327, 4.55981)
@@ -249,9 +254,9 @@ size = Vector3(2.29407, 1.50635, 2.98218)
 material = ExtResource("2_ugrfq")
 
 [node name="Room2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00994, 0.98877, 4.61136)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21927, 0.98877, 4.61136)
 flip_faces = true
-size = Vector3(2.9, 3.02246, 10.1871)
+size = Vector3(9.31865, 3.02246, 10.1871)
 material = ExtResource("2_ugrfq")
 
 [node name="Room3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
@@ -375,43 +380,41 @@ flip_faces = true
 size = Vector3(2.06135, 1.97414, 1.88074)
 material = ExtResource("2_ugrfq")
 
-[node name="barrel" parent="NavigationRegion3D" instance=ExtResource("5_ey34s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3)
-can_sleep = false
-
-[node name="barrel2" parent="NavigationRegion3D" instance=ExtResource("5_ey34s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32696, -9.53674e-07, 3.77797)
-can_sleep = false
-
-[node name="barrel3" parent="NavigationRegion3D" instance=ExtResource("5_ey34s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75343, -9.53674e-07, 2.80953)
-can_sleep = false
-
-[node name="barrel4" parent="NavigationRegion3D" instance=ExtResource("5_ey34s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.24226, -1.19209e-06, 8.50454)
-can_sleep = false
-
-[node name="barrel20" parent="NavigationRegion3D" instance=ExtResource("5_ey34s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.10081, -3)
-can_sleep = false
-
-[node name="barrel21" parent="NavigationRegion3D" instance=ExtResource("5_ey34s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32696, 1.1008, 3.77797)
-can_sleep = false
-
-[node name="barrel22" parent="NavigationRegion3D" instance=ExtResource("5_ey34s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75343, 1.1008, 2.80953)
-can_sleep = false
-
-[node name="barrel23" parent="NavigationRegion3D" instance=ExtResource("5_ey34s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10747, 2.55744, 2.84334)
-can_sleep = false
-
 [node name="SHOOTING_RANGE" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.7009, -0.500001, -2.51669)
 
+[node name="Pickup_Pickaxe" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("19_u5g3n")]
+transform = Transform3D(0.995536, -0.0938573, -0.0099791, 0, 0.105726, -0.994395, 0.0943863, 0.989956, 0.105254, 0.765663, 0.86964, 15.0451)
+
+[node name="HealthPotion" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("23_wwjp8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.622826, 1.21509, 15.5576)
+
+[node name="HealthPotion2" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("23_wwjp8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.959337, 1.21509, 15.5576)
+
+[node name="HealthPotion3" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("23_wwjp8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28867, 1.21509, 15.5576)
+
+[node name="Pickup_StaminaExtension" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("24_tc3d3")]
+transform = Transform3D(0.980989, 0, 0.194063, 0, 1, 0, -0.194063, 0, 0.980989, -2.06904, 0.92349, 15.4393)
+
+[node name="Pickup_Dart" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("25_pb8c1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620145, 1.00006, 15.0475)
+
+[node name="Pickup_Dart2" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("25_pb8c1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.967263, 1.00006, 15.0475)
+
+[node name="Pickup_Dart3" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("25_pb8c1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34723, 1.00006, 15.0475)
+
+[node name="Pickup_Dart4" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("25_pb8c1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29095, 1.00006, 15.0475)
+
+[node name="KSI_table_long" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("26_bsawi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.68163, 0, 14.7833)
+
 [node name="KSI_console_spawn" type="StaticBody3D" parent="NavigationRegion3D/SHOOTING_RANGE"]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -0.0164423, 0, -26.3872)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 1.71272, 0, 18.0574)
 
 [node name="object_053" type="MeshInstance3D" parent="NavigationRegion3D/SHOOTING_RANGE/KSI_console_spawn"]
 mesh = SubResource("ArrayMesh_agi1k")
@@ -436,78 +439,8 @@ font_size = 24
 outline_size = 6
 horizontal_alignment = 2
 
-[node name="Label_SHOOTING_RANGE" type="Label3D" parent="NavigationRegion3D/SHOOTING_RANGE"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 3.10222, 1.5, -9.62353)
-text = "SHOOTING RANGE"
-font = ExtResource("19_vfbyd")
-font_size = 64
-outline_size = 10
-horizontal_alignment = 2
-
-[node name="Label_SYSTEMICPROPS" type="Label3D" parent="NavigationRegion3D/SHOOTING_RANGE"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.62388, 1.5, -6.32353)
-text = "SYSTEMIC
-PROPERTIES
-(WIP)"
-font = ExtResource("19_vfbyd")
-font_size = 64
-outline_size = 10
-horizontal_alignment = 0
-line_spacing = -20.0
-
-[node name="Label_ItemSwitch" type="Label3D" parent="NavigationRegion3D/SHOOTING_RANGE"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.42388, 1.7, -2.32353)
-text = "SWITCH
-that expects
-an InventoryItem"
-font = ExtResource("19_vfbyd")
-outline_size = 10
-horizontal_alignment = 0
-line_spacing = -5.0
-
-[node name="Label_ItemSwitch2" type="Label3D" parent="NavigationRegion3D/SHOOTING_RANGE"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -10.2239, 1.7, 1.67647)
-text = "SNAPSLOT
-that expects
-a Carryable PackedScene"
-font = ExtResource("19_vfbyd")
-outline_size = 10
-horizontal_alignment = 0
-line_spacing = -5.0
-
-[node name="TARGETS" type="Node3D" parent="NavigationRegion3D/SHOOTING_RANGE"]
-
-[node name="Pickup_Pickaxe" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("19_u5g3n")]
-transform = Transform3D(0.995536, -0.0938573, -0.0099791, 0, 0.105726, -0.994395, 0.0943863, 0.989956, 0.105254, 1.44729, 0.86964, -11.7382)
-
-[node name="HealthPotion" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("23_wwjp8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0588015, 1.21509, -11.2257)
-
-[node name="HealthPotion2" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("23_wwjp8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27771, 1.21509, -11.2257)
-
-[node name="HealthPotion3" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("23_wwjp8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607045, 1.21509, -11.2257)
-
-[node name="Pickup_StaminaExtension" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("24_tc3d3")]
-transform = Transform3D(0.980989, 0, 0.194063, 0, 1, 0, -0.194063, 0, 0.980989, -1.38741, 0.92349, -11.344)
-
-[node name="Pickup_Dart" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("25_pb8c1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0614817, 1.00006, -11.7358)
-
-[node name="Pickup_Dart2" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("25_pb8c1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.285636, 1.00006, -11.7358)
-
-[node name="Pickup_Dart3" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("25_pb8c1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.665604, 1.00006, -11.7358)
-
-[node name="Pickup_Dart4" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("25_pb8c1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390677, 1.00006, -11.7358)
-
-[node name="KSI_table_long" parent="NavigationRegion3D/SHOOTING_RANGE" instance=ExtResource("26_bsawi")]
-
 [node name="Spawnzone_Targets" type="Area3D" parent="NavigationRegion3D/SHOOTING_RANGE" node_paths=PackedStringArray("spawn_area")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8924, 1.65833, -27.0948)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.66458, 1.65833, 18.6247)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("27_gu5cc")
@@ -516,6 +449,7 @@ spawn_amount = 10
 object_to_spawn = ExtResource("20_st3g8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/SHOOTING_RANGE/Spawnzone_Targets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.390652, 0.116344, -11.1881)
 shape = SubResource("BoxShape3D_pe18m")
 
 [node name="CogitoEnemy" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("5_kgcxn")]
@@ -542,9 +476,6 @@ transform = Transform3D(0.2727, 0, 0.145787, 0, 0.279729, 0, -0.208532, 0, 0.190
 
 [node name="pickup_magnum" parent="." instance=ExtResource("17_wsbxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.474841, 0.449202, -3.98085)
-
-[node name="Pickup_Pickaxe" parent="." instance=ExtResource("19_u5g3n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6754, -0.499998, -3.247)
 
 [node name="projectile_pistol" parent="." instance=ExtResource("20_dcc56")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.920509, 0, -4.19544)
@@ -593,18 +524,13 @@ script = ExtResource("34_naxr5")
 patrol_points = [NodePath("../Marker3D"), NodePath("../Marker3D2"), NodePath("../Marker3D3")]
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.8266, 0, 5.36002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5858, 0, -27.9815)
 
 [node name="Marker3D2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0774, -4.76837e-07, 3.40304)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.09228, -4.76837e-07, -22.4898)
 
 [node name="Marker3D3" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9033, 0.0379663, -16.8891)
-
-[node name="CogitoEnemy3" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("35_kdc3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4445, -0.499998, -12.0252)
-start_state = 1
-patrol_path = NodePath("../CogitoPatrolPath")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.7042, 0.0379663, -20.9973)
 
 [node name="CogitoEnemy4" parent="." instance=ExtResource("36_l8yni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0617, -0.499999, -15.2144)
@@ -622,6 +548,30 @@ attack_interval = 1.0
 [node name="pickup_pistol" parent="." instance=ExtResource("37_x4gkf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.298877, 0.194652, -3.01703)
 
+[node name="QUESTS" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77383, 0.433327, 4.55981)
+
+[node name="Archive_QuestStarter" type="Area3D" parent="QUESTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.94646, 0, -2.66854)
+script = ExtResource("9_qy24o")
+quest_to_update = ExtResource("10_3dyh8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="QUESTS/Archive_QuestStarter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, -0.5)
+shape = SubResource("BoxShape3D_65m0m")
+
+[node name="Archive_QuestEnder" type="Area3D" parent="QUESTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7858, 0, 1.81051)
+script = ExtResource("9_qy24o")
+quest_to_update = ExtResource("10_3dyh8")
+update_type = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="QUESTS/Archive_QuestEnder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.31475, -1.04541)
+shape = SubResource("BoxShape3D_7fe53")
+
 [connection signal="pressed" from="NavigationRegion3D/SHOOTING_RANGE/KSI_console_spawn/GenericButton" to="NavigationRegion3D/SHOOTING_RANGE/Spawnzone_Targets" method="_on_generic_button_pressed"]
+[connection signal="body_entered" from="QUESTS/Archive_QuestStarter" to="QUESTS/Archive_QuestStarter" method="_on_body_entered"]
+[connection signal="body_entered" from="QUESTS/Archive_QuestEnder" to="QUESTS/Archive_QuestEnder" method="_on_body_entered"]
 
 [editable path="HazardZone"]
