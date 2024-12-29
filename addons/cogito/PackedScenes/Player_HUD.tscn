@@ -501,6 +501,7 @@ metadata/_tab_index = 0
 layout_mode = 2
 
 [node name="QuestEntry2" parent="QuestHUD/QuestDisplay/VBoxContainer/TabContainer/Active" instance=ExtResource("16_qsjbq")]
+visible = false
 layout_mode = 2
 
 [node name="Completed" type="VBoxContainer" parent="QuestHUD/QuestDisplay/VBoxContainer/TabContainer"]

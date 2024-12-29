@@ -1,5 +1,5 @@
 extends CharacterBody3D
-class_name CogitoEnemy
+class_name CogitoZombieEnemy
 
 ## Emitted when received damage. Used with the HitboxComponent
 signal damage_received(damage_value:float)

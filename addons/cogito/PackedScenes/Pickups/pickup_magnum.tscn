@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/cogito/CogitoObjects/cogito_object.gd" id="1_7bif6"]
 [ext_resource type="PackedScene" uid="uid://1xq4y42qkcur" path="res://addons/cogito/Components/Interactions/PickupComponent.tscn" id="2_em784"]
 [ext_resource type="PackedScene" uid="uid://7ug0scudh8j4" path="res://addons/cogito/BS Assets/Scenes/magnum_1.tscn" id="2_fgagi"]
-[ext_resource type="Resource" uid="uid://lc5uq2e6ldah" path="res://addons/cogito/InventoryPD/Items/Cogito_Pistol.tres" id="3_5lhi3"]
+[ext_resource type="Resource" uid="uid://lc5uq2e6ldah" path="res://addons/cogito/InventoryPD/Items/Cogito_Magnum.tres" id="3_5lhi3"]
 [ext_resource type="Script" path="res://addons/cogito/InventoryPD/CustomResources/InventorySlotPD.gd" id="4_ekrl6"]
 [ext_resource type="PackedScene" uid="uid://cio4x05ipvslu" path="res://addons/cogito/Components/Interactions/CarryableComponent.tscn" id="5_p22x5"]
 
@@ -38,6 +38,7 @@ shape = SubResource("BoxShape3D_5prt8")
 transform = Transform3D(1, 0, -1.81899e-12, 0, 1, 0, 0, 0, 1, 0.277335, 0.0601448, 0.00182778)
 
 [node name="PickupComponent" parent="." instance=ExtResource("2_em784")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000565946, 0, 0)
 slot_data = SubResource("Resource_vcolb")
 
 [node name="CarryableComponent" parent="." instance=ExtResource("5_p22x5")]

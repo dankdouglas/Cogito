@@ -3165,7 +3165,7 @@ anim_reload = "Smg/reload"
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0083878, 0, 0)
-volume_db = -35.0
+volume_db = -25.0
 bus = &"SFX"
 
 [node name="smg_rig_1" type="Node3D" parent="."]

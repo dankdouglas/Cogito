@@ -25,7 +25,7 @@ var inventory_item_reference : WieldableItemPD
 @export var recoil_strength : float = 1.0
 @export var recoil_recovery_speed : float = 5.0
 
-var recoil_offset : Vector2 = Vector2.ZERO
+@export var recoil_offset : Vector2 = Vector2.ZERO
 
 func _ready():
 	wieldable_mesh.hide()

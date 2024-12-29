@@ -10,6 +10,7 @@
 script = ExtResource("3_0bl2i")
 inventory_item = ExtResource("2_sm7gp")
 quantity = 1
+origin_index = -1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbp4w"]
 albedo_color = Color(0.0392157, 0.0431373, 0.0745098, 1)
@@ -65,6 +66,5 @@ bus = &"SFX"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, -1, 1.91069e-15, 4.37114e-08, 0, 1, -4.37114e-08, 0.174371, 0, 0)
-visible = false
 spot_range = 8.0
 spot_angle = 30.0
