@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CogitoQuest" load_steps=2 format=3 uid="uid://dypje2uyekjku"]
+
+[ext_resource type="Script" path="res://addons/cogito/QuestSystem/CustomResources/cogito_quest.gd" id="1_wgw4l"]
+
+[resource]
+script = ExtResource("1_wgw4l")
+id = 1
+quest_name = "Level1_Security"
+quest_title = "SECURITY LOCKDOWN"
+quest_description_active = "GO TO THE SECURITY CENTER AND DEACTIVATE THE LOCKDOWN. THEN MAKE YOUR WAY TO THE EXIT"
+quest_description_completed = "MAKE YOUR WAY TO THE EXIT"
+quest_description_failed = "You failed this quest."
+quest_counter_current = 0
+quest_counter_goal = 0

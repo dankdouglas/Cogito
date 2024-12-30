@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://yxxq2mek6jav" path="res://addons/cogito/BS Assets/Scenes/zombie_2_rig.tscn" id="19_gilr7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p3jhp"]
-radius = 0.23
 height = 1.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jni4"]

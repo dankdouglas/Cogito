@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CogitoQuest" load_steps=2 format=3 uid="uid://bdqq18knkf7ub"]
+
+[ext_resource type="Script" path="res://addons/cogito/QuestSystem/CustomResources/cogito_quest.gd" id="1_pks1t"]
+
+[resource]
+script = ExtResource("1_pks1t")
+id = 0
+quest_name = "Level1_pump"
+quest_title = "PUMP CONTROL ROOM"
+quest_description_active = "get into the facilities control room and activate the pumps for the reactor. you should be able to see it from the entrance. the room has red lights"
+quest_description_completed = "now to active the pumps"
+quest_description_failed = "You failed this quest."
+quest_counter_current = 0
+quest_counter_goal = 0
