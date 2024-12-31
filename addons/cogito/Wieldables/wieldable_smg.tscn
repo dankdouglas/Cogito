@@ -1,15 +1,15 @@
 [gd_scene load_steps=23 format=4 uid="uid://bb8pm2nk8hwon"]
 
-[ext_resource type="Script" path="res://addons/cogito/Wieldables/wieldable_laser_rifle.gd" id="1_2rut3"]
-[ext_resource type="PackedScene" uid="uid://dnauxhdncgngx" path="res://addons/cogito/PackedScenes/laser_ray.tscn" id="2_ic084"]
-[ext_resource type="AudioStream" uid="uid://cuaymggc28l5u" path="res://addons/cogito/BS Assets/hks1.wav" id="3_gv4jp"]
-[ext_resource type="Script" path="res://addons/cogito/Assets/Shader/ViewmodelSpace.gd" id="5_fa3wp"]
-[ext_resource type="Texture2D" uid="uid://djxx4kf5kxxo1" path="res://addons/cogito/BS Assets/smg_rig_1_Untitled.png" id="8_bk2jp"]
-[ext_resource type="Texture2D" uid="uid://m2wg1t6x72m" path="res://addons/cogito/BS Assets/smg_rig_1_arms2tex.png" id="9_fv8jt"]
+[ext_resource type="Script" path="res://addons/cogito/Wieldables/wieldable_laser_rifle.gd" id="1_4rvmc"]
+[ext_resource type="PackedScene" uid="uid://dnauxhdncgngx" path="res://addons/cogito/PackedScenes/laser_ray.tscn" id="2_ysrhy"]
+[ext_resource type="AudioStream" uid="uid://cuaymggc28l5u" path="res://addons/cogito/BS Assets/hks1.wav" id="3_10v0d"]
+[ext_resource type="Script" path="res://addons/cogito/Assets/Shader/ViewmodelSpace.gd" id="4_56th1"]
+[ext_resource type="Texture2D" uid="uid://djxx4kf5kxxo1" path="res://addons/cogito/BS Assets/smg_rig_1_Untitled.png" id="5_qmhyb"]
+[ext_resource type="Texture2D" uid="uid://m2wg1t6x72m" path="res://addons/cogito/BS Assets/smg_rig_1_arms2tex.png" id="6_8sdpd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_43p77"]
 resource_name = "Material.002"
-albedo_texture = ExtResource("8_bk2jp")
+albedo_texture = ExtResource("5_qmhyb")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8nttg"]
@@ -47,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_8nttg")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15sl2"]
 resource_name = "Material"
 cull_mode = 2
-albedo_texture = ExtResource("9_fv8jt")
+albedo_texture = ExtResource("6_8sdpd")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_biuvb"]
@@ -240,6 +240,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("rig/Skeleton3D/smg/OmniLight3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhch2"]
@@ -663,10 +675,22 @@ tracks/58/path = NodePath(".:visible")
 tracks/58/interp = 1
 tracks/58/loop_wrap = true
 tracks/58/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.7),
+"times": PackedFloat32Array(0, 0.0333333, 0.633333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, true]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("rig/Skeleton3D/smg/OmniLight3D:visible")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
+"times": PackedFloat32Array(0, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
 }
 
 [sub_resource type="Animation" id="Animation_hdxcu"]
@@ -1078,6 +1102,18 @@ tracks/57/path = NodePath("rig/Skeleton3D:hand_ik.R")
 tracks/57/interp = 1
 tracks/57/loop_wrap = true
 tracks/57/keys = PackedFloat32Array(0, 1, 0.00826169, 0.717731, 0.665117, 0.205945, 0.0333333, 1, 0.00434634, 0.730242, 0.651357, 0.206065, 0.0666667, 1, 0.00483586, 0.728692, 0.65309, 0.206054, 0.125, 1, 0.00826169, 0.717731, 0.665117, 0.205945)
+tracks/58/type = "value"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("rig/Skeleton3D/smg/OmniLight3D:visible")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="Animation" id="Animation_tgrhy"]
 resource_name = "idle"
@@ -3154,9 +3190,10 @@ _data = {
 
 [node name="Laser Rifle" type="Node3D" node_paths=PackedStringArray("wieldable_mesh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329, -0.264, -0.535)
-script = ExtResource("1_2rut3")
-laser_ray_prefab = ExtResource("2_ic084")
-sound_primary_use = ExtResource("3_gv4jp")
+script = ExtResource("1_4rvmc")
+laser_ray_prefab = ExtResource("2_ysrhy")
+default_position = Vector3(0.329, -0.264, -0.535)
+sound_primary_use = ExtResource("3_10v0d")
 wieldable_mesh = NodePath("smg_rig_1")
 anim_equip = "Smg/equip"
 anim_unequip = "Smg/unequip"
@@ -3170,7 +3207,7 @@ bus = &"SFX"
 
 [node name="smg_rig_1" type="Node3D" parent="."]
 transform = Transform3D(-1.24, 0, -1.08404e-07, 0, 1.24, 0, 1.08404e-07, 0, -1.24, -0.303848, -1.75004, 0.595424)
-script = ExtResource("5_fa3wp")
+script = ExtResource("4_56th1")
 
 [node name="rig" type="Node3D" parent="smg_rig_1"]
 transform = Transform3D(0.636598, 0, 0, 0, 0.636598, 0, 0, 0, 0.636598, -0.0361473, 0.603006, 0.00124828)
@@ -3307,14 +3344,14 @@ bones/18/parent = 17
 bones/18/rest = Transform3D(0.99996, 0.00891309, 1.28872e-07, -0.00888054, 0.99631, -0.0853694, -0.000761034, 0.085366, 0.996349, -6.89761e-08, 0.0377367, -2.29775e-07)
 bones/18/enabled = true
 bones/18/position = Vector3(-6.89761e-08, 0.0377367, -2.29775e-07)
-bones/18/rotation = Quaternion(0.0429529, -0.09475, -0.000374232, 0.994574)
+bones/18/rotation = Quaternion(0.0429529, -0.09475, -0.000374233, 0.994574)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/name = "DEF-f_ring.03.L"
 bones/19/parent = 18
 bones/19/rest = Transform3D(0.999559, -0.0296019, 0.00225051, 0.029211, 0.967167, -0.252458, 0.0052966, 0.252412, 0.967605, -1.93249e-08, 0.0241644, -2.15776e-07)
 bones/19/enabled = true
 bones/19/position = Vector3(-1.93249e-08, 0.0241644, -2.15776e-07)
-bones/19/rotation = Quaternion(0.127267, -0.000767529, 0.0148272, 0.991757)
+bones/19/rotation = Quaternion(0.127267, -0.000767531, 0.0148272, 0.991757)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/name = "DEF-palm.03.L"
 bones/20/parent = 5
@@ -3377,7 +3414,7 @@ bones/28/parent = 27
 bones/28/rest = Transform3D(1, -7.83156e-07, 6.68449e-07, 9.00792e-07, 0.979889, -0.199545, -4.98731e-07, 0.199545, 0.979889, -5.0338e-07, 0.141561, 1.13621e-07)
 bones/28/enabled = true
 bones/28/position = Vector3(-5.0338e-07, 0.141561, 1.13621e-07)
-bones/28/rotation = Quaternion(0.775951, -0.0221919, 0.0269813, 0.629826)
+bones/28/rotation = Quaternion(0.775951, -0.022192, 0.0269813, 0.629826)
 bones/28/scale = Vector3(1.00241, 0.949834, 1.05049)
 bones/29/name = "DEF-forearm.R.001"
 bones/29/parent = 28
@@ -3531,7 +3568,7 @@ bones/50/parent = -1
 bones/50/rest = Transform3D(0.00424898, -0.992903, 0.118854, 0.958276, -0.0299279, -0.284275, 0.285814, 0.115102, 0.951347, -0.746018, 1.623, 0.00113832)
 bones/50/enabled = true
 bones/50/position = Vector3(-0.0616425, 1.3883, 0.261503)
-bones/50/rotation = Quaternion(0.00826168, 0.717731, 0.665117, 0.205945)
+bones/50/rotation = Quaternion(0.00826165, 0.717731, 0.665117, 0.205945)
 bones/50/scale = Vector3(1, 1, 1)
 bones/51/name = "smg"
 bones/51/parent = 50
@@ -3542,13 +3579,20 @@ bones/51/rotation = Quaternion(0.00826168, 0.717731, 0.665117, -0.205945)
 bones/51/scale = Vector3(0.0342594, 0.0342594, 0.0342594)
 
 [node name="smg" type="BoneAttachment3D" parent="smg_rig_1/rig/Skeleton3D"]
-transform = Transform3D(0.0342594, 0, 8.73115e-10, 9.31323e-10, 0.0342594, -2.67755e-09, 8.44011e-10, -2.67755e-09, 0.0342594, -0.0509005, 1.46853, 0.427497)
+transform = Transform3D(0.0342594, -9.31323e-10, 9.02219e-10, 9.31323e-10, 0.0342594, 1.74623e-09, 5.23869e-10, -7.10133e-09, 0.0342594, -0.0509005, 1.46853, 0.427497)
 bone_name = "smg"
 bone_idx = 51
 
 [node name="smg" type="MeshInstance3D" parent="smg_rig_1/rig/Skeleton3D/smg"]
 mesh = SubResource("ArrayMesh_sfbry")
 skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="smg_rig_1/rig/Skeleton3D/smg"]
+transform = Transform3D(0.000105198, -133.035, 4.29568e-05, 1.45519e-11, -5.81513e-06, -32.453, 133.035, 0.000107567, -1.04954e-05, 1.82931, 0.422625, 14.6715)
+visible = false
+light_color = Color(0.999071, 0.383424, 3.85046e-07, 1)
+light_energy = 5.0
+omni_range = 10.0
 
 [node name="Cube" type="MeshInstance3D" parent="smg_rig_1/rig/Skeleton3D"]
 mesh = SubResource("ArrayMesh_biuvb")

@@ -28,5 +28,12 @@ func spawn_objects():
 		left_to_spawn -= 1
 
 
-func _on_generic_button_pressed() -> void:
+
+
+func _on_spawntrigger_body_entered(body):
+	if body.is_in_group("Player"):
+		spawn_objects()
+
+
+func _on_security_button_2_pressed():
 	spawn_objects()

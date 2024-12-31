@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://dxxemvynrimqw"]
+[gd_scene load_steps=11 format=4 uid="uid://dxxemvynrimqw"]
 
 [ext_resource type="Script" path="res://addons/cogito/Wieldables/wieldable_pickaxe.gd" id="1_hb7ed"]
 [ext_resource type="AudioStream" uid="uid://ocm2blyfthyq" path="res://addons/cogito/Assets/Audio/Kenney/woosh1.ogg" id="2_hp6wh"]
 [ext_resource type="AnimationLibrary" uid="uid://da3y5068fwwbq" path="res://addons/cogito/Wieldables/Animations/Wieldable_Pickaxe.res" id="3_cqo2g"]
 [ext_resource type="Script" path="res://addons/cogito/Assets/Shader/ViewmodelSpace.gd" id="4_0jrxw"]
+[ext_resource type="PackedScene" uid="uid://b5m241a5oymrp" path="res://addons/cogito/BS Assets/blade1.glb" id="4_6idtn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_caeak"]
 resource_name = "wood"
@@ -70,7 +71,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1wmi8")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5dkwl"]
-size = Vector3(0.2, 0.2, 0.2)
+size = Vector3(0.411035, 0.573035, 0.2)
 
 [node name="Pickaxe" type="Node3D" node_paths=PackedStringArray("damage_area", "wieldable_mesh")]
 transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 0.325805, -0.279839, -0.531526)
@@ -85,14 +86,18 @@ script = ExtResource("4_0jrxw")
 
 [node name="toolPickaxe" type="MeshInstance3D" parent="PickaxeMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0414924, -0.1011, 1.49012e-07)
+visible = false
 mesh = SubResource("ArrayMesh_nn555")
 skeleton = NodePath("")
+
+[node name="blade1" parent="PickaxeMesh" instance=ExtResource("4_6idtn")]
+transform = Transform3D(-4.37108e-10, 0, 0.01, 0, 0.01, 0, -0.01, 0, -4.37108e-10, 0.028348, 0.104908, 8.9407e-08)
 
 [node name="DamageArea" type="Area3D" parent="PickaxeMesh"]
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickaxeMesh/DamageArea"]
-transform = Transform3D(1, 0, -5.13865e-11, 0, 1, 0, 5.13865e-11, 0, 1, 0.304825, 0.538461, 0.00173935)
+transform = Transform3D(1, 0, -5.13865e-11, 0, 1, 0, 5.13865e-11, 0, 1, 0.199307, 0.425845, 0.00173935)
 shape = SubResource("BoxShape3D_5dkwl")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
@@ -102,3 +107,4 @@ bus = &"SFX"
 libraries = {
 "": ExtResource("3_cqo2g")
 }
+speed_scale = 3.0

@@ -7,11 +7,18 @@ extends Area3D
 
 var current_scene_statename : String
 var current_scene_filepath : String
+var can_monitor
 
 func _ready():
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 	
+func toggle_monitoring():
+	can_monitor = !can_monitor
+	if can_monitor:
+		self.monitoring = true
+	else:
+		self.monitoring = false
 	
 func _on_body_entered(body: Node3D):
 	if !body.is_in_group("Player"):

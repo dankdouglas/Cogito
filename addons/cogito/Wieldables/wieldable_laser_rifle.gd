@@ -54,8 +54,8 @@ func _physics_process(delta: float) -> void:
 	
 	recover_recoil(delta)
 	var camera = get_node_or_null("/root/Node3D/CogitoPlayer/Body/Neck/Head")
-	camera.rotation_degrees.x += recoil_offset.y
-	camera.rotation_degrees.y += recoil_offset.x
+	#camera.rotation_degrees.x += recoil_offset.y
+	#camera.rotation_degrees.y += recoil_offset.x
 
 func action_primary(_passed_item_reference : InventoryItemPD, _is_released: bool):
 	inventory_item_reference = _passed_item_reference

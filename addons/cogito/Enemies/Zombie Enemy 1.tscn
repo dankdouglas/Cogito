@@ -51,7 +51,6 @@ stream_3/stream = ExtResource("13_len0k")
 stream_4/stream = ExtResource("14_mkw60")
 
 [node name="ZombieEnemy" type="CharacterBody3D"]
-motion_mode = 1
 script = ExtResource("1_nabmk")
 attack_range = 2.0
 attack_stagger = 20.0
@@ -62,10 +61,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_p3jhp")
 
 [node name="IndicatorLight" type="OmniLight3D" parent="."]
-transform = Transform3D(-0.707107, -0.183013, -0.683013, 0, 0.965926, -0.258819, 0.707107, -0.183013, -0.683013, 0.0609554, 1.39668, -0.681181)
+transform = Transform3D(-0.707107, -0.183013, -0.683013, 0, 0.965926, -0.258819, 0.707107, -0.183013, -0.683013, 0.0609554, 1.25835, -0.353756)
 visible = false
 light_color = Color(1, 0, 0, 1)
-light_energy = 0.1
+light_energy = 0.001
+omni_range = 0.289
 
 [node name="Mesh_Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)

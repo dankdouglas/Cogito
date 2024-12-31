@@ -189,7 +189,7 @@ func _look_at_target_interpolated(look_direction: Vector3) -> void:
 
 
 func _target_in_range() -> bool:
-	print(chase_target.global_position.length())
+	#print(chase_target.global_position.length())
 	return global_position.distance_to(chase_target.global_position) < attack_range
 
 

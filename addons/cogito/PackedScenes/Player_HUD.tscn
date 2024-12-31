@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://0c32kepv0ahx"]
+[gd_scene load_steps=27 format=3 uid="uid://0c32kepv0ahx"]
 
 [ext_resource type="Script" path="res://addons/cogito/Scripts/player_hud_manager.gd" id="1_0wdkf"]
 [ext_resource type="PackedScene" uid="uid://dhlrhobg5d4dj" path="res://addons/cogito/Components/UI/UI_PromptComponent.tscn" id="3_06ipe"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bnqnuewmntcyp" path="res://addons/cogito/Assets/Audio/Kenney/UiAudio/error_008.ogg" id="8_bxpra"]
 [ext_resource type="Texture2D" uid="uid://78js4558o61m" path="res://addons/cogito/Assets/Graphics/ItemIcons/Cogito_Pistol.png" id="9_1l2nt"]
 [ext_resource type="Texture2D" uid="uid://cxvxq8hy53ih5" path="res://addons/cogito/Assets/Graphics/ItemIcons/Cogito_FoamBullets.png" id="10_bnneb"]
+[ext_resource type="FontFile" uid="uid://ce2derqmnmsxi" path="res://addons/cogito/BS Assets/enter_the_gungeon_small/enter-the-gungeon-small.ttf" id="12_hui6h"]
 [ext_resource type="PackedScene" uid="uid://btf6bmlgtfk1b" path="res://addons/cogito/Components/DynamicInputIcon.tscn" id="12_jgxar"]
 [ext_resource type="Script" path="res://addons/cogito/QuestSystem/Components/ui_quest_hud.gd" id="15_kn51k"]
 [ext_resource type="PackedScene" uid="uid://dh4yhqd73trwx" path="res://addons/cogito/QuestSystem/Components/QuestEntry.tscn" id="16_qsjbq"]
@@ -25,9 +26,11 @@
 blend_mode = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_q4xln"]
+font = ExtResource("12_hui6h")
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_ossw8"]
+font = ExtResource("12_hui6h")
 font_size = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eka6m"]
@@ -137,10 +140,6 @@ script = ExtResource("8_2nbvg")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer_BottomUI/WieldableHud"]
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer_BottomUI/WieldableHud/MarginContainer"]
 layout_mode = 2
@@ -289,8 +288,6 @@ offset_top = -37.0
 offset_right = 255.0
 offset_bottom = -5.0
 grow_vertical = 0
-theme = ExtResource("5_j6s1a")
-theme_type_variation = &"HUDPanel"
 
 [node name="InfoPanel" type="PanelContainer" parent="InventoryInterface"]
 custom_minimum_size = Vector2(200, 10)
@@ -482,7 +479,8 @@ layout_mode = 2
 theme = ExtResource("5_j6s1a")
 theme_type_variation = &"PromptLabel"
 theme_override_font_sizes/font_size = 24
-text = "Quests"
+text = "Objectives
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 

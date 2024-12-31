@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CogitoQuest" load_steps=2 format=3 uid="uid://buofh4clxxsoa"]
+
+[ext_resource type="Script" path="res://addons/cogito/QuestSystem/CustomResources/cogito_quest.gd" id="1_jjjk1"]
+
+[resource]
+script = ExtResource("1_jjjk1")
+id = 0
+quest_name = "BasicActions1"
+quest_title = "Tutorial Quest"
+quest_description_active = "The instructions for your objective are just to return to the start of the level"
+quest_description_completed = "You completed the quest.
+this is the end of the tutorial."
+quest_description_failed = "You failed this quest."
+quest_counter_current = 0
+quest_counter_goal = 0

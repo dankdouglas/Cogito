@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b811duxf0uk2e"
-path.s3tc="res://.godot/imported/magnumicon.png-75fa5d5017028c6fb7834bfec5fcb416.s3tc.ctex"
+path="res://.godot/imported/MagnumIcon.png-473446d490e2559f6762dda7ed9bb038.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/cogito/BS Assets/magnumicon.png"
-dest_files=["res://.godot/imported/magnumicon.png-75fa5d5017028c6fb7834bfec5fcb416.s3tc.ctex"]
+source_file="res://addons/cogito/BS Assets/MagnumIcon.png"
+dest_files=["res://.godot/imported/MagnumIcon.png-473446d490e2559f6762dda7ed9bb038.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

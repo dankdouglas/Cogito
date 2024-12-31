@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://b5ukfmvoxa33e"]
+[gd_scene load_steps=18 format=4 uid="uid://b5ukfmvoxa33e"]
 
 [ext_resource type="Script" path="res://addons/cogito/CogitoObjects/cogito_object.gd" id="1_cysft"]
 [ext_resource type="PackedScene" uid="uid://1xq4y42qkcur" path="res://addons/cogito/Components/Interactions/PickupComponent.tscn" id="1_prphd"]
 [ext_resource type="Resource" uid="uid://cvupo3p844nh2" path="res://addons/cogito/InventoryPD/Items/Cogito_LaserAmmo.tres" id="2_g3bxg"]
 [ext_resource type="Script" path="res://addons/cogito/InventoryPD/CustomResources/InventorySlotPD.gd" id="3_tljcd"]
+[ext_resource type="Texture2D" uid="uid://cq6u3a8c0g4ox" path="res://addons/cogito/BS Assets/MagAmmo_MAG ammo tex.png" id="5_cofqx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_biddi"]
 resource_name = "metal"
@@ -103,27 +104,83 @@ emission = Color(1, 0.384314, 1, 1)
 emission_energy_multiplier = 2.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2t3bq"]
-size = Vector3(0.0606506, 0.234888, 0.148291)
+size = Vector3(0.119106, 0.308112, 0.37179)
 
-[sub_resource type="Resource" id="Resource_krt24"]
+[sub_resource type="Resource" id="Resource_2muro"]
 resource_local_to_scene = true
 script = ExtResource("3_tljcd")
 inventory_item = ExtResource("2_g3bxg")
 quantity = 1
 origin_index = -1
 
-[node name="pickup_laser_ammo" type="RigidBody3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7008l"]
+resource_name = "Material"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("5_cofqx")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fjkwu"]
+_surfaces = [{
+"aabb": AABB(-1, -0.76749, -1.59004, 2, 1.53498, 3.18008),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAAGAAQAAAACAAYACgAGAAIACgAJAAYACQAEAAYACQALAAQABQADAAEABQAHAAMACAACAAAACAAKAAIACwAAAAQACwAIAAAABQAIAAsABQABAAgAAQAKAAgAAQADAAoABwALAAkABwAFAAsAAwAJAAoAAwAHAAkA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/////wAAAAD//wAAAAAAAP///////wAA//8AAP//AAAAAP//AAAAAAAAAAAAAAAAAAD/////AAAAAAAA//8AAP///38AAAAAAAD/f///AAD///9///8AAAAA/38AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d77ux"]
+resource_name = "MagAmmo_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -0.76749, -1.59004, 2, 1.53498, 3.18008),
+"attribute_data": PackedByteArray("1lXTVNNUff+BAIEAKKrTVCiq1lXTVIEAgQDWVYEAff+BANNU01TWVdZV1lXTVNNU1lWBANNUhK/WVX3/KKqBACiqKKooqn3/gQAoqoEAhK/WVSur01QoqtZVKKooqiur/3/TVKoqgQCqKiiq/38rq6oq1lWqKtNU/3+BAP9/ff8="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AQATAA0AAQAHABMAHAASAAYAHAAaABIAGwAOABQAGwAfAA4AEAAKAAQAEAAWAAoAGQAIAAIAGQAdAAgAHgAAAAwAHgAYAAAADwAYAB4ADwADABgABQAdABkABQALAB0AFwAfABsAFwARAB8ACQAaABwACQAVABoA"),
+"material": SubResource("StandardMaterial3D_7008l"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("/////wAA////////AABU1f////8AAFTV//8AAAAA/////wAAAABU1f//AAAAAFTV/////////7////////9U1f///////1TV//8AAP///7///wAA//9U1f//AAD//1TVAAD//wAA//8AAP//AABU1QAA//8AAFTVAAAAAAAA//8AAAAAAABU1QAAAAAAAFTVAAD//////78AAP////9U1QAA/////1TVAAAAAP///78AAAAA//9U1QAAAAD//1TV////fwAA//////9/AABU1QAA/3////+/AAD/f///VNX///9/////v////3///1TVAAD/fwAA//8AAP9/AABU1f8//79U1aoqqqpUVf+//z9VVVRVqqpUVf9//39U1aoqqqpUVf9//39UVVRVqqpUVf8//79U1aoqVFWpqv+//z9UVVRVVFWqqv9//39U1aoqVFWpqv9//39UVVRVVFWqqv+//z+qqlRV/3//f1RVqar/f/9/qqpUVf+//z9UVaqq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fjkwu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ic15d"]
+resource_name = "Material"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0.41, 1, 0.488667, 1)
+albedo_texture = ExtResource("5_cofqx")
+texture_filter = 2
+
+[node name="pickup_smg_ammo" type="RigidBody3D"]
 collision_layer = 3
 script = ExtResource("1_cysft")
 
 [node name="clipA" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("ArrayMesh_mvtnv")
 skeleton = NodePath("")
 surface_material_override/2 = SubResource("StandardMaterial3D_cklr6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, -8.35187e-23, 0, 1, 0, -8.35187e-23, 0, 1, -0.000118852, -0.00277138, -0.000561476)
+transform = Transform3D(1, 0, -8.35187e-23, 0, 1, 0, -8.35187e-23, 0, 1, 0.00172976, -0.00203586, -0.00558467)
 shape = SubResource("BoxShape3D_2t3bq")
 
 [node name="PickupComponent" parent="." instance=ExtResource("1_prphd")]
-slot_data = SubResource("Resource_krt24")
+slot_data = SubResource("Resource_2muro")
+
+[node name="MagAmmo" type="Node3D" parent="."]
+transform = Transform3D(0.06, 0, 0, 0, 0.215, 0, 0, 0, 0.115, 0, 0, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="MagAmmo"]
+mesh = SubResource("ArrayMesh_d77ux")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_ic15d")

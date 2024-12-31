@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3m4ni301eso7"]
+[gd_scene load_steps=13 format=3 uid="uid://d3m4ni301eso7"]
 
 [ext_resource type="Script" path="res://addons/cogito/CogitoObjects/cogito_object.gd" id="1_2lkyl"]
 [ext_resource type="AudioStream" uid="uid://cqgsihtcw0gl4" path="res://addons/cogito/Assets/Audio/Kenney/UiAudio/rollover1.ogg" id="2_4d2c8"]
 [ext_resource type="AudioStream" uid="uid://1w0db1u6lv7t" path="res://addons/cogito/Assets/Audio/Kenney/UiAudio/rollover6.ogg" id="3_p1e4y"]
 [ext_resource type="PackedScene" uid="uid://cio4x05ipvslu" path="res://addons/cogito/Components/Interactions/CarryableComponent.tscn" id="4_fui0y"]
+[ext_resource type="Texture2D" uid="uid://dow8c2rew4f8o" path="res://addons/cogito/BS Assets/gridtex white.jpg" id="5_atc6c"]
 [ext_resource type="PackedScene" uid="uid://cj0yaeh3yg7tu" path="res://addons/cogito/Components/Properties/CogitoProperties.tscn" id="5_vvdy3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2t7p8"]
@@ -12,6 +13,7 @@ subdivide_width = 9
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmnvw"]
 albedo_color = Color(0.580392, 0.403922, 0.25098, 1)
+albedo_texture = ExtResource("5_atc6c")
 
 [sub_resource type="BoxMesh" id="BoxMesh_dya1i"]
 size = Vector3(0.8, 0.1, 0.1)
@@ -27,8 +29,8 @@ size = Vector3(1, 0.1, 0.1)
 [node name="CarriableBox" type="RigidBody3D"]
 collision_layer = 3
 mass = 4.0
-max_contacts_reported = 10
 contact_monitor = true
+max_contacts_reported = 10
 script = ExtResource("1_2lkyl")
 
 [node name="CarryableComponent" parent="." instance=ExtResource("4_fui0y")]

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dow8c2rew4f8o" path="res://addons/cogito/BS Assets/gridtex white.jpg" id="1_ex2lq"]
 
 [resource]
+albedo_color = Color(0.176419, 0.176419, 0.176419, 1)
 albedo_texture = ExtResource("1_ex2lq")
 uv1_scale = Vector3(0.333, 0.333, 0.333)
 uv1_offset = Vector3(0.5, 0.333, 0.5)

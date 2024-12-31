@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WieldableItemPD" load_steps=5 format=3 uid="uid://dnfvmhqo77g6h"]
 
-[ext_resource type="Texture2D" uid="uid://b811duxf0uk2e" path="res://addons/cogito/BS Assets/magnumicon.png" id="1_57t28"]
+[ext_resource type="Texture2D" uid="uid://cbr3imrhndv7n" path="res://addons/cogito/BS Assets/PistolIcon.png" id="1_tq84b"]
 [ext_resource type="Script" path="res://addons/cogito/InventoryPD/CustomResources/WieldableItemPD.gd" id="2_m6ql7"]
 [ext_resource type="AudioStream" uid="uid://npav2p2tk10i" path="res://addons/cogito/Assets/Audio/Kenney/handleSmallLeather.ogg" id="3_abvvp"]
 [ext_resource type="PackedScene" uid="uid://c4stqjo2pyoh3" path="res://addons/cogito/Wieldables/wieldable_handgun.tscn" id="4_tjpx8"]
@@ -8,21 +8,22 @@
 [resource]
 script = ExtResource("2_m6ql7")
 wieldable_scene = ExtResource("4_tjpx8")
-wieldable_data_icon = ExtResource("1_57t28")
+wieldable_data_icon = ExtResource("1_tq84b")
 no_reload = false
 hint_on_empty = "Out of bullets."
 charge_max = 10.0
-ammo_item_name = "Foam Bullets"
+ammo_item_name = "Pistol Ammo"
 charge_current = 10.0
 wieldable_range = 1000.0
 wieldable_damage = 1.0
 name = "handgun"
 description = "9mm"
-icon = ExtResource("1_57t28")
+icon = ExtResource("1_tq84b")
 is_stackable = false
 is_droppable = true
 stack_size = 0
 drop_scene = "res://addons/cogito/PackedScenes/Pickups/pickup_handgun.tscn"
+hint_icon_on_use = ExtResource("1_tq84b")
 hint_text_on_use = ""
 item_size = Vector2(1, 1)
 sound_pickup = ExtResource("3_abvvp")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5g4fngkh8fcy"
+path="res://.godot/imported/Halo 2 – Flood Infested Corridors Ambience 4.mp3-95adcea23c5b4e30dc9d9b481dc82e9b.mp3str"
+
+[deps]
+
+source_file="res://addons/cogito/BS Assets/Halo 2 – Flood Infested Corridors Ambience 4.mp3"
+dest_files=["res://.godot/imported/Halo 2 – Flood Infested Corridors Ambience 4.mp3-95adcea23c5b4e30dc9d9b481dc82e9b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

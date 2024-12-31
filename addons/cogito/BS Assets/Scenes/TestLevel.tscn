@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://78ijq4suhymn"]
+[gd_scene load_steps=51 format=4 uid="uid://78ijq4suhymn"]
 
 [ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="1_tr4um"]
 [ext_resource type="Script" path="res://addons/cogito/SceneManagement/cogito_scene.gd" id="2_aj5jq"]
@@ -28,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://bekq2c16juwa1" path="res://addons/cogito/PackedScenes/Pickups/pickup_dart.tscn" id="25_pb8c1"]
 [ext_resource type="PackedScene" uid="uid://c2r7ib4rrrdfj" path="res://addons/cogito/DemoScenes/DemoPrefabs/ksi_table_long.tscn" id="26_bsawi"]
 [ext_resource type="Script" path="res://addons/cogito/Scripts/cogito_spawnzone.gd" id="27_gu5cc"]
+[ext_resource type="PackedScene" uid="uid://bn46d6e3pk5eu" path="res://addons/cogito/Enemies/Zombie Enemy 1.tscn" id="32_jpphy"]
+[ext_resource type="Script" path="res://addons/cogito/Scripts/scene_transition_zone.gd" id="33_gm0gs"]
 [ext_resource type="Script" path="res://addons/cogito/Enemies/cogito_patrol_path.gd" id="34_naxr5"]
 [ext_resource type="PackedScene" uid="uid://b2sf7lw1vuact" path="res://addons/cogito/Enemies/Shooter Enemy 1.tscn" id="36_l8yni"]
 [ext_resource type="PackedScene" uid="uid://jfhjbm5mopko" path="res://addons/cogito/PackedScenes/Pickups/pickup_handgun.tscn" id="37_x4gkf"]
@@ -156,8 +158,17 @@ size = Vector3(5, 3.3, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fe53"]
 size = Vector3(7.6, 2.52949, 7.69082)
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_axism"]
+size = Vector3(0.0408203, 0.0462639, 0.0609223)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_42x86"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e04y0"]
+size = Vector3(2.1, 3, 1.78258)
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("connectors")]
 script = ExtResource("2_aj5jq")
+connectors = [NodePath("ConnectorFromTest3")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -194,31 +205,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27857, -0.62288, 3.21718)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77383, 0.433327, 4.55981)
 
 [node name="Pickup_LaserRifle" parent="." instance=ExtResource("12_s8iyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09433, 0, 1.24408)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.46135, 0.370844, -1.09078)
+freeze = true
 
 [node name="pickup_laser_ammo" parent="." instance=ExtResource("13_y1hce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31856, 0.40304, -3.85351)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31856, 0.40304, -4.11906)
 
 [node name="pickup_laser_ammo2" parent="." instance=ExtResource("13_y1hce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.236981, 0.40304, -3.85351)
-
-[node name="pickup_laser_ammo3" parent="." instance=ExtResource("13_y1hce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31856, 0.670908, -3.85351)
-
-[node name="pickup_laser_ammo4" parent="." instance=ExtResource("13_y1hce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.236981, 0.670908, -3.85351)
-
-[node name="pickup_laser_ammo5" parent="." instance=ExtResource("13_y1hce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31856, 0.926726, -3.85351)
-
-[node name="pickup_laser_ammo6" parent="." instance=ExtResource("13_y1hce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.236981, 0.926726, -3.85351)
-
-[node name="pickup_laser_ammo7" parent="." instance=ExtResource("13_y1hce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31856, 1.1749, -3.85351)
-
-[node name="pickup_laser_ammo8" parent="." instance=ExtResource("13_y1hce")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.236981, 1.1749, -3.85351)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170336, 0.40304, -4.04391)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_y6tkg")
@@ -475,43 +469,44 @@ transform = Transform3D(-0.208532, 0, 0.190647, 0, 0.279729, 0, -0.2727, 0, -0.1
 transform = Transform3D(0.2727, 0, 0.145787, 0, 0.279729, 0, -0.208532, 0, 0.190647, -0.469201, 9.33577, -20.0219)
 
 [node name="pickup_magnum" parent="." instance=ExtResource("17_wsbxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.474841, 0.449202, -3.98085)
+transform = Transform3D(-0.0744218, 0, 0.997227, 0, 1, 0, -0.997227, 0, -0.0744218, -1.4358, 0.856596, -1.43566)
+freeze = true
 
 [node name="projectile_pistol" parent="." instance=ExtResource("20_dcc56")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.920509, 0, -4.19544)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.802728, 0.359973, -3.84698)
 
 [node name="projectile_pistol3" parent="." instance=ExtResource("20_dcc56")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.920509, 0.20047, -4.19544)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.802728, 0.560443, -3.84698)
 
 [node name="projectile_pistol4" parent="." instance=ExtResource("20_dcc56")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.920509, 0.380281, -4.19544)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.802728, 0.740254, -3.84698)
 
 [node name="projectile_pistol7" parent="." instance=ExtResource("20_dcc56")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.02245, 0, -3.54108)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.737213, 0.352177, -4.3175)
 
 [node name="projectile_pistol8" parent="." instance=ExtResource("20_dcc56")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.02245, 0.20047, -3.54108)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.737213, 0.552647, -4.3175)
 
 [node name="projectile_pistol9" parent="." instance=ExtResource("20_dcc56")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.02245, 0.380281, -3.54108)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.737213, 0.732458, -4.3175)
 
 [node name="projectile_pistol10" parent="." instance=ExtResource("20_dcc56")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.02245, 0, -3.2767)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.737213, 0.352177, -4.05312)
 
 [node name="projectile_pistol11" parent="." instance=ExtResource("20_dcc56")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.02245, 0.20047, -3.2767)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.737213, 0.552647, -4.05312)
 
 [node name="projectile_pistol12" parent="." instance=ExtResource("20_dcc56")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.02245, 0.380281, -3.2767)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.737213, 0.732458, -4.05312)
 
 [node name="projectile_pistol2" parent="." instance=ExtResource("21_xm00a")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.920509, 0, -3.98945)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.31705, 0.5252, -3.98945)
 
 [node name="projectile_pistol5" parent="." instance=ExtResource("21_xm00a")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.920509, 0.148485, -3.82758)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.284075, 0.510311, -3.82758)
 
 [node name="projectile_pistol6" parent="." instance=ExtResource("21_xm00a")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.920509, 0.529647, -4.19367)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.354638, 0.529647, -4.19367)
 
 [node name="CogitoEnemy2" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("5_kgcxn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0243, -0.499999, -11.4135)
@@ -546,7 +541,8 @@ attack_range = 5.0
 attack_interval = 1.0
 
 [node name="pickup_pistol" parent="." instance=ExtResource("37_x4gkf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.298877, 0.194652, -3.01703)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.47516, 0.838008, -0.762303)
+freeze = true
 
 [node name="QUESTS" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77383, 0.433327, 4.55981)
@@ -570,8 +566,43 @@ update_type = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.31475, -1.04541)
 shape = SubResource("BoxShape3D_7fe53")
 
+[node name="ZombieEnemy" parent="." instance=ExtResource("32_jpphy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3336, -0.499999, -16.0721)
+
+[node name="Spawnzone" type="Area3D" parent="." node_paths=PackedStringArray("spawn_area")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0397, 0.642713, 5.34759)
+script = ExtResource("27_gu5cc")
+spawn_area = NodePath("CollisionShape3D")
+spawn_amount = 1
+object_to_spawn = ExtResource("32_jpphy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spawnzone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.394922, 0.373276, -0.320989)
+shape = SubResource("BoxShape3D_axism")
+
+[node name="spawntrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.80963, 0, 6.04621)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawntrigger"]
+shape = SubResource("BoxShape3D_42x86")
+
+[node name="ConnectorFromTest3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.9679, 1.2752, 2.80107)
+
+[node name="TransitionZone_LOBBY" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.5467, 1.31719, 8.35429)
+script = ExtResource("33_gm0gs")
+path_to_new_scene = "res://addons/cogito/BS Assets/Scenes/TestLevel3.tscn"
+target_connector = "ConnectorFromTest"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionZone_LOBBY"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25871)
+shape = SubResource("BoxShape3D_e04y0")
+
 [connection signal="pressed" from="NavigationRegion3D/SHOOTING_RANGE/KSI_console_spawn/GenericButton" to="NavigationRegion3D/SHOOTING_RANGE/Spawnzone_Targets" method="_on_generic_button_pressed"]
 [connection signal="body_entered" from="QUESTS/Archive_QuestStarter" to="QUESTS/Archive_QuestStarter" method="_on_body_entered"]
+[connection signal="area_entered" from="QUESTS/Archive_QuestEnder" to="Spawnzone" method="spawn_objects"]
 [connection signal="body_entered" from="QUESTS/Archive_QuestEnder" to="QUESTS/Archive_QuestEnder" method="_on_body_entered"]
+[connection signal="body_entered" from="spawntrigger" to="Spawnzone" method="_on_spawntrigger_body_entered"]
 
 [editable path="HazardZone"]

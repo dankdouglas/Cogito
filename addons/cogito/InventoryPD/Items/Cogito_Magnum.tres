@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WieldableItemPD" load_steps=5 format=3 uid="uid://lc5uq2e6ldah"]
 
-[ext_resource type="Texture2D" uid="uid://b811duxf0uk2e" path="res://addons/cogito/BS Assets/magnumicon.png" id="1_72u0q"]
+[ext_resource type="Texture2D" uid="uid://b811duxf0uk2e" path="res://addons/cogito/BS Assets/MagnumIcon.png" id="1_l8fag"]
 [ext_resource type="Script" path="res://addons/cogito/InventoryPD/CustomResources/WieldableItemPD.gd" id="2_lej2w"]
 [ext_resource type="AudioStream" uid="uid://npav2p2tk10i" path="res://addons/cogito/Assets/Audio/Kenney/handleSmallLeather.ogg" id="3_ndqq7"]
 [ext_resource type="PackedScene" uid="uid://cwoyq8vpvqf4c" path="res://addons/cogito/Wieldables/wieldable_magnum.tscn" id="4_5h5bv"]
@@ -8,21 +8,22 @@
 [resource]
 script = ExtResource("2_lej2w")
 wieldable_scene = ExtResource("4_5h5bv")
-wieldable_data_icon = ExtResource("1_72u0q")
+wieldable_data_icon = ExtResource("1_l8fag")
 no_reload = false
 hint_on_empty = "Out of bullets."
 charge_max = 6.0
-ammo_item_name = "Foam Bullets"
+ammo_item_name = "Pistol Ammo"
 charge_current = 6.0
 wieldable_range = 1000.0
 wieldable_damage = 3.0
 name = "magnum"
 description = ".357 Action Express"
-icon = ExtResource("1_72u0q")
+icon = ExtResource("1_l8fag")
 is_stackable = false
 is_droppable = true
 stack_size = 0
 drop_scene = "res://addons/cogito/PackedScenes/Pickups/pickup_magnum.tscn"
+hint_icon_on_use = ExtResource("1_l8fag")
 hint_text_on_use = ""
 item_size = Vector2(1, 1)
 sound_pickup = ExtResource("3_ndqq7")

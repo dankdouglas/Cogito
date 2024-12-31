@@ -11,7 +11,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ne7t1"]
 size = Vector3(0.155273, 0.318115, 0.198975)
 
-[sub_resource type="Resource" id="Resource_cqbw7"]
+[sub_resource type="Resource" id="Resource_v8vb1"]
 resource_local_to_scene = true
 script = ExtResource("4_7ow7p")
 inventory_item = ExtResource("3_oeya6")
@@ -37,7 +37,7 @@ shape = SubResource("BoxShape3D_ne7t1")
 wait_time = 300000.0
 
 [node name="PickupComponent" parent="." instance=ExtResource("2_rlhfc")]
-slot_data = SubResource("Resource_cqbw7")
+slot_data = SubResource("Resource_v8vb1")
 
 [node name="CogitoProperties" parent="." instance=ExtResource("5_3fqel")]
 material_properties = 1
