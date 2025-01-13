@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dbgoiiwdusib3"]
+
+[ext_resource type="Texture2D" uid="uid://c4qstt14wdxpo" path="res://addons/cogito/BS Assets/Crate1Tex.png" id="1_7tdfg"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_7tdfg")
+metallic = 1.0

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/cogito/SceneManagement/cogito_scene.gd" id="1_sbljb"]
 [ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="2_3qbcc"]
-[ext_resource type="Material" uid="uid://bvpu56l8mn86k" path="res://addons/cogito/BS Assets/materials/white tile.tres" id="3_x6lxw"]
+[ext_resource type="Material" uid="uid://bvpu56l8mn86k" path="res://addons/cogito/BS Assets/materials/grey tile.tres" id="3_x6lxw"]
 [ext_resource type="PackedScene" uid="uid://jfhjbm5mopko" path="res://addons/cogito/PackedScenes/Pickups/pickup_handgun.tscn" id="4_nb5fe"]
 [ext_resource type="PackedScene" uid="uid://biip7gfisplt5" path="res://addons/cogito/PackedScenes/Magnum_Ammo_Large.tscn" id="5_mmu24"]
 [ext_resource type="Script" path="res://addons/cogito/CogitoObjects/cogito_static_interactable.gd" id="8_r6jb5"]

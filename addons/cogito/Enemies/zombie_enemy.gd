@@ -27,9 +27,11 @@ var attack_cooldown : float = 0 #Value used for attack frequency
 
 enum EnemyState{
 	IDLE,
+	AMBUSH,
 	PATROLLING,
 	AWARE,
 	CHASING,
+	INVESTIGATE,
 	DEAD
 }
 
@@ -41,6 +43,8 @@ enum EnemyState{
 @export var patrol_speed: float = 3.0
 ### List of patrol points which the enemy will move to in order.
 #@export var patrol_points : Array[Node3D]
+@onready var known_position = $Target
+
 ## Reference to Patrol Path Node
 @export var patrol_path : CogitoPatrolPath
 ## Distance threshold in which the enemy will stop (to make patrolling smoother)
@@ -112,31 +116,51 @@ func _physics_process(delta: float) -> void:
 			pass
 		EnemyState.CHASING:
 			handle_chasing(delta)
+		EnemyState.INVESTIGATE:
+			handle_invetsigate(delta)
 		EnemyState.IDLE:
-			animation_player.play("Armature_001|mixamo_com|Layer0")
+			animation_player.play("idle")
+		EnemyState.AMBUSH:
+			animation_player.play("crouch")
 		EnemyState.DEAD:
 			pass
 	
 	if footsteps_enabled:
 		npc_footsteps(delta)
-	
+
+
 func handle_chasing(_delta: float):
-	animation_player.play("Armature|mixamo_com|Layer0")
+	#animation_player.play("run")
 	#Currently just chasing the player. TODO: Change to have a dynamic target.
 	chase_target = CogitoSceneManager._current_player_node
-	
+	known_position.global_position = chase_target.global_position
 	# This is basically a lerped look-at
-	_look_at_target_interpolated(chase_target.global_position)
-	print(_target_in_range())
+	var look_ahead := Vector3(global_position.x + velocity.x, global_position.y, global_position.z + velocity.z)
+	_look_at_target_interpolated(look_ahead)
 	if _target_in_range():
-		
 		is_waiting = true
 		if attack_cooldown <= 0:
-			attack(chase_target)
+			_look_at_target_interpolated(chase_target.global_position)
+			animation_player.play("attack")
+			#attack(chase_target)
 	else:
+		_look_at_target_interpolated(chase_target.global_position)
+		animation_player.play("run")
 		is_waiting = false
 		move_toward_target(chase_target,chase_speed)
-
+		
+func handle_invetsigate(_delta: float):
+	#animation_player.play("run")
+	#Currently just chasing the player. TODO: Change to have a dynamic target.
+	chase_target = known_position
+	
+	if _target_in_range():
+		animation_player.play("look around")
+	else:
+		_look_at_target_interpolated(chase_target.global_position)
+		animation_player.play("run")
+		is_waiting = false
+		move_toward_target(chase_target,chase_speed)
 
 func handle_patrolling(_delta: float):
 	
@@ -146,14 +170,14 @@ func handle_patrolling(_delta: float):
 		return
 	
 	if !is_waiting:
-		animation_player.play("Armature|mixamo_com|Layer0")
+		animation_player.play("run")
 		if patrol_path.patrol_points.size() <= 0:
 			CogitoMain.debug_log(true,"cogito_basic_enemy.gd","Patrol points array is empty. Switching to idle.")
 			switch_to_idle()
 			return
 		if global_position.distance_to(patrol_path.patrol_points[patrol_point_index].global_position) < patrol_point_threshold:
 			is_waiting = true
-			animation_player.play("Armature_001|mixamo_com|Layer0")
+			animation_player.play("idle")
 			await get_tree().create_timer(patrol_point_wait_time).timeout
 			# Checking to see if we've reached the end of the patrol point list.
 			if patrol_point_index == patrol_path.patrol_points.size() - 1:
@@ -189,12 +213,10 @@ func _look_at_target_interpolated(look_direction: Vector3) -> void:
 
 
 func _target_in_range() -> bool:
-	#print(chase_target.global_position.length())
 	return global_position.distance_to(chase_target.global_position) < attack_range
 
 
 func attack(target: Node3D):
-	animation_player.play("Armature_002|mixamo_com|Layer0")
 	attack_cooldown = attack_interval
 	CogitoMain.debug_log(true,"cogito_basic_enemy.gd","Enemy attacks!")
 	var dir = global_position.direction_to(target.global_position)
@@ -205,6 +227,7 @@ func attack(target: Node3D):
 		target.apply_external_force(dir * attack_stagger)
 		#CogitoMain.debug_log(true,"cogito_basic_enemy.gd","Enemy attack: Applying vector " + dir * attack_stagger + " to target. Target.main_velocity = " + target.main_velocity.length())
 		target.decrease_attribute("health", attack_damage)
+	
 
 
 func switch_to_patrolling():
@@ -219,13 +242,17 @@ func switch_to_idle():
 	current_state = EnemyState.IDLE
 	
 
-
 func switch_to_chasing():
-	animation_player.play("Armature|mixamo_com|Layer0")
+	animation_player.play("run")
 	current_state = EnemyState.CHASING
-	print("baba booey")
+	
+func switch_to_investigation():
+	animation_player.play("run")
+	current_state = EnemyState.INVESTIGATE
 
-
+func start_attack():
+	attack(chase_target)
+	
 # Future method to set object state when a scene state file is loaded.
 func set_state():
 	#TODO: Find a way to possibly save health of health attribute.
@@ -271,6 +298,7 @@ func _on_interaction_raycast_interactable_seen(interactable):
 	if interactable is CogitoDoor:
 		interact_with_door(interactable)
 		
+
 func interact_with_door(door: CogitoDoor):
 	if door.is_locked:
 		CogitoMain.debug_log(true,"cogito_basic_enemy.gd","Door is locked.")
@@ -284,11 +312,11 @@ func interact_with_door(door: CogitoDoor):
 		else:
 			door.open_door(self)
 
+
 func load_patrol_points():
 	if patrol_path_nodepath:
 		CogitoMain.debug_log(true,"cogito_basic_enemy.gd","Loading patrol path: " + str(patrol_path_nodepath))
 		patrol_path = get_node(patrol_path_nodepath)
-
 
 # Function to handle persistence and saving
 func save():
@@ -325,3 +353,12 @@ func _on_body_exited(body: Node) -> void:
 	# Using this check to only call interactions on other Cogito Objects. #TODO: could be a better check...
 	if body.has_method("save") and cogito_properties:
 		cogito_properties.check_for_reaction_timer_interrupt(body)
+
+
+func _on_enemy_chase_tigger_body_entered(body):
+	if body.is_in_group("Player"):
+		switch_to_chasing()
+
+
+func _on_sight_timer_timeout():
+	switch_to_investigation()

@@ -1,0 +1,129 @@
+[gd_scene load_steps=13 format=3 uid="uid://vrlpjtcloqu0"]
+
+[ext_resource type="Script" path="res://addons/cogito/SceneManagement/cogito_scene.gd" id="1_84wlx"]
+[ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="2_mq141"]
+[ext_resource type="Material" uid="uid://dno6hpp0gwku7" path="res://addons/cogito/BS Assets/materials/white tile.tres" id="4_8jrqe"]
+[ext_resource type="PackedScene" uid="uid://jfhjbm5mopko" path="res://addons/cogito/PackedScenes/Pickups/pickup_handgun.tscn" id="5_08tnd"]
+[ext_resource type="PackedScene" uid="uid://biip7gfisplt5" path="res://addons/cogito/PackedScenes/Magnum_Ammo_Large.tscn" id="6_e30ft"]
+[ext_resource type="PackedScene" uid="uid://bn46d6e3pk5eu" path="res://addons/cogito/Enemies/Zombie Enemy 1.tscn" id="10_fwdxg"]
+[ext_resource type="Script" path="res://addons/cogito/Enemies/cogito_patrol_path.gd" id="19_o35j3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6drjb"]
+sky_top_color = Color(0.266575, 0.266575, 0.266575, 1)
+sky_horizon_color = Color(0.671824, 0.688842, 0.747207, 1)
+ground_bottom_color = Color(0.420719, 0.488794, 0.722254, 1)
+ground_horizon_color = Color(0.671824, 0.688842, 0.747207, 1)
+
+[sub_resource type="Sky" id="Sky_vu5qv"]
+sky_material = SubResource("ProceduralSkyMaterial_6drjb")
+
+[sub_resource type="Environment" id="Environment_otilr"]
+background_mode = 2
+background_energy_multiplier = 0.05
+sky = SubResource("Sky_vu5qv")
+tonemap_mode = 2
+glow_enabled = true
+fog_light_color = Color(0.234518, 0.257582, 0.29384, 1)
+fog_light_energy = 2.9
+fog_density = 0.1
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_26s43"]
+vertices = PackedVector3Array(7.25, 0.5, -2, 1.25, 0.5, -1.75, 1.25, 0.5, 0, 9, 0.5, 0, -0.75, 0.5, -15.75, 1, 0.5, -13.75, 7, 0.5, -14, 9, 0.5, -15.75, -0.75, 0.5, -1.75, 1, 0.5, -2, -0.75, 0.5, 0.75, 1, 0.5, 0.75)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 5), PackedInt32Array(5, 8, 4), PackedInt32Array(6, 7, 0), PackedInt32Array(0, 7, 3), PackedInt32Array(1, 2, 9), PackedInt32Array(9, 2, 11), PackedInt32Array(9, 11, 8), PackedInt32Array(8, 11, 10)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dqifb"]
+size = Vector3(3, 3, 3)
+
+[node name="Hallway1" type="Node3D" node_paths=PackedStringArray("connectors")]
+script = ExtResource("1_84wlx")
+connectors = [null]
+
+[node name="CogitoPlayer" parent="." instance=ExtResource("2_mq141")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_otilr")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_26s43")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
+material_override = ExtResource("4_8jrqe")
+use_collision = true
+
+[node name="box" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -6)
+flip_faces = true
+size = Vector3(3, 3, 15)
+
+[node name="box2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, -15)
+flip_faces = true
+size = Vector3(9, 3, 3)
+
+[node name="box3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -6.5)
+flip_faces = true
+size = Vector3(1, 3, 16)
+
+[node name="box5" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.5, -8)
+flip_faces = true
+size = Vector3(3, 3, 17)
+
+[node name="box4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, -1)
+flip_faces = true
+size = Vector3(5, 3, 3)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -6)
+omni_range = 10.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.9, -15)
+omni_range = 10.0
+
+[node name="Pickups" type="Node3D" parent="."]
+
+[node name="pickup_pistol" parent="Pickups" instance=ExtResource("5_08tnd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="ZombieEnemy" parent="Enemies" node_paths=PackedStringArray("patrol_path") instance=ExtResource("10_fwdxg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, -14)
+start_state = 0
+patrol_path = NodePath("../patrols/patrol1")
+
+[node name="patrols" type="Node3D" parent="Enemies"]
+
+[node name="patrol1" type="Node3D" parent="Enemies/patrols" node_paths=PackedStringArray("patrol_points")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+script = ExtResource("19_o35j3")
+patrol_points = [NodePath("Marker3D2"), NodePath("Marker3D3")]
+
+[node name="Marker3D2" type="Marker3D" parent="Enemies/patrols/patrol1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Marker3D3" type="Marker3D" parent="Enemies/patrols/patrol1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9)
+
+[node name="EnemyChaseTigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyChaseTigger"]
+shape = SubResource("BoxShape3D_dqifb")
+
+[node name="projectile_pistol" parent="." instance=ExtResource("6_e30ft")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.6, 0.1, -3)
+
+[node name="projectile_pistol2" parent="." instance=ExtResource("6_e30ft")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.6, 0.1, -2.8)
+
+[connection signal="body_entered" from="EnemyChaseTigger" to="Enemies/ZombieEnemy" method="_on_enemy_chase_tigger_body_entered"]

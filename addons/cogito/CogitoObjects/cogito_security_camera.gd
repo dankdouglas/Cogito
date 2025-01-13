@@ -118,6 +118,8 @@ func detecting(delta: float):
  
 
 func stop_detecting():
+	if audio_stream_player_3d.playing:
+		audio_stream_player_3d.stop()
 	print("SecurityCamera: Stopping detection.")
 	detection_time = 0
 	current_state = DetectorState.SEARCHING
@@ -200,6 +202,7 @@ func on_body_left_detection(body: Node3D):
 	if only_detect_player and body.is_in_group("Player"):
 		print("SecurityCamera: Player left detection area: ", body)
 		objects_in_detection_area.erase(body)
+		#$SightTimer.start()
 	elif is_relevant_non_player(body):
 		print("SecurityCamera:",body," left detection area: ")
 		objects_in_detection_area.erase(body)
@@ -236,3 +239,8 @@ func update_indicator_mesh():
 		DetectorState.DETECTED:
 			indicator_material.set_albedo(color_detected)
 			indicator_light.light_color = color_detected
+
+
+func _on_sight_timer_timeout():
+	stop_detecting()
+	

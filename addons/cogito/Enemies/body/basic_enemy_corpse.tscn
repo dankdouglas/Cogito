@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cio4x05ipvslu" path="res://addons/cogito/Components/Interactions/CarryableComponent.tscn" id="4_dlhvl"]
 [ext_resource type="Texture2D" uid="uid://ma6w7ah7ungx" path="res://addons/cogito/BS Assets/zombie2 rig_gridtex1.png" id="5_dypgw"]
 [ext_resource type="AudioStream" uid="uid://cqgsihtcw0gl4" path="res://addons/cogito/Assets/Audio/Kenney/UiAudio/rollover1.ogg" id="5_g6e1y"]
-[ext_resource type="Material" uid="uid://bvpu56l8mn86k" path="res://addons/cogito/BS Assets/materials/white tile.tres" id="6_5flac"]
+[ext_resource type="Material" uid="uid://bvpu56l8mn86k" path="res://addons/cogito/BS Assets/materials/grey tile.tres" id="6_5flac"]
 [ext_resource type="AudioStream" uid="uid://1w0db1u6lv7t" path="res://addons/cogito/Assets/Audio/Kenney/UiAudio/rollover6.ogg" id="6_jxrb3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_equm6"]
@@ -2765,18 +2765,22 @@ script = ExtResource("1_gqmaj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255643, 0)
 shape = SubResource("CapsuleShape3D_equm6")
+disabled = true
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.918059, 0.38565, -0.0918748, -0.38565, 0.92246, 0.0184726, 0.0918749, 0.0184725, 0.995599, -0.0326431, 0.67551, -0.10971)
 shape = SubResource("CapsuleShape3D_equm6")
+disabled = true
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.918059, 0.38565, -0.0918749, -0.148536, 0.549473, 0.822202, 0.367565, -0.741184, 0.561732, -0.0326431, 0.189872, 0.0176473)
 shape = SubResource("CapsuleShape3D_equm6")
+disabled = true
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.870562, -0.478663, 0.114034, 0.478663, 0.877514, 0.0291803, -0.114034, 0.0291804, 0.993048, -0.0326431, -0.17214, 0.0508112)
 shape = SubResource("CapsuleShape3D_equm6")
+disabled = true
 
 [node name="CarryableComponent" parent="." instance=ExtResource("4_dlhvl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
