@@ -77,7 +77,6 @@ texture = ExtResource("3_lb6l4")
 expand_mode = 5
 
 [node name="Crosshair" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

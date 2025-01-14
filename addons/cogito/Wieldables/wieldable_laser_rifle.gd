@@ -98,6 +98,7 @@ func hit_scan_collision(collision_point: Vector3):
 	
 	if bullet_collision:
 		hit_scan_damage(bullet_collision.collider)
+		print(bullet_collision.collider.name)
 
 func hit_scan_damage(collider):
 	if collider.has_signal("damage_received"):

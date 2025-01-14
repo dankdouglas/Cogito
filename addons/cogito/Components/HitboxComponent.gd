@@ -2,6 +2,7 @@ extends Node
 class_name HitboxComponent
 
 @export var health_attribute : CogitoHealthAttribute
+@export var damage_multiplier = 2
 
 func _ready() -> void:
 	if get_parent().has_signal("damage_received"):
@@ -12,4 +13,4 @@ func _ready() -> void:
 
 func damage(damage_amount:float):
 	if health_attribute:
-		health_attribute.subtract(damage_amount)
+		health_attribute.subtract(damage_amount * damage_multiplier)

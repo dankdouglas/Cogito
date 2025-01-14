@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://kicjwmh02uwf"]
+[gd_scene load_steps=24 format=3 uid="uid://kicjwmh02uwf"]
 
 [ext_resource type="Script" path="res://addons/cogito/CogitoObjects/cogito_player.gd" id="1_87we8"]
 [ext_resource type="Resource" uid="uid://ll11y3yjbqt" path="res://addons/cogito/InventoryPD/Inventories/PlayerInventory_FIXED.tres" id="2_iyhv4"]
@@ -10,13 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://cbd2ojah4nun6" path="res://addons/cogito/Components/interaction_raycast.tscn" id="10_2dndr"]
 [ext_resource type="AnimationLibrary" uid="uid://cdchpsv104er2" path="res://addons/cogito/Assets/Animations/player_eyes.tres" id="10_tp6cj"]
 [ext_resource type="Script" path="res://addons/cogito/Scripts/wieldables_sway.gd" id="12_lr21i"]
-[ext_resource type="AudioStream" uid="uid://up2hfhgq1qx6" path="res://addons/cogito/Assets/Audio/Kenney/Footsteps/footstep00.ogg" id="12_ug3wt"]
-[ext_resource type="AudioStream" uid="uid://crj07wq4oocwi" path="res://addons/cogito/Assets/Audio/Kenney/Footsteps/footstep01.ogg" id="13_fyfhw"]
-[ext_resource type="AudioStream" uid="uid://dewyukd562k37" path="res://addons/cogito/Assets/Audio/Kenney/Footsteps/footstep02.ogg" id="14_opnk5"]
-[ext_resource type="AudioStream" uid="uid://c5kfw4o57foju" path="res://addons/cogito/Assets/Audio/Kenney/Footsteps/footstep03.ogg" id="15_wtp0a"]
-[ext_resource type="AudioStream" uid="uid://b4mt1tuxo2144" path="res://addons/cogito/Assets/Audio/Kenney/Footsteps/footstep04.ogg" id="16_buq0c"]
+[ext_resource type="AudioStream" uid="uid://d4bkv41a5uqtl" path="res://addons/cogito/BS Assets/sounds/pl_step1.wav" id="16_2mgm3"]
+[ext_resource type="AudioStream" uid="uid://d4lyimamofltc" path="res://addons/cogito/BS Assets/sounds/pl_step2.wav" id="17_rbc7k"]
 [ext_resource type="Script" path="res://addons/cogito/DynamicFootstepSystem/Scripts/footstep_surface_detector.gd" id="17_t5305"]
+[ext_resource type="AudioStream" uid="uid://bq2fmesig4oum" path="res://addons/cogito/BS Assets/sounds/pl_step3.wav" id="18_ce1tv"]
 [ext_resource type="AudioStream" uid="uid://dc03jiw2a6y3j" path="res://addons/cogito/DynamicFootstepSystem/FootstepProfiles/generic_footstep_profile.tres" id="18_mdors"]
+[ext_resource type="AudioStream" uid="uid://csqqtpvx6d0rn" path="res://addons/cogito/BS Assets/sounds/pl_step4.wav" id="19_hp6im"]
 [ext_resource type="Resource" uid="uid://ca0q2t6w08ubh" path="res://addons/cogito/DynamicFootstepSystem/FootstepMaterialLibrary/sample_footstep_material_library.tres" id="19_pc36t"]
 [ext_resource type="PackedScene" uid="uid://dy3tudla5p2nc" path="res://addons/cogito/Components/PlayerInteractionComponent.tscn" id="20_4f25o"]
 [ext_resource type="PackedScene" uid="uid://0c32kepv0ahx" path="res://addons/cogito/PackedScenes/Player_HUD.tscn" id="21_j3p88"]
@@ -29,12 +28,11 @@ size = Vector3(0.6, 1.7, 0.6)
 size = Vector3(0.6, 0.7, 0.6)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_af0lu"]
-streams_count = 5
-stream_0/stream = ExtResource("12_ug3wt")
-stream_1/stream = ExtResource("13_fyfhw")
-stream_2/stream = ExtResource("14_opnk5")
-stream_3/stream = ExtResource("15_wtp0a")
-stream_4/stream = ExtResource("16_buq0c")
+streams_count = 4
+stream_0/stream = ExtResource("16_2mgm3")
+stream_1/stream = ExtResource("17_rbc7k")
+stream_2/stream = ExtResource("18_ce1tv")
+stream_3/stream = ExtResource("19_hp6im")
 
 [node name="CogitoPlayer" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
@@ -46,8 +44,6 @@ fall_damage_threshold = -10.0
 inventory_data = ExtResource("2_iyhv4")
 jump_sound = ExtResource("3_7ds3n")
 slide_sound = ExtResource("4_1i2kv")
-walk_volume_db = -58.0
-sprint_volume_db = -60.0
 max_volume_db = -40
 min_volume_db = -50
 JUMP_VELOCITY = 4.0
@@ -56,7 +52,6 @@ SPRINTING_SPEED = 7.0
 AIR_LERP_SPEED = 3.0
 disable_roll_anim = true
 WIGGLE_ON_SPRINTING_INTENSITY = 0.04
-WIGGLE_ON_SPRINTING_SPEED = 13.0
 STEP_MAX_SLOPE_DEGREE = 1.0
 
 [node name="CogtoTestCurrency" parent="." instance=ExtResource("5_opu5d")]
