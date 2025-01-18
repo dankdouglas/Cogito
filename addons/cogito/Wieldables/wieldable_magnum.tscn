@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=4 uid="uid://cwoyq8vpvqf4c"]
+[gd_scene load_steps=32 format=4 uid="uid://cwoyq8vpvqf4c"]
 
 [ext_resource type="Script" path="res://addons/cogito/Wieldables/wieldable_laser_rifle.gd" id="1_eii1c"]
 [ext_resource type="PackedScene" uid="uid://dnauxhdncgngx" path="res://addons/cogito/PackedScenes/laser_ray.tscn" id="2_vo14j"]
-[ext_resource type="AudioStream" uid="uid://cuaymggc28l5u" path="res://addons/cogito/BS Assets/hks1.wav" id="3_sydyf"]
+[ext_resource type="AudioStream" uid="uid://w6kcylpem2pn" path="res://addons/cogito/BS Assets/sounds/357_shot2.wav" id="3_igjl7"]
+[ext_resource type="AudioStream" uid="uid://c3lxa3q04lskg" path="res://addons/cogito/BS Assets/sounds/357_reload1.wav" id="4_nv1ov"]
 [ext_resource type="PackedScene" uid="uid://7ug0scudh8j4" path="res://addons/cogito/BS Assets/Scenes/magnum_1.tscn" id="4_rtsva"]
 [ext_resource type="Script" path="res://addons/cogito/Assets/Shader/ViewmodelSpace.gd" id="5_2dd67"]
 [ext_resource type="Texture2D" uid="uid://cltx88ve7aoqx" path="res://addons/cogito/BS Assets/arms2_mag tex.png" id="6_1wo8f"]
@@ -55,7 +56,10 @@ shadow_mesh = SubResource("ArrayMesh_gcevq")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmipb"]
 resource_name = "Material.001"
 cull_mode = 2
+shading_mode = 2
+diffuse_mode = 3
 albedo_texture = ExtResource("6_1wo8f")
+metallic_specular = 0.0
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_py3iu"]
@@ -95,7 +99,10 @@ shadow_mesh = SubResource("ArrayMesh_py3iu")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqa1v"]
 resource_name = "Material"
 cull_mode = 2
+shading_mode = 2
+diffuse_mode = 3
 albedo_texture = ExtResource("7_2jjup")
+metallic_specular = 0.0
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nch56"]
@@ -3886,7 +3893,8 @@ firing_delay = 0.0
 laser_ray_prefab = ExtResource("2_vo14j")
 ads_fov = 40
 default_position = Vector3(0.329, -0.264, -0.535)
-sound_primary_use = ExtResource("3_sydyf")
+sound_primary_use = ExtResource("3_igjl7")
+sound_reload = ExtResource("4_nv1ov")
 recoil_strength = 5.0
 wieldable_mesh = NodePath("arms2")
 anim_equip = "Magnum/equip_2"

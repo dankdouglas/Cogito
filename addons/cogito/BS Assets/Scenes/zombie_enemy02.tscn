@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://dkpqcu3jtxml8"]
+[gd_scene load_steps=48 format=4 uid="uid://dkpqcu3jtxml8"]
 
 [ext_resource type="Script" path="res://addons/cogito/BS Assets/Scenes/zombie_enemy02.gd" id="1_5vjkm"]
 [ext_resource type="AudioStream" uid="uid://b78cqm87o01aw" path="res://addons/cogito/BS Assets/sounds/cbar_hitbod3.wav" id="2_vgei4"]
@@ -17,6 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://cbd2ojah4nun6" path="res://addons/cogito/Components/interaction_raycast.tscn" id="14_unyl2"]
 [ext_resource type="Texture2D" uid="uid://ma6w7ah7ungx" path="res://addons/cogito/BS Assets/zombie2 rig_gridtex1.png" id="15_aagig"]
 [ext_resource type="Script" path="res://addons/cogito/BS Assets/Scenes/hitbox.gd" id="17_84ylm"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="18_qxmbq"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="19_jobuh"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="20_3dl6c"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="21_4sblc"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="22_50wdh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p3jhp"]
 radius = 0.0206648
@@ -161,6 +166,16 @@ bind/32/pose = Transform3D(-1.84198, 1.88046, 99.9653, 99.97, -1.57801, 1.87176,
 [sub_resource type="SphereShape3D" id="SphereShape3D_c81db"]
 radius = 11.2217
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_u4tc2"]
+top_radius = 0.0
+bottom_radius = 5.0
+height = 16.282
+radial_segments = 32
+cap_top = false
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x0cyo"]
+points = PackedVector3Array(-5, -8.141, 0, -4.90407, -8.141, -0.97592, -4.90407, -8.141, 0.974941, -4.00059, -4.88492, 0, -2.00078, 1.62724, 0, 0, 8.141, 0, -3.92326, -4.88492, -0.781127, -4.6202, -8.141, -1.91366, -4.6202, -8.141, 1.91269, 5, -8.141, 0, 4.90309, -8.141, -0.97592, 4.61922, -8.141, -1.91366, 4.1572, -8.141, -2.778, 2.12118, -1.62884, -2.12216, 2.77702, -8.141, -4.15818, 1.91269, -8.141, -4.6202, 0.974941, -8.141, -4.90407, 0, 1.62724, -2.00078, -0.97592, -8.141, -4.90407, -0.781127, -4.88492, -3.92326, -1.91366, -8.141, -4.6202, -0.555991, 4.88332, -0.832028, -0.707714, 4.88332, -0.707714, -0.832028, 4.88332, -0.555991, -4.15818, -8.141, 2.77702, -2.12216, -1.62884, 2.12118, -2.778, -8.141, 4.1572, -1.91366, -8.141, 4.61922, -0.97592, -8.141, 4.90309, 0, -8.141, 5, 0.974941, -8.141, 4.90309, 1.91269, -8.141, 4.61922, 2.77702, -8.141, 4.1572, 2.12118, -1.62884, 2.12118, 4.1572, -8.141, 2.77702, 4.61922, -8.141, 1.91269, 4.90309, -8.141, 0.974941, -4.15818, -8.141, -2.778, 3.53465, -8.141, -3.53563, 0, -8.141, -5, 0, -4.88492, -4.00059, -2.778, -8.141, -4.15818, -2.12216, -1.62884, -2.12216, -3.53563, -8.141, 3.53465, 3.53465, -8.141, 3.53465, -3.53563, -8.141, -3.53563)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_7rbfx"]
 size = Vector3(2.65869, 3.23483, 1.97974)
 
@@ -192,9 +207,6 @@ height = 4.36249
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pnip6"]
 radius = 0.579013
 height = 2.58581
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ws7ge"]
-points = PackedVector3Array(-0.447901, -0.477836, -0.194109, 0.0143046, 0.459546, 0.0143046, 0.0143046, 0.459546, -0.0143046, 0.48221, -0.48221, -0.0903435, -0.0904345, -0.482191, 0.482191, 0.0903434, -0.482209, -0.482209, 0.330059, -0.480189, 0.360142, -0.447899, -0.477834, 0.194108, -0.194108, -0.477834, -0.447899, 0.330061, -0.480192, -0.360144, 0.463345, -0.478328, 0.149454, -0.330061, -0.480192, 0.360144, 0.0903435, -0.48221, 0.48221, -0.0143046, 0.459546, -0.0143046, -0.482209, -0.482209, -0.0903434, -0.330059, -0.480189, -0.360142, -0.0143046, 0.459546, 0.0143046, 0.431446, -0.476195, -0.223181, -0.48221, -0.48221, 0.0903435, -0.0904345, -0.482192, -0.482192, 0.194109, -0.477836, -0.447901, 0.194108, -0.477834, 0.447899, -0.194109, -0.477836, 0.447901, 0.386716, -0.429704, 0.25784, 0.462503, -0.433528, 0.0432804, -0.386716, -0.429704, -0.25784, -0.386715, -0.429704, 0.25784, 0.386715, -0.429704, -0.25784, 0.25784, -0.429704, 0.386715, 0.25784, -0.429704, -0.386716, -0.257794, -0.429777, -0.386781, -0.257794, -0.429777, 0.386781)
 
 [sub_resource type="Animation" id="Animation_3ulmr"]
 resource_name = "attack"
@@ -2825,56 +2837,21 @@ _data = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u6ov3"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jixfn"]
-animation = &"attack"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bpmqc"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y4nck"]
-animation = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_alj2q"]
-xfade_time = 0.1
-advance_mode = 2
-advance_condition = &"attack"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ggpr"]
-xfade_time = 0.1
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d4vta"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vcywg"]
-advance_mode = 2
-advance_condition = &"spotted"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cug3p"]
-advance_mode = 2
-advance_condition = &"lost"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jxpvc"]
-states/attack/node = SubResource("AnimationNodeAnimation_jixfn")
-states/attack/position = Vector2(596, 100)
-states/idle/node = SubResource("AnimationNodeAnimation_bpmqc")
-states/idle/position = Vector2(318, 100)
-states/run/node = SubResource("AnimationNodeAnimation_y4nck")
-states/run/position = Vector2(441, 100)
-transitions = ["run", "attack", SubResource("AnimationNodeStateMachineTransition_alj2q"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_1ggpr"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_d4vta"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_vcywg"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_cug3p")]
-
-[node name="ZombieEnemy" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+[node name="ZombieEnemy" type="CharacterBody3D" node_paths=PackedStringArray("detection_area", "detection_ray")]
+collision_layer = 3
+collision_mask = 2
 script = ExtResource("1_5vjkm")
 ATTACK_RANGE = 1.5
 attack_stagger = 80.0
 attack_sound = ExtResource("2_vgei4")
 attack_damage = 20
+detection_area = NodePath("zombie2 rig/Armature/Skeleton3D/Head/DetectionArea")
+detection_ray = NodePath("zombie2 rig/Armature/Skeleton3D/Head/DetectionRaycast")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_p3jhp")
+disabled = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 1.1
@@ -3163,13 +3140,29 @@ script = ExtResource("5_ovjbo")
 health_attribute = NodePath("../../../../../../HealthAttribute")
 damage_multiplier = 5
 
+[node name="DetectionArea" type="Area3D" parent="zombie2 rig/Armature/Skeleton3D/Head"]
+transform = Transform3D(-766.479, -29.0264, -58.1726, -28.8676, 768.683, -3.19236, 58.2516, -0.99784, -767.022, 68.281, -1098.8, -112.327)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="zombie2 rig/Armature/Skeleton3D/Head/DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.51799, -8.42697)
+visible = false
+mesh = SubResource("CylinderMesh_u4tc2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Head/DetectionArea"]
+transform = Transform3D(3, 2.9011e-23, -2.53622e-30, 0, -6.55671e-08, -3, -5.8022e-23, 1.5, -1.31134e-07, -2.6837e-06, 1.51799, -12.3422)
+shape = SubResource("ConvexPolygonShape3D_x0cyo")
+
+[node name="DetectionRaycast" type="RayCast3D" parent="zombie2 rig/Armature/Skeleton3D/Head"]
+transform = Transform3D(-766.479, -29.0264, -58.1726, -28.8676, 768.682, -3.19243, 58.2517, -0.997837, -767.021, 40.988, 70.067, 107.801)
+target_position = Vector3(0, 0, -100)
+debug_shape_custom_color = Color(0.95, 0, 0, 1)
+
 [node name="Chest" type="BoneAttachment3D" parent="zombie2 rig/Armature/Skeleton3D"]
 transform = Transform3D(0.931945, -0.127885, -0.339298, 0.362311, 0.365709, 0.857315, 0.0144469, -0.921902, 0.387154, 0.815594, 16.9065, -906.235)
 bone_name = "mixamorig_Spine1"
 bone_idx = 2
 
 [node name="chest" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Chest"]
-collision_layer = 0
 script = ExtResource("17_84ylm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Chest/chest"]
@@ -3186,7 +3179,6 @@ bone_name = "mixamorig_RightArm"
 bone_idx = 16
 
 [node name="Rbicep" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Rbicep"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Rbicep/Rbicep"]
@@ -3204,7 +3196,6 @@ bone_name = "mixamorig_RightForeArm"
 bone_idx = 17
 
 [node name="Rfore" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Rfore"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Rfore/Rfore"]
@@ -3222,7 +3213,6 @@ bone_name = "mixamorig_RightHand"
 bone_idx = 18
 
 [node name="Rhand" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Rhand"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Rhand/Rhand"]
@@ -3240,7 +3230,6 @@ bone_name = "mixamorig_LeftArm"
 bone_idx = 8
 
 [node name="Lbicep" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Lbicep"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Lbicep/Lbicep"]
@@ -3258,7 +3247,6 @@ bone_name = "mixamorig_LeftForeArm"
 bone_idx = 9
 
 [node name="Lfore" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Lfore"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Lfore/Lfore"]
@@ -3276,7 +3264,6 @@ bone_name = "mixamorig_LeftHand"
 bone_idx = 10
 
 [node name="Area3D" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Lhand"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Lhand/Area3D"]
@@ -3294,7 +3281,6 @@ bone_name = "mixamorig_Hips"
 bone_idx = 0
 
 [node name="Area3D" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Pelvis"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Pelvis/Area3D"]
@@ -3311,7 +3297,6 @@ bone_name = "mixamorig_RightUpLeg"
 bone_idx = 28
 
 [node name="Area3D" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Rthigh"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Rthigh/Area3D"]
@@ -3329,7 +3314,6 @@ bone_name = "mixamorig_RightLeg"
 bone_idx = 29
 
 [node name="Area3D" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Rcalf"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Rcalf/Area3D"]
@@ -3347,7 +3331,6 @@ bone_name = "mixamorig_LeftUpLeg"
 bone_idx = 23
 
 [node name="Area3D" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Lthigh"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Lthigh/Area3D"]
@@ -3365,7 +3348,6 @@ bone_name = "mixamorig_LeftLeg"
 bone_idx = 24
 
 [node name="Area3D" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Lcalf"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Lcalf/Area3D"]
@@ -3383,7 +3365,6 @@ bone_name = "mixamorig_LeftFoot"
 bone_idx = 25
 
 [node name="Area3D" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Lfoot"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Lfoot/Area3D"]
@@ -3401,7 +3382,6 @@ bone_name = "mixamorig_RightFoot"
 bone_idx = 30
 
 [node name="Rfoot" type="CharacterBody3D" parent="zombie2 rig/Armature/Skeleton3D/Rfoot"]
-collision_layer = 0
 script = ExtResource("5_ovjbo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="zombie2 rig/Armature/Skeleton3D/Rfoot/Rfoot"]
@@ -3415,12 +3395,6 @@ damage_multiplier = 1
 
 [node name="Target" type="Node3D" parent="."]
 
-[node name="DetectionArea" type="Area3D" parent="."]
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="DetectionArea"]
-transform = Transform3D(26.33, 0, 0, 0, -1.15092e-06, -26.33, 0, 26.33, -1.15092e-06, 0, 1.5, -12.4)
-shape = SubResource("ConvexPolygonShape3D_ws7ge")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../zombie2 rig")
 libraries = {
@@ -3430,14 +3404,115 @@ libraries = {
 autoplay = "idle"
 playback_default_blend_time = 0.1
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../zombie2 rig")
-tree_root = SubResource("AnimationNodeStateMachine_jxpvc")
-anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/attack = false
-parameters/conditions/lost = false
-parameters/conditions/spotted = false
+[node name="VisionTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("18_qxmbq")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("19_jobuh")
+initial_state = NodePath("patrol")
+
+[node name="idle" type="Node" parent="StateChart/Root"]
+script = ExtResource("20_3dl6c")
+
+[node name="toChase" type="Node" parent="StateChart/Root/idle"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../chase")
+event = &"player_spotted"
+delay_in_seconds = "0.0"
+
+[node name="toAlert" type="Node" parent="StateChart/Root/idle"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../alert")
+event = &"alerted"
+delay_in_seconds = "0.0"
+
+[node name="chase" type="Node" parent="StateChart/Root"]
+script = ExtResource("20_3dl6c")
+
+[node name="toInvestigate" type="Node" parent="StateChart/Root/chase"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../invesigate")
+event = &"player_out_of_sight"
+delay_in_seconds = "2.0"
+
+[node name="toAttack" type="Node" parent="StateChart/Root/chase"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../attack")
+event = &"start_attack"
+delay_in_seconds = "0.0"
+
+[node name="invesigate" type="Node" parent="StateChart/Root"]
+script = ExtResource("20_3dl6c")
+
+[node name="toAlert" type="Node" parent="StateChart/Root/invesigate"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../alert")
+event = &"player_out_of_sight"
+delay_in_seconds = "0.0"
+
+[node name="toChase" type="Node" parent="StateChart/Root/invesigate"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../chase")
+event = &"player_spotted"
+delay_in_seconds = "0.0"
+
+[node name="alert" type="Node" parent="StateChart/Root"]
+script = ExtResource("20_3dl6c")
+
+[node name="toChase" type="Node" parent="StateChart/Root/alert"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../chase")
+event = &"player_spotted"
+delay_in_seconds = "0.0"
+
+[node name="patrol" type="Node" parent="StateChart/Root"]
+script = ExtResource("20_3dl6c")
+
+[node name="toIdle" type="Node" parent="StateChart/Root/patrol"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../idle")
+event = &"to_idle"
+delay_in_seconds = "0.0"
+
+[node name="toChase" type="Node" parent="StateChart/Root/patrol"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../chase")
+event = &"player_spotted"
+delay_in_seconds = "0.0"
+
+[node name="toAlert" type="Node" parent="StateChart/Root/patrol"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../alert")
+event = &"alerted"
+delay_in_seconds = "0.0"
+
+[node name="attack" type="Node" parent="StateChart/Root"]
+script = ExtResource("20_3dl6c")
+
+[node name="toChase" type="Node" parent="StateChart/Root/attack"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../chase")
+delay_in_seconds = "1.0"
+
+[node name="dead" type="Node" parent="StateChart/Root"]
+script = ExtResource("20_3dl6c")
+
+[node name="StateChartDebugger" parent="." instance=ExtResource("22_50wdh")]
+offset_right = -856.0
+offset_bottom = -272.0
+initial_node_to_watch = NodePath("../StateChart")
 
 [connection signal="interactable_seen" from="InteractionRaycast" to="." method="_on_interaction_raycast_interactable_seen"]
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="zombie2 rig/Armature/Skeleton3D/Head/DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="zombie2 rig/Armature/Skeleton3D/Head/DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="VisionTimer" to="." method="_on_vision_timer_timeout"]
+[connection signal="state_processing" from="StateChart/Root/idle" to="." method="_on_idle_state_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/chase" to="." method="_on_chase_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/invesigate" to="." method="_on_invesigate_state_physics_processing"]
+[connection signal="state_processing" from="StateChart/Root/alert" to="." method="_on_alert_state_processing"]
+[connection signal="state_physics_processing" from="StateChart/Root/patrol" to="." method="_on_patrol_state_physics_processing"]
+[connection signal="state_processing" from="StateChart/Root/attack" to="." method="_on_attack_state_processing"]

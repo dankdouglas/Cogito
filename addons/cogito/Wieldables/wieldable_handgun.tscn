@@ -97,7 +97,10 @@ shadow_mesh = SubResource("ArrayMesh_niybv")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqa1v"]
 resource_name = "Material"
 cull_mode = 2
+shading_mode = 2
+diffuse_mode = 3
 albedo_texture = ExtResource("7_575x4")
+metallic_specular = 0.0
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nch56"]
@@ -4366,6 +4369,7 @@ mesh = SubResource("ArrayMesh_72eky")
 skeleton = NodePath("")
 
 [node name="Cube" type="MeshInstance3D" parent="arms2/rig/Skeleton3D"]
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_nch56")
 skin = SubResource("Skin_555km")
 
