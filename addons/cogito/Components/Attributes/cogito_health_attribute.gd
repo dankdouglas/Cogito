@@ -19,7 +19,6 @@ signal death()
 ## Array of Scenes that will get spawned on parent position on death.
 @export var spawn_on_death : Array[PackedScene] = []
 
-@onready var state_chart = $"../StateChart"
 
 
 var parent_position : Vector3
@@ -36,7 +35,6 @@ func on_health_change(_health_name:String, _health_current:float, _health_max:fl
 	if !has_increased:
 		damage_taken.emit()
 		if sound_on_hit:
-			state_chart.send_event("alerted")
 			Audio.play_sound_3d(sound_on_hit).global_position = get_parent().global_position
 		if sound_on_damage_taken and not _health_current <= 0:
 			Audio.play_sound_3d(sound_on_damage_taken).global_position = get_parent().global_position

@@ -58,6 +58,7 @@ STEP_MAX_SLOPE_DEGREE = 1.0
 
 [node name="StaminaAttribute" parent="." instance=ExtResource("8_kodbk")]
 stamina_regen_speed = 4.0
+jump_exhaustion = 1.0
 attribute_color = Color(0.16, 0.37, 1, 1)
 attribute_icon = null
 

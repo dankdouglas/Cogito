@@ -3413,7 +3413,7 @@ script = ExtResource("18_qxmbq")
 
 [node name="Root" type="Node" parent="StateChart"]
 script = ExtResource("19_jobuh")
-initial_state = NodePath("patrol")
+initial_state = NodePath("idle")
 
 [node name="idle" type="Node" parent="StateChart/Root"]
 script = ExtResource("20_3dl6c")
@@ -3454,6 +3454,11 @@ to = NodePath("../../alert")
 event = &"player_out_of_sight"
 delay_in_seconds = "0.0"
 
+[node name="toAlert2" type="Node" parent="StateChart/Root/invesigate"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../alert")
+delay_in_seconds = "2.0"
+
 [node name="toChase" type="Node" parent="StateChart/Root/invesigate"]
 script = ExtResource("21_4sblc")
 to = NodePath("../../chase")
@@ -3468,6 +3473,11 @@ script = ExtResource("21_4sblc")
 to = NodePath("../../chase")
 event = &"player_spotted"
 delay_in_seconds = "0.0"
+
+[node name="toPatrol" type="Node" parent="StateChart/Root/alert"]
+script = ExtResource("21_4sblc")
+to = NodePath("../../patrol")
+delay_in_seconds = "4.0"
 
 [node name="patrol" type="Node" parent="StateChart/Root"]
 script = ExtResource("20_3dl6c")

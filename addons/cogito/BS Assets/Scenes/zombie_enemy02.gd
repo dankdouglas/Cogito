@@ -49,6 +49,7 @@ func _ready():
 func _process(delta):
 	if _target_in_range():
 		state_chart.send_event("start_attack")
+	detection_ray.look_at(player.global_position, Vector3.UP)
 
 
 	
@@ -98,7 +99,7 @@ func handle_patrolling(_delta: float):
 			return
 		if global_position.distance_to(patrol_path.patrol_points[patrol_point_index].global_position) < patrol_point_threshold:
 			is_waiting = true
-			anim_player.play("look around")
+			anim_player.play("idle")
 			await get_tree().create_timer(patrol_point_wait_time).timeout
 			# Checking to see if we've reached the end of the patrol point list.
 			if patrol_point_index == patrol_path.patrol_points.size() - 1:
@@ -194,7 +195,7 @@ func _on_alert_state_processing(delta):
 	anim_player.play("look around")
 
 func _on_attack_state_processing(delta):
-	anim_player.play("attack")
+	#anim_player.play("attack")
 	if !_target_in_range():
 		state_chart.send_event("player_out_of_sight")
 
