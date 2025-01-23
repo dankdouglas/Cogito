@@ -147,6 +147,7 @@ flip_faces = true
 size = Vector3(19, 3, 3)
 
 [node name="Lights" type="Node3D" parent="."]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -1.6)

@@ -19,6 +19,9 @@ var attack_cooldown : float = 0 #Value used for attack frequency
 @export var detection_area : Area3D
 @export var detection_ray : RayCast3D
 @onready var speed_timer = $SpeedTimer
+@onready var audio_player = $AudioStreamPlayer3D
+@onready var radiation_light = $OmniLight3D
+
 
 var patrol_path_nodepath : NodePath
 ## Reference to Patrol Path Node
@@ -37,6 +40,7 @@ var chase_target : Node3D = null #Target for chasing
 
 var on_screenc = false
 var visible_to_player = false
+var player_contact = false
 var speed_increase_rate = 0.1
 
 var can_attack = false
@@ -49,8 +53,13 @@ func _ready():
 	player = CogitoSceneManager._current_player_node
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print("player_visible:",visible_to_player)
-	print("on_screen:",on_screenc)
+	#print("player_visible:",visible_to_player)
+	#print("on_screen:",on_screenc)
+	var light_amount = speed-3
+	radiation_light.set("light_energy",light_amount)
+	radiation_light.set("omni_range",light_amount)
+
+	#print(radiation_light.get("light_energy"))
 	if _target_in_range():
 		state_chart.send_event("start_attack")
 	detection_ray.look_at(player.global_position, Vector3.UP)
@@ -60,11 +69,15 @@ func _process(delta):
 		if collider.name == "CogitoPlayer":
 			visible_to_player = true
 			if on_screenc and visible_to_player:
+				
 				speed = min(speed + speed_timer.wait_time * speed_increase_rate, 50)
-				print(speed)
+				#print(speed)
 				#speed_timer.start()
-			detection_ray.debug_shape_custom_color = Color(174,0,0)
+				detection_ray.debug_shape_custom_color = Color(174,0,0)
+			else:
+				pass
 		else:
+			
 			detection_ray.debug_shape_custom_color = Color(0,255,0)
 			visible_to_player = false
 
@@ -184,7 +197,7 @@ func _on_vision_timer_timeout() -> bool:
 					if collider.name == "CogitoPlayer":
 						detection_ray.debug_shape_custom_color = Color(174,0,0)
 						state_chart.send_event("player_spotted")
-						
+						player_contact = true
 						return true
 						
 					else:
@@ -197,6 +210,7 @@ func _on_idle_state_processing(delta):
 
 func _on_chase_state_physics_processing(delta):
 	anim_player.play("walk")
+	audio_player.set("pitch_scale",0.5)
 	_handle_chasing()
 
 func _on_invesigate_state_physics_processing(delta):
@@ -216,8 +230,11 @@ func _on_patrol_state_physics_processing(delta):
 
 func _on_visible_on_screen_notifier_3d_screen_entered():
 	on_screenc = true
+	#if player_contact:
+	audio_player.play()
 func _on_visible_on_screen_notifier_3d_screen_exited():
 	on_screenc = false
+	audio_player.stop()
 
 func _on_speed_timer_timeout():
 	speed = min(speed + speed_timer.wait_time * speed_increase_rate, 50)

@@ -3919,10 +3919,11 @@ anim_action_primary = "fire"
 bus = &"SFX"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, -1, 1.91069e-15, 4.37114e-08, 0, 1, -4.37114e-08, 0.174371, 0, 0)
+transform = Transform3D(-4.37114e-08, -4.37115e-08, -1, -1, 1.91069e-15, 4.37114e-08, 0, 1, -4.37115e-08, -0.443657, 0.298519, -0.149262)
 visible = false
-spot_range = 8.0
+spot_range = 16.0
 spot_angle = 30.0
+spot_angle_attenuation = 3.36358
 
 [node name="arms2" type="Node3D" parent="." node_paths=PackedStringArray("tracked_nodes")]
 transform = Transform3D(-4.37103e-08, 0, 1, 0, 1, 0, -1, 0, -4.37115e-08, -0.489753, -1.46018, -0.130233)
@@ -4298,7 +4299,7 @@ bones/51/rotation = Quaternion(-0.125149, 0.798527, 0.0725346, 0.584321)
 bones/51/scale = Vector3(0.00653638, 0.0267946, 0.00653638)
 
 [node name="magnum" type="BoneAttachment3D" parent="arms2/rig/Skeleton3D"]
-transform = Transform3D(-5.12227e-09, 7.36327e-09, -0.00653638, -0.00653638, -2.2701e-08, 5.00586e-09, -4.59841e-09, 0.0267946, 1.28057e-09, -0.129349, 1.56716, 0.670443)
+transform = Transform3D(-4.88944e-09, 8.3237e-09, -0.00653638, -0.00653638, -2.24682e-08, 4.77303e-09, -4.65661e-09, 0.0267946, 1.39698e-09, -0.129349, 1.56716, 0.670443)
 bone_name = "magnum"
 bone_idx = 51
 
