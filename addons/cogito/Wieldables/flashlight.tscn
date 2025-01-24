@@ -3911,6 +3911,10 @@ _data = {
 [node name="Flashlight" type="Node3D" node_paths=PackedStringArray("wieldable_mesh")]
 transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 0.325805, -0.279839, -0.531526)
 script = ExtResource("1_pak3j")
+is_on = true
+toggle_cooldown = 0.0
+button_press_delay = 0.0
+state_change_delay = 0.0
 switch_sound = ExtResource("2_dm0bj")
 wieldable_mesh = NodePath("arms2/rig/Skeleton3D/magnum/Flashlight_Mesh")
 anim_action_primary = "fire"
@@ -3920,7 +3924,6 @@ bus = &"SFX"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-4.37114e-08, -4.37115e-08, -1, -1, 1.91069e-15, 4.37114e-08, 0, 1, -4.37115e-08, -0.443657, 0.298519, -0.149262)
-visible = false
 spot_range = 16.0
 spot_angle = 30.0
 spot_angle_attenuation = 3.36358

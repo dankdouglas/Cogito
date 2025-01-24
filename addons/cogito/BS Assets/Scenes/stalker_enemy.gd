@@ -21,6 +21,7 @@ var attack_cooldown : float = 0 #Value used for attack frequency
 @onready var speed_timer = $SpeedTimer
 @onready var audio_player = $AudioStreamPlayer3D
 @onready var radiation_light = $OmniLight3D
+@onready var hazard_zone = $HazardZone
 
 
 var patrol_path_nodepath : NodePath
@@ -56,8 +57,11 @@ func _process(delta):
 	#print("player_visible:",visible_to_player)
 	#print("on_screen:",on_screenc)
 	var light_amount = speed-3
-	radiation_light.set("light_energy",light_amount)
-	radiation_light.set("omni_range",light_amount)
+	radiation_light.set("light_energy",light_amount * 2)
+	radiation_light.set("omni_range", light_amount * 3)
+	hazard_zone.set("scale",Vector3(speed,speed,speed)/2)
+	#print(hazard_zone.get("scale"))
+	#hazard_zone.set("scale",speed)
 
 	#print(radiation_light.get("light_energy"))
 	if _target_in_range():
@@ -183,7 +187,7 @@ func attack(target: Node3D):
 	
 func _on_vision_timer_timeout() -> bool:
 
-
+	#state_chart.send_event("player_spotted")
 	var overlaps = detection_area.get_overlapping_bodies()
 	if overlaps.size() > 0:
 		for overlap in overlaps:

@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=3 uid="uid://d1rkc6o67gag"]
+
+[ext_resource type="Script" path="res://addons/cogito/SceneManagement/cogito_scene.gd" id="1_whwt3"]
+[ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="2_e0wrf"]
+[ext_resource type="Material" uid="uid://dno6hpp0gwku7" path="res://addons/cogito/BS Assets/materials/white tile.tres" id="3_wc10d"]
+[ext_resource type="PackedScene" uid="uid://jfhjbm5mopko" path="res://addons/cogito/PackedScenes/Pickups/pickup_handgun.tscn" id="4_yl2t5"]
+[ext_resource type="Script" path="res://addons/cogito/Enemies/cogito_patrol_path.gd" id="5_jjyr0"]
+[ext_resource type="PackedScene" uid="uid://cwd3g16ep0idw" path="res://addons/cogito/PackedScenes/Pickups/pickup_flashlight.tscn" id="8_ag31t"]
+[ext_resource type="PackedScene" uid="uid://8h462cd7whew" path="res://addons/cogito/PackedScenes/hazard_zone.tscn" id="9_oumf1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6drjb"]
+sky_top_color = Color(0.266575, 0.266575, 0.266575, 1)
+sky_horizon_color = Color(0.671824, 0.688842, 0.747207, 1)
+ground_bottom_color = Color(0.420719, 0.488794, 0.722254, 1)
+ground_horizon_color = Color(0.671824, 0.688842, 0.747207, 1)
+
+[sub_resource type="Sky" id="Sky_vu5qv"]
+sky_material = SubResource("ProceduralSkyMaterial_6drjb")
+
+[sub_resource type="Environment" id="Environment_otilr"]
+background_mode = 2
+background_energy_multiplier = 0.05
+sky = SubResource("Sky_vu5qv")
+tonemap_mode = 2
+glow_enabled = true
+fog_light_color = Color(0.234518, 0.257582, 0.29384, 1)
+fog_light_energy = 2.9
+fog_density = 0.1
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_26s43"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unnj8"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 3.3
+
+[node name="Hallway1" type="Node3D"]
+script = ExtResource("1_whwt3")
+metadata/_edit_lock_ = true
+
+[node name="CogitoPlayer" parent="." instance=ExtResource("2_e0wrf")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_otilr")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_26s43")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
+material_override = ExtResource("3_wc10d")
+use_collision = true
+collision_layer = 3
+
+[node name="box" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.5)
+flip_faces = true
+size = Vector3(3, 3, 6)
+
+[node name="box2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -9)
+flip_faces = true
+size = Vector3(9, 9, 9)
+
+[node name="box3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -18)
+flip_faces = true
+size = Vector3(9, 9, 9)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.9, 0)
+shadow_enabled = true
+omni_range = 11.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Lights/OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.74228e-09, -0.2)
+size = Vector3(1, 0.522034, 0.281677)
+material = SubResource("StandardMaterial3D_unnj8")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 8.9, -5)
+shadow_enabled = true
+omni_range = 11.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Lights/OmniLight3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.74228e-09, -0.2)
+size = Vector3(1, 0.522034, 0.281677)
+material = SubResource("StandardMaterial3D_unnj8")
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 8.9, -13.5)
+shadow_enabled = true
+omni_range = 11.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Lights/OmniLight3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.74228e-09, -0.2)
+size = Vector3(1, 0.522034, 0.281677)
+material = SubResource("StandardMaterial3D_unnj8")
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 8.9, -22)
+shadow_enabled = true
+omni_range = 11.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Lights/OmniLight3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.74228e-09, -0.2)
+size = Vector3(1, 0.522034, 0.281677)
+material = SubResource("StandardMaterial3D_unnj8")
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="pickup_pistol" parent="Enemies" instance=ExtResource("4_yl2t5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.4)
+
+[node name="CogitoPatrolPath" type="Node" parent="Enemies" node_paths=PackedStringArray("patrol_points")]
+script = ExtResource("5_jjyr0")
+patrol_points = [NodePath("patrol point"), NodePath("patrol point2"), NodePath("patrol point3")]
+
+[node name="patrol point" type="Marker3D" parent="Enemies/CogitoPatrolPath"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.4)
+
+[node name="patrol point2" type="Marker3D" parent="Enemies/CogitoPatrolPath"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.4)
+
+[node name="patrol point3" type="Marker3D" parent="Enemies/CogitoPatrolPath"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.400002)
+
+[node name="Pickup_Flashlight" parent="." instance=ExtResource("8_ag31t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
+
+[node name="HazardZone" parent="." instance=ExtResource("9_oumf1")]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -6.2487, 1.505, 1.5451)
+drain_amount = 100.0
