@@ -5059,7 +5059,7 @@ mesh = SubResource("ArrayMesh_6a0dq")
 skin = SubResource("Skin_qf1yv")
 
 [node name="Head" type="BoneAttachment3D" parent="infected1/Armature/Skeleton3D"]
-transform = Transform3D(0.996422, 0.0375272, -0.0757268, 0.075624, 0.00415191, 0.997128, 0.0377339, -0.999287, 0.00129899, -50.9643, 165.669, -1121.24)
+transform = Transform3D(0.9964221, 0.03752725, -0.07572684, 0.07562405, 0.0041519105, 0.9971278, 0.037733868, -0.99928707, 0.0012989938, -50.96433, 165.66896, -1121.2383)
 bone_name = "mixamorig_Head"
 bone_idx = 5
 
@@ -5093,7 +5093,7 @@ target_position = Vector3(0, 0, -100)
 debug_shape_custom_color = Color(0.95, 0, 0, 1)
 
 [node name="Chest" type="BoneAttachment3D" parent="infected1/Armature/Skeleton3D"]
-transform = Transform3D(0.931946, -0.128336, -0.339127, 0.36231, 0.36685, 0.856827, 0.0144469, -0.921385, 0.388382, -0.88323, 33.2557, -851.139)
+transform = Transform3D(0.93194586, -0.12833592, -0.33912656, 0.36230958, 0.3668502, 0.85682714, 0.014446919, -0.92138535, 0.38838187, -0.88322973, 33.255745, -851.1388)
 bone_name = "mixamorig_Spine1"
 bone_idx = 2
 
