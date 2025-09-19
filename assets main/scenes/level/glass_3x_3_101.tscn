@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhaxm80r7h60v"]
+
+[ext_resource type="Script" uid="uid://dm1ev3xcj6ta3" path="res://addons/cogito/DemoScenes/DemoPrefabs/breakableglass.gd" id="1_st8vx"]
+[ext_resource type="PackedScene" uid="uid://cqgg1nng0vvbh" path="res://addons/cogito/Components/Attributes/HealthAttribute.tscn" id="2_sdin4"]
+[ext_resource type="AudioStream" uid="uid://bpwoq2ibfc760" path="res://assets main/sounds/glass3.wav" id="3_fdryo"]
+[ext_resource type="PackedScene" uid="uid://v58o3lh02ly6" path="res://assets main/scenes/level/broken_glass.tscn" id="3_sdin4"]
+[ext_resource type="PackedScene" uid="uid://k28yrbg3k3pw" path="res://addons/cogito/Components/HitboxComponent.tscn" id="3_tkvcu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_maisj"]
+size = Vector3(3, 0.2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckgkf"]
+resource_name = "glass"
+transparency = 4
+albedo_color = Color(0.853244, 0.919941, 0.89044, 0.5)
+emission_enabled = true
+clearcoat_enabled = true
+clearcoat_roughness = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4mur"]
+size = Vector3(3, 0.2, 3)
+
+[node name="Glass_3x3_101" type="StaticBody3D"]
+transform = Transform3D(-1, -8.9407e-08, -2.66454e-15, 0, -4.37114e-08, 1, -8.9407e-08, 1, 4.37114e-08, 0, 0, 0)
+script = ExtResource("1_st8vx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.1, 1.5)
+mesh = SubResource("BoxMesh_maisj")
+surface_material_override/0 = SubResource("StandardMaterial3D_ckgkf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.1, 1.5)
+mesh = SubResource("BoxMesh_maisj")
+surface_material_override/0 = SubResource("StandardMaterial3D_ckgkf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.1, 1.5)
+shape = SubResource("BoxShape3D_v4mur")
+
+[node name="HealthAttribute" parent="." instance=ExtResource("2_sdin4")]
+sound_on_damage_taken = ExtResource("3_fdryo")
+sound_on_death = ExtResource("3_fdryo")
+destroy_on_death = Array[NodePath]([NodePath("..")])
+spawn_on_death = Array[PackedScene]([ExtResource("3_sdin4")])
+value_max = 2.0
+value_start = 2.0
+attribute_visibility = 3
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_attribute") instance=ExtResource("3_tkvcu")]
+health_attribute = NodePath("../HealthAttribute")

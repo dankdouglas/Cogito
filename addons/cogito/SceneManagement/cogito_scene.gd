@@ -59,3 +59,7 @@ func music_fade_in(audio_stream_player, seconds := 1.0, max_volume_db:= 0.0, twe
 		push_error("Non-AudioStreamPlayer[XD] provided to Audio.fade_in(...)")
 		return
 	tween.tween_method(func(x): audio_stream_player.volume_db = linear_to_db(x), db_to_linear(audio_stream_player.volume_db), db_to_linear(max_volume_db), seconds)
+
+
+func _on_area_3d_body_entered(body):
+	pass # Replace with function body.

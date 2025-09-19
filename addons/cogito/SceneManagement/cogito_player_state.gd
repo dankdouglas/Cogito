@@ -71,16 +71,16 @@ func save_node_transforms(player):
 	body_transform = player.get_node("Body").transform
 	neck_transform = player.get_node("Body/Neck").transform
 	head_transform = player.get_node("Body/Neck/Head").transform
-	eyes_transform = player.get_node("Body/Neck/Head/Eyes").transform
-	camera_transform = player.get_node("Body/Neck/Head/Eyes/Camera").transform
+	eyes_transform = player.get_node("Body/Neck/Head/Recoil/Eyes").transform
+	camera_transform = player.get_node("Body/Neck/Head/Recoil/Eyes/Camera").transform
 
 
 func load_node_transforms(player):
 	player.get_node("Body").transform = body_transform
 	player.get_node("Body/Neck").transform = neck_transform
 	player.get_node("Body/Neck/Head").transform = head_transform
-	player.get_node("Body/Neck/Head/Eyes").transform = eyes_transform
-	player.get_node("Body/Neck/Head/Eyes/Camera").transform = camera_transform
+	player.get_node("Body/Neck/Head/Recoil/Eyes").transform = eyes_transform
+	player.get_node("Body/Neck/Head/Recoil/Eyes/Camera").transform = camera_transform
 
 
 # Save the state of the player's collision shapes

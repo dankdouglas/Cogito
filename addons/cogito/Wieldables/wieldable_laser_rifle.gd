@@ -13,6 +13,9 @@ extends CogitoWieldable
 @export var ads_fov = 65
 ## Default position for tweening from ADS
 @export var default_position : Vector3
+@export var aimed_x : float = .1674
+@export var aimed_y : float = .15
+@export var aimed_z : float = .2
 
 @export_group("Collisions")
 ## Spawn hit decal on Collision hit
@@ -27,8 +30,12 @@ extends CogitoWieldable
 @export var sound_secondary_use : AudioStream
 @export var sound_reload : AudioStream
 
+var camera
+
+
 var spawn_node : Node
 var is_firing : bool = false
+var is_ads : bool = false
 
 var firing_cooldown : float
 var player_rid : RID
@@ -37,6 +44,7 @@ var inventory_item_reference : WieldableItemPD
 
 
 func _ready():
+	camera = get_node_or_null("/root/" + get_tree().current_scene.name + "/CogitoPlayer/Body/Neck/Head/Recoil")
 	wieldable_mesh.hide()
 	firing_cooldown = 0
 	player_rid = CogitoSceneManager._current_player_node.get_rid()
@@ -46,10 +54,12 @@ func _physics_process(_delta: float) -> void:
 	if firing_cooldown > 0:
 		firing_cooldown -= _delta
 		
+		
 	if is_firing:
 		if firing_cooldown <= 0:
 			if animation_player.is_playing():
 				return
+				
 			# Gettting camera_collision pos from player interaction component:
 			var _camera_collision = player_interaction_component.Get_Camera_Collision()
 			hit_scan_collision(_camera_collision) #Do the hitscan
@@ -70,6 +80,8 @@ func _physics_process(_delta: float) -> void:
 func action_primary(_passed_item_reference : InventoryItemPD, _is_released: bool):
 	inventory_item_reference = _passed_item_reference
 	
+	
+	
 	if !_is_released and inventory_item_reference.charge_current <= 0: # Can't fire if empty + send hint.
 		inventory_item_reference.send_empty_hint()
 		return
@@ -82,20 +94,23 @@ func action_primary(_passed_item_reference : InventoryItemPD, _is_released: bool
 		is_firing = true
 
 
+
 func action_secondary(is_released:bool):
 	var camera = get_viewport().get_camera_3d()
 	if is_released:
+		is_ads = false
 		# ADS Camera Zoom OUT
 		var tween_cam = get_tree().create_tween()
 		tween_cam.tween_property(camera,"fov", 75, .2)
 		var tween_pistol = get_tree().create_tween()
 		tween_pistol.tween_property(self,"position", default_position, .2)
 	else:
+		is_ads = true
 		# ADS Camera Zoom IN
 		var tween_cam = get_tree().create_tween()
 		tween_cam.tween_property(camera,"fov", ads_fov, .2)
 		var tween_pistol = get_tree().create_tween()
-		tween_pistol.tween_property(self,"position", Vector3(0,default_position.y,default_position.z), .2)
+		tween_pistol.tween_property(self,"position", Vector3(aimed_x,default_position.y +aimed_y,default_position.z+aimed_z), .2)
 
 
 func hit_scan_collision(collision_point:Vector3):
@@ -109,7 +124,10 @@ func hit_scan_collision(collision_point:Vector3):
 	var instantiated_ray = laser_ray_prefab.instantiate()
 	instantiated_ray.draw_ray(bullet_point.get_global_transform().origin, collision_point)
 	spawn_node.add_child(instantiated_ray)
-	
+	if !is_ads:
+		camera.recoilFire()
+	else:
+		camera.recoilFire(true)
 	if bullet_collision:
 		hit_scan_damage(bullet_collision.collider, bullet_direction, bullet_collision.position)
 		

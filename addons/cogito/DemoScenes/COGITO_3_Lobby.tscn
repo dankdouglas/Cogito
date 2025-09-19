@@ -170,7 +170,7 @@ resource_name = "metalDark"
 albedo_color = Color(0.589021, 0.656282, 0.656282, 1)
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_qyi1g"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_8mfm7"]
 _surfaces = [{
 "aabb": AABB(0, 0, -0.1, 2, 2.57906, 0.1),
 "format": 34896613377,
@@ -244,7 +244,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAAAAVNUAAAAA//9U1f//AAAAAFTV//8AAP//VNUAAP////9U1QAA//8AAFTV////////VNX/////AABU1QAA/////1TVAAAAAP//VNUAAP//AABU1QAAAAAAAFTVAAD//wAAVNUAAAAA//9U1f//AAD//1TV////////VNX//wAAAABU1f////8AAFTV//8AAAAAVNX///////9U1f//AAD/////AAAAAP///////////////wAA//////////////////8AAAAA/////wAAAAAAAP////8AAAAA//8AAP//AAD///////8AAP//AAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f/9//3//f/9//3//f/9//3//f/9//3//f////3////9/////f///")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_qyi1g")
+shadow_mesh = SubResource("ArrayMesh_8mfm7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ecok4"]
 size = Vector3(2, 2.6, 0.1)
@@ -263,7 +263,7 @@ resource_name = "metalDark"
 albedo_color = Color(0.589021, 0.656282, 0.656282, 1)
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_7y2ha"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_h5cwc"]
 _surfaces = [{
 "aabb": AABB(0, 0, -0.1, 1, 2.57906, 0.1),
 "format": 34896613377,
@@ -337,7 +337,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAAAAVNUAAAAA//9U1f//AAAAAFTV//8AAP//VNUAAP////9U1QAA//8AAFTV////////VNX/////AABU1QAA/////1TVAAAAAP//VNUAAP//AABU1QAAAAAAAFTVAAD//wAAVNUAAAAA//9U1f//AAD//1TV////////VNX//wAAAABU1f////8AAFTV//8AAAAAVNX///////9U1f//AAD/////AAAAAP///////////////wAA//////////////////8AAAAA/////wAAAAAAAP////8AAAAA//8AAP//AAD///////8AAP//AAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f/9//3//f/9//3//f/9//3//f/9//3//f////3////9/////f///")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_7y2ha")
+shadow_mesh = SubResource("ArrayMesh_h5cwc")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_par6p"]
 points = PackedVector3Array(0.98344, 2.54954, 6.93889e-18, -0.0204691, -0.020469, -0.120469, -1.66533e-16, 0.0319319, -0.000111047, -0.0204691, 2.59957, -0.120469, 1.00298, -0.020469, -0.120469, 1.00298, 2.59957, -0.120469, 0.98344, 0.0295629, 6.93889e-18, -1.66533e-16, 2.54717, -0.000111047)
@@ -356,7 +356,7 @@ resource_name = "metalDark"
 albedo_color = Color(0.589021, 0.656282, 0.656282, 1)
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_kmjmr"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_tm0wg"]
 _surfaces = [{
 "aabb": AABB(0, 0, -0.1391, 2, 2.57907, 0.1782),
 "format": 34896613377,
@@ -430,7 +430,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAD+/9PHVNUAAAAA08dU1QAA/v8rOFTVAAAAACs4VNX//wAA08dU1f///v/Tx1TV//8AACs4VNX///7/KzhU1f//AAArOFTV///+/9PHVNX//wAA08f//zS+AADTx//////+/9PH//80vmjI08f//////v/Tx///NL4AANPH//8AAAAA08f//wAA/v/Tx///ykEAANPH///KQWjI08f//8pBAADTx///AAD+/9PH//80vmjI08f//8pBaMjTx///AAD+/9PH//////7/08f//zS+aMjTx///AAD+/9PH//8AAP7/08dU1QAA/v8rOFTV///+/9PHVNX///7/KzhU1TS+AAArOFTVNL4AANPHVNX//wAAKzhU1f//AADTx1TVNL4AAP//VNU0vgAAAABU1fK2AAD//1TV8rYAAAAAVNXKQWjIKzhU1cpBAAArOFTVykFoyAAAVNXKQQAAAABU1cpBAAAAAP//DEkAAAAA///KQWjIAAD//wxJyMIAAP//8rbIwgAA//80vmjIAAD///K2AAAAAP//NL4AAAAA///KQQAAAABU1cpBAAArOFTVDEkAAAAAVNXKQQAA08dU1cpBAAD//1TVDEkAAP//VNUAAAAA08dU1QAAAAArOFTVDEnIwgAAVNUMScjC//9U1fK2yMIAAFTV8rbIwv//VNU0vgAA//////K2AAD/////NL5oyP/////ytsjC/////wxJyML/////ykFoyP////8MSQAA/////8pBAAD/////DEkAAP//VNUMScjC//9U1QxJAAAAAFTVDEnIwgAAVNXKQWjIKzhU1cpBaMgAAFTVNL5oyCs4VNU0vmjIAABU1TS+AAArOFTVNL5oyCs4VNU0vgAAAABU1TS+aMgAAFTV8rbIwv//VNXytgAA//9U1fK2yMIAAFTV8rYAAAAAVNU0vgAA//9U1TS+aMj//1TVNL4AANPHVNU0vmjI08dU1cpBaMj//1TVykFoyNPHVNU0vmjI//9U1TS+aMjTx1TVykFoyP//VNXKQQAA//9U1cpBaMjTx1TVykEAANPHVNUAAAAAKzj//8pBAAArOP//AAD+/ys4///KQWjIKzj//zS+aMgrOP/////+/ys4//80vgAAKzj/////AAArOP///3////9/////f////3////9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f////3////9/////f////38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f/9/////f////3////9/////f////3////9/////f////3////9/////f////3///wAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//38AAP9/AAD/fwAA/38AAP///3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9/AAD/fwAA/38AAP9/AAD///9/////f////3////9//3////9/////f////3////9/////f////3////9/////f////3////9/////f///")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_kmjmr")
+shadow_mesh = SubResource("ArrayMesh_tm0wg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tm0k0"]
 resource_name = "carpetWhite"
@@ -454,7 +454,7 @@ resource_name = "metalDark"
 albedo_color = Color(0.589021, 0.656282, 0.656282, 1)
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_1qeon"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_meobw"]
 _surfaces = [{
 "aabb": AABB(0, 0, -0.1, 2, 2.57906, 0.1),
 "format": 34896613377,
@@ -528,7 +528,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAAAAVNUAAAAA//9U1f//AAAAAFTV//8AAP//VNUAAP////9U1QAA//8AAFTV////////VNX/////AABU1QAA/////1TVAAAAAP//VNUAAP//AABU1QAAAAAAAFTVAAD//wAAVNUAAAAA//9U1f//AAD//1TV////////VNX//wAAAABU1f////8AAFTV//8AAAAAVNX///////9U1f//AAD/////AAAAAP///////////////wAA//////////////////8AAAAA/////wAAAAAAAP////8AAAAA//8AAP//AAD///////8AAP//AAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f/9//3//f/9//3//f/9//3//f/9//3//f////3////9/////f///")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_1qeon")
+shadow_mesh = SubResource("ArrayMesh_meobw")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_auxff"]
 size = Vector3(2, 2.6, 0.1)
@@ -547,7 +547,7 @@ resource_name = "metalDark"
 albedo_color = Color(0.589021, 0.656282, 0.656282, 1)
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_uoxpw"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_8yhom"]
 _surfaces = [{
 "aabb": AABB(0, 0, -0.1, 1, 2.57906, 0.1),
 "format": 34896613377,
@@ -621,7 +621,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAAAAVNUAAAAA//9U1f//AAAAAFTV//8AAP//VNUAAP////9U1QAA//8AAFTV////////VNX/////AABU1QAA/////1TVAAAAAP//VNUAAP//AABU1QAAAAAAAFTVAAD//wAAVNUAAAAA//9U1f//AAD//1TV////////VNX//wAAAABU1f////8AAFTV//8AAAAAVNX///////9U1f//AAD/////AAAAAP///////////////wAA//////////////////8AAAAA/////wAAAAAAAP////8AAAAA//8AAP//AAD///////8AAP//AAD/fwAA/38AAP9/AAD/f////3////9/////f////3//f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f/9//3//f/9//3//f/9//3//f/9//3//f////3////9/////f///")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_uoxpw")
+shadow_mesh = SubResource("ArrayMesh_8yhom")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6kwp2"]
 points = PackedVector3Array(0.98344, 2.54954, 6.93889e-18, -0.0204691, -0.020469, -0.120469, -1.66533e-16, 0.0319319, -0.000111047, -0.0204691, 2.59957, -0.120469, 1.00298, -0.020469, -0.120469, 1.00298, 2.59957, -0.120469, 0.98344, 0.0295629, 6.93889e-18, -1.66533e-16, 2.54717, -0.000111047)
@@ -643,7 +643,7 @@ emission_enabled = true
 resource_name = "_defaultMat"
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_xr775"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_fay3r"]
 _surfaces = [{
 "aabb": AABB(0, 0, -1.5, 0.1875, 2.25, 1.5),
 "format": 34896613377,
@@ -717,7 +717,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAAAAVNUAAAAA//9U1f//AAAAAFTV//8AAP//VNUAAP////9U1QAA//8AAFTV////////VNX/////AABU1QAAAAD//1TVAABU1f+/VNUAAP////9U1QAA//8AAFTVAABU1f8/VNUAAKoq/z9U1QAAqir/v1TVAAAAAAAAVNUAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//////////1TV//+qKv+/VNX//wAA//9U1f//AAAAAFTV//+qKv8/VNX//1TV/z9U1f//VNX/v1TV/////wAAVNX//wAA/////wAAAAD///////////////8AAP///////wAAVNX/P1TVAABU1f+/VNX//1TV/z9U1f//VNX/v1TVAACqKv+/////X6oq/7///wAAVNX/v////1//f/+/////v/9//7//////VNX/v////7+qKv+//////6oq/7////+/qir/v1TV/7+qKv8/VNX//6oq/79U1f//qir/P1TV//+qKv8/////v6oq/z//////VNX/P////7//f/8/////X/9//z///wAAVNX/P////1+qKv8///8AAKoq/z///wAAqir/v1TVAACqKv8/VNX/X6oq/79U1f9fqir/P1TV/1//f/+/VNX/X/9//z9U1f+//3//v1TV/7//f/8/VNX/v6oq/79U1f+//3//v1TV/7+qKv8/VNX/v/9//z9U1f9fqir/P1TV/1+qKv+/VNX/v6oq/z9U1f+/qir/v1TV/1//f/+/VNX/X6oq/79U1f9f/3//P1TV/1+qKv8/VNX/v6oq/z//v/9fqir/P/+//7//f/8//7//X/9//z//v/+//3//P/+//1+qKv8//7//X/9//7////9fqir/v////7//f/+///8AAP9/AAD/fwAA/38AAP9/////f////3////9/////f/9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3//f/9//3//f/9//3//fwAA/38AAP9/AAD/fwAA/3//f////3////9/////f////3////9/////f////3///////3////9/////f////3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f////3////9/////f////3////9/////f////3////9//38AAP9/AAD/fwAA/38AAAAA/38AAP9/AAD/fwAA/3//f////3////9/////f////////////////////3//f/9//3//f/9/////f////3////9/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_xr775")
+shadow_mesh = SubResource("ArrayMesh_fay3r")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w6tyf"]
 size = Vector3(0.2, 2.25, 1.5)
@@ -950,7 +950,7 @@ resource_name = "wood"
 albedo_color = Color(0.952921, 0.798667, 0.660025, 1)
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_khm1h"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_jpxt7"]
 _surfaces = [{
 "aabb": AABB(0, 0, -0.0691, 0.749166, 1.32823, 0.0491),
 "format": 34896613377,
@@ -1002,7 +1002,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("XN74Ev9///+iIfgS/3///1zeBu3/f///oiEG7f9///9c3gbt/3///6Ih+BL/f///XN74Ev9///+iIQbt/3///1zeBu3///+/XN74Ev///79c3gbt/3//v1ze+BL/f/+/XN4G7QAA/79c3vgSAAD/v6IhBu3/f///oiEG7f////9c3gbt/3///1zeBu3/////XN4G7QAA//+iIQbtAAD//6Ih+BL///+/oiEG7f///7+iIfgS/3//v6IhBu3/f/+/oiH4EgAA/7+iIQbtAAD/v6Ih+BL///+/oiH4Ev9//79c3vgS////v1ze+BL/f/+/oiH4EgAA/79c3vgSAAD/v///AAD///+//////////7///wAAAAD/v/////8AAP+/AAD//////78AAP//AAD/v/////////+//////wAA/7///wAAAAD//6Ih+BIAAP//AAAAAAAA//8AAP//AAD//6IhBu0AAP//XN4G7QAA//9c3vgSAAD///////8AAP//AAAAAP///39c3vgS////f///AAD///9//////////39c3gbt////f6IhBu3///9/oiH4Ev///38AAP//////fwAAAAAAAP//AAAAAP///////wAAAAD/////AAD/////AAD//////78AAAAA////vwAA//8AAP+/AAAAAAAA/7//f/9//3//f/9//3//f/9//3////9/////f////3////9/////f////3////9/////f////3////9//z//f/8//3//P/9//z//f/8//3//P/9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP///3////9/////f////3////9/////f/9/AAD/fwAA/38AAP9/AAD///9/////f////3////9//3////9/////f////3////9/////f/7//3////9//v//f////3////9/////f////3////9/////f////3////9//z//f/8//3//P/9//z//f////3////9/////f///")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_khm1h")
+shadow_mesh = SubResource("ArrayMesh_jpxt7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymotj"]
 resource_name = "metalDark"
@@ -3110,7 +3110,7 @@ resource_name = "wood"
 albedo_color = Color(0.952921, 0.798667, 0.660025, 1)
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_buoq2"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_gxiae"]
 _surfaces = [{
 "aabb": AABB(0, 0, -2, 2, 0.10001, 2.00001),
 "format": 34896613377,
@@ -3140,7 +3140,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAD4//7//78AAAAA/v//vwAA+P8AAP+/AAAAAAAA/78AAPj//v//vwAA+P8AAP+////4//7//7////j/AAD/vwAAAAAAAP//AAAAAP7//////wAAAAD/////AAD+////AAAAAAAA/////wAAAAD//wAA+P8AAP/////4/wAA/////wAA/v//fwAAAAD+//9////4//7//38AAPj//v//f///AAD+//+////4//7//7///wAAAAD/v///+P8AAP+//3////9/////f////3///////3////9/////f////3//f/8//3//P/9//z//f/8//3////9/////f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_buoq2")
+shadow_mesh = SubResource("ArrayMesh_gxiae")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewq1u"]
 resource_name = "metalMedium"
@@ -3156,7 +3156,7 @@ emission_enabled = true
 resource_name = "_defaultMat"
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_m2hte"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_gn4sq"]
 _surfaces = [{
 "aabb": AABB(-2.88765e-15, -0.06, -0.5698, 0.86, 0.799063, 0.5698),
 "format": 34896613377,
@@ -3208,7 +3208,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAAAA6NIAADgT///o0v//AAAAAOjS//84E///6NL//zgT/////wAAOBP///////+qOf////8AAKo5/////wAAqjn//1TVAAA4E///VNUAAKo5AABU1QAAAAAAAFTV//84E///VNX//6o5//9U1f//AAAAAFTV//+qOQAAVNVwR///SUxU1XBH//8AAFTVjrj//0lMVNWOuP//AABU1XBHqjkAAP//jriqOQAA//9wR///AAD//464//8AAP//jriqOTpwKsBwR6o5OnAqwI64//9JTCrAcEf//0lMKsAAAKo5AABU1XBHqjk6cFTVAACqOf//VNX//6o5//9U1Y64qjk6cFTVjriqOQAAVNX//6o5AABU1XBHqjkAAFTVcEeqOTpwVNVwR6o5AABU1XBH//9JTFTVcEf//wAAVNWOuKo5OnBU1Y64//9JTFTVjriqOQAAVNWOuP//AABU1QAAAAAAAP////8AAAAA//8AAKo5AAD/////qjkAAP//AACqOQAA/////wAAAAD//3BHqjkAAP//AACqOQAA/////6o5AAD//464qjkAAP//cEeqOQAA/////6o5AAD//wAA/38AAP9/AAD/fwAA/3//f/9//3//f/9//3//f/9//3////9/////f////3////9/AAD/fwAA/38AAP9/AAD///9/////f////3////9//3////9/////f////3///////3////9/////f////3////9/////f////3////9/////f////3////9/////f/9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/z//v/8//7//P/+//7//v/+//7//v/+//3////9/////f////3////9/////f///")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_m2hte")
+shadow_mesh = SubResource("ArrayMesh_gn4sq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w47jm"]
 size = Vector3(2, 0.1, 2)

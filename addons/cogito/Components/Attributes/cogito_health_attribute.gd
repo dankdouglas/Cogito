@@ -20,6 +20,7 @@ signal death()
 @export var spawn_on_death : Array[PackedScene] = []
 
 var parent_position : Vector3
+#var state_chart = $StateChart
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,6 +33,7 @@ func _ready() -> void:
 func on_health_change(_health_name:String, _health_current:float, _health_max:float, has_increased:bool):
 	if !has_increased:
 		damage_taken.emit()
+#		state_chart.send_event("alerted")
 		if sound_on_hit:
 			Audio.play_sound_3d(sound_on_hit).global_position = get_parent().global_position
 		if sound_on_damage_taken and not _health_current <= 0:

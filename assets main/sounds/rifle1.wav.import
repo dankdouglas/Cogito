@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bgmr3ccbr5lnf"
+path="res://.godot/imported/rifle1.wav-70c510a494e5e645974b251ebc6e0898.sample"
+
+[deps]
+
+source_file="res://assets main/sounds/rifle1.wav"
+dest_files=["res://.godot/imported/rifle1.wav-70c510a494e5e645974b251ebc6e0898.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -15,6 +15,9 @@ signal got_hit
 
 @onready var parent = get_parent()
 
+
+@export var damage_multiplier = 2
+
 func _ready() -> void:
 	if get_parent().has_signal("damage_received"):
 		if !get_parent().damage_received.is_connected(damage):
@@ -25,7 +28,7 @@ func _ready() -> void:
 
 func damage(damage_amount: float, _hit_direction:= Vector3.ZERO, _hit_position:= Vector3.ZERO):
 	if health_attribute:
-		health_attribute.subtract(damage_amount)
+		health_attribute.subtract(damage_amount* damage_multiplier)
 	
 	if spawn_at_global_collision != null:
 		var spawned_object = spawn_at_global_collision.instantiate()
@@ -44,5 +47,8 @@ func damage(damage_amount: float, _hit_direction:= Vector3.ZERO, _hit_position:=
 			parent.apply_impulse(_hit_direction * damage_amount * applied_force_multipler, _hit_position)
 		if parent is CharacterBody3D:
 			parent.apply_knockback(_hit_direction * damage_amount * applied_force_multipler)
+
+
 			
 	got_hit.emit()
+	

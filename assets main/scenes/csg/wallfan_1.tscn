@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwn585uiufa3s"]
+
+[ext_resource type="PackedScene" uid="uid://b76etfjjltnts" path="res://addons/cogito/DemoScenes/DemoPrefabs/ceiling_fan_lab.tscn" id="1_i4r02"]
+
+[node name="wallfan1" type="CSGCombiner3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.25)
+size = Vector3(2, 3, 0.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0.75)
+size = Vector3(2, 1, 0.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.86464, 0.573223)
+size = Vector3(2, 0.4, 0.8)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0.5)
+radius = 0.25
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, 6.18172e-08, -0.707107, -0.707107, 6.18172e-08, -0.707107, 0.707107, 1, 1.67678, 0.676777)
+radius = 0.25
+height = 0.9
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, 6.18172e-08, -0.707107, -0.707107, 6.18172e-08, -0.707107, 0.707107, -1, 1.67678, 0.676777)
+radius = 0.25
+height = 0.9
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 3, 1)
+radius = 0.25
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0.95, 0.2)
+operation = 2
+radius = 0.7
+height = 1.0
+
+[node name="CeilingFan_Lab" parent="." instance=ExtResource("1_i4r02")]
+transform = Transform3D(1.2, 0, 0, 0, -5.24537e-08, 1.2, 0, -1.2, -5.24537e-08, 0, 1, 0)
+
+[node name="ceilingFan" parent="CeilingFan_Lab" index="1"]
+check_world_state = false
+
+[editable path="CeilingFan_Lab"]

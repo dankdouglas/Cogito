@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://djl1vlkdj3q62"]
+
+[ext_resource type="PackedScene" uid="uid://nqyrraqwixxy" path="res://addons/cogito/DemoScenes/DemoPrefabs/sliding_door.tscn" id="1_qbu12"]
+
+[node name="walldoor1" type="CSGCombiner3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.25)
+size = Vector3(2, 3, 0.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 1.05, 0.260003)
+size = Vector3(0.2, 0.3, 0.570081)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0.5)
+radius = 0.25
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 2, 0.5)
+radius = 0.25
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 3, 0.5)
+radius = 0.25
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.3)
+operation = 2
+size = Vector3(1, 2, 1)
+
+[node name="SlidingDoor" parent="." instance=ExtResource("1_qbu12")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.75, 0, 0.1)

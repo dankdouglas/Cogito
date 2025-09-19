@@ -182,9 +182,9 @@ var radius : float
 @onready var body: Node3D = $Body
 @onready var neck: Node3D = $Body/Neck
 @onready var head: Node3D = $Body/Neck/Head
-@onready var eyes: Node3D = $Body/Neck/Head/Eyes
-@onready var camera: Camera3D = $Body/Neck/Head/Eyes/Camera
-@onready var animationPlayer: AnimationPlayer = $Body/Neck/Head/Eyes/AnimationPlayer
+@onready var eyes: Node3D = $Body/Neck/Head/Recoil/Eyes
+@onready var camera: Camera3D = $Body/Neck/Head/Recoil/Eyes/Camera
+@onready var animationPlayer: AnimationPlayer = $Body/Neck/Head/Recoil/Eyes/AnimationPlayer
 
 @onready var standing_collision_shape: CollisionShape3D = $StandingCollisionShape
 @onready var crouching_collision_shape: CollisionShape3D = $CrouchingCollisionShape

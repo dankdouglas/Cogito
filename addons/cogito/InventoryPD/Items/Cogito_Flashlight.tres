@@ -5,18 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://4xstvhrf4r2h" path="res://addons/cogito/Assets/Graphics/BatteryIcon.png" id="3_ea2qf"]
 [ext_resource type="AudioStream" uid="uid://npav2p2tk10i" path="res://addons/cogito/Assets/Audio/Kenney/handleSmallLeather.ogg" id="3_f88a5"]
 [ext_resource type="Texture2D" uid="uid://baq6iv1cuvl1q" path="res://addons/cogito/Assets/Graphics/Crosshair_Kenney/crosshair066.png" id="4_533w5"]
-[ext_resource type="PackedScene" uid="uid://5r8icl42jumy" path="res://addons/cogito/Wieldables/flashlight.tscn" id="5_ty4ey"]
+[ext_resource type="PackedScene" uid="uid://omrusx1578o" path="res://assets main/scenes/weapons and items/nightvision.tscn" id="6_533w5"]
 
 [resource]
 script = ExtResource("2_h6bnx")
-wieldable_scene = ExtResource("5_ty4ey")
+wieldable_scene = ExtResource("6_533w5")
 wieldable_data_icon = ExtResource("3_ea2qf")
 wieldable_crosshair = ExtResource("4_533w5")
-no_reload = false
+no_reload = true
 hint_on_empty = "Out of battery."
 charge_max = 100.0
 ammo_item_name = "Battery"
-charge_current = 100.0
+charge_current = 1.0
 wieldable_range = 0.0
 wieldable_damage = 0.0
 name = "Flashlight"

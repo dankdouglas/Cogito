@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dym3o8in8bexf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mtrs"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.0
+
+[node name="light1" type="CSGBox3D"]
+size = Vector3(0.7, 0.0329102, 0.7)
+material = SubResource("StandardMaterial3D_4mtrs")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11134, 0)
+shadow_enabled = true

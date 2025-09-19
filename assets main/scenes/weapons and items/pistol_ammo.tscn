@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmqho5ex27w75"]
+
+[ext_resource type="Script" uid="uid://fo2f3fr8frg4" path="res://addons/cogito/CogitoObjects/cogito_projectile.gd" id="1_v1uen"]
+[ext_resource type="PackedScene" uid="uid://hb6a2o6ljd5q" path="res://addons/cogito/Components/Interactions/ExtendedPickupInteraction.tscn" id="2_dnbs6"]
+[ext_resource type="PackedScene" uid="uid://1xq4y42qkcur" path="res://addons/cogito/Components/Interactions/PickupComponent.tscn" id="3_v7ojy"]
+[ext_resource type="Resource" uid="uid://bqhbrpnp2tt08" path="res://addons/cogito/InventoryPD/Items/Cogito_FoamBullets.tres" id="4_mqm7b"]
+[ext_resource type="Script" uid="uid://di15gqemrkk0x" path="res://addons/cogito/InventoryPD/CustomResources/InventorySlotPD.gd" id="5_pi17b"]
+[ext_resource type="PackedScene" uid="uid://cj0yaeh3yg7tu" path="res://addons/cogito/Components/Properties/CogitoProperties.tscn" id="6_sj1lj"]
+
+[sub_resource type="Resource" id="Resource_3sm2a"]
+resource_local_to_scene = true
+script = ExtResource("5_pi17b")
+inventory_item = ExtResource("4_mqm7b")
+quantity = 10
+origin_index = -1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th5eh"]
+albedo_color = Color(0.385493, 0.385492, 0.385492, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1uen"]
+size = Vector3(0.0584326, 0.202778, 0.135)
+
+[node name="pistol ammo" type="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+top_level = true
+collision_layer = 2
+collision_mask = 3
+mass = 0.1
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_v1uen")
+cogito_name = ""
+
+[node name="Lifespan" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="ExtendedPickupInteraction" parent="." instance=ExtResource("2_dnbs6")]
+hold_interaction_text = "(HOLD) Reload"
+interaction_text = "Pick up | (HOLD) Reload"
+
+[node name="PickupComponent" parent="." instance=ExtResource("3_v7ojy")]
+slot_data = SubResource("Resource_3sm2a")
+
+[node name="CogitoProperties" parent="." instance=ExtResource("6_sj1lj")]
+material_properties = 1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.0780658, 0, -2.22045e-16, 0, 0.0780658, 0, 2.22045e-16, 0, 0.0780658, -0.00166435, 0.0696578, -0.00329986)
+size = Vector3(0.3, 2.53296, 1)
+material = SubResource("StandardMaterial3D_th5eh")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.0896732, 0, -8.88178e-16, 0, 0.0896732, 0, 8.88178e-16, 0, 0.0896732, -0.00166435, -0.0236314, -0.00752518)
+size = Vector3(0.3, 0.142944, 1.09424)
+material = SubResource("StandardMaterial3D_th5eh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00398682, 0.0676368, -1.38778e-17)
+shape = SubResource("BoxShape3D_v1uen")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

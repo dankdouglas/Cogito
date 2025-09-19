@@ -8,8 +8,8 @@
 [resource]
 script = ExtResource("3_fjkqh")
 reload_amount = 1
-name = "Foam Bullets"
-description = "Very visible but not very dangerous. Have a tendency to vanish."
+name = "9mm"
+description = "9mm"
 icon = ExtResource("1_efcmi")
 is_stackable = true
 is_droppable = true

@@ -30,6 +30,7 @@ height = 0.4
 radius = 0.06
 
 [node name="Pickup_Flashlight" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329, -0.264, -0.535)
 collision_layer = 3
 mass = 2.0
 script = ExtResource("1_p4i4k")
@@ -73,5 +74,3 @@ bus = &"SFX"
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, -1, 1.91069e-15, 4.37114e-08, 0, 1, -4.37114e-08, 0.174371, 0, 0)
 visible = false
-spot_range = 8.0
-spot_angle = 30.0

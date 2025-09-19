@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8toyx6il1gby"]
+
+[ext_resource type="Script" uid="uid://c2kkj7vhsd1oi" path="res://addons/cogito/SceneManagement/cogito_scene.gd" id="1_0l6hj"]
+[ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="2_rsqn3"]
+[ext_resource type="MeshLibrary" uid="uid://b6puy8xehqan2" path="res://assets main/scenes/mesh libraries/tileset1.tres" id="3_e2axe"]
+[ext_resource type="PackedScene" uid="uid://dym3o8in8bexf" path="res://assets main/scenes/csg/light_1.tscn" id="5_ojag1"]
+[ext_resource type="Script" uid="uid://6010ovanwkwo" path="res://addons/cogito/Scripts/scene_transition_zone.gd" id="8_yrre3"]
+[ext_resource type="PackedScene" uid="uid://8h462cd7whew" path="res://addons/cogito/PackedScenes/hazard_zone.tscn" id="19_pirfw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_12usi"]
+size = Vector3(2.1, 3, 1.78258)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_11t3o"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_h1ovd"]
+sky_material = SubResource("ProceduralSkyMaterial_11t3o")
+
+[sub_resource type="Environment" id="Environment_curcf"]
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_h1ovd")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_sky_affect = 0.0
+
+[node name="TestLevel1-3" type="Node3D" node_paths=PackedStringArray("connectors")]
+script = ExtResource("1_0l6hj")
+connectors = [NodePath("ConnectorFrom2")]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("3_e2axe")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65535, 1, 655361, 65535, 0, 655365, 0, 1, 5, 0, 0, 1, 65534, 65535, 1441793, 65533, 65535, 1441797, 1, 65535, 1441797, 2, 65535, 1441793, 65532, 65533, 655365, 65532, 65534, 655361, 65534, 65532, 1048581, 65533, 65532, 1048577, 65535, 65532, 1048577, 0, 65532, 1048581, 1, 65532, 1048577, 2, 65532, 1048581, 3, 65533, 1, 3, 65534, 5, 3, 65532, 1048576, 65532, 65532, 655360, 3, 65535, 0, 65532, 65535, 1441792, 0, 65535, 2, 65535, 65535, 1441794, 2, 65533, 1441796, 2, 65534, 1441796, 1, 65534, 1441796, 1, 65533, 1441796, 0, 65533, 1441796, 0, 65534, 1441796, 65535, 65534, 1441796, 65535, 65533, 1441796, 65534, 65533, 1441796, 65534, 65534, 1441796, 65533, 65534, 1441796, 65533, 65533, 1441796)
+}
+
+[node name="TransitionZone_2" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.18924, 1.5, 1.39066)
+script = ExtResource("8_yrre3")
+target_scene_path = "uid://ck7obson55ipv"
+target_connector = "ConnectorFrom3"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionZone_2"]
+shape = SubResource("BoxShape3D_12usi")
+
+[node name="ConnectorFrom2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3)
+
+[node name="CogitoPlayer" parent="." instance=ExtResource("2_rsqn3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+
+[node name="HazardZone" parent="." instance=ExtResource("19_pirfw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.2487, 1.505, -1.4549)
+drain_amount = 1000.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_curcf")
+
+[node name="light1" parent="WorldEnvironment" instance=ExtResource("5_ojag1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.98355, -2.5)

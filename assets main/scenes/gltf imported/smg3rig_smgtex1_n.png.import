@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cfmotddphc65l"
+path.s3tc="res://.godot/imported/smg3rig_smgtex1_n.png-1b2837161a2c6e537e99e3d1b073cd1c.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "e174fc5d25308222fe3edd3366bb9e0e"
+}
+
+[deps]
+
+source_file="res://assets main/scenes/gltf imported/smg3rig_smgtex1_n.png"
+dest_files=["res://.godot/imported/smg3rig_smgtex1_n.png-1b2837161a2c6e537e99e3d1b073cd1c.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets main/scenes/gltf imported/smg3rig_smgtex1_n.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
