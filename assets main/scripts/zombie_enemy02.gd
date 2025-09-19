@@ -215,4 +215,7 @@ func _on_health_attribute_damage_taken():
 
 
 func _on_area_3d_body_entered(body):
-	state_chart.send_event("player_spotted")
+	print("ambush")
+	if body.name == "CogitoPlayer":
+		print("ambush2")
+		state_chart.send_event("player_spotted")
