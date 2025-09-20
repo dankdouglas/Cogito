@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx5771ty1hm16"]
+
+[ext_resource type="Texture2D" uid="uid://yc1getv622gc" path="res://addons/cogito/Assets/Textures/Prototype Textures/PNG/Light/texture_02.png" id="1_g4hgk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtya8"]
+albedo_texture = ExtResource("1_g4hgk")
+uv1_triplanar = true
+
+[node name="segment2" type="CSGCombiner3D"]
+material_override = SubResource("StandardMaterial3D_rtya8")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.45058e-09, 0)
+size = Vector3(2, 0.2, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, 0.1, 0.0500002)
+operation = 2
+size = Vector3(1.8, 0.2, 1.9)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9407e-08, 0.1, 0)
+operation = 2
+size = Vector3(2, 0.2, 1.8)

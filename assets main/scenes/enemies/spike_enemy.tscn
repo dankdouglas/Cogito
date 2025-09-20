@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://35ulq0xga0or" path="res://assets main/scenes/gltf imported/infected2_zombieflesh1.png" id="22_ssf1v"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="23_b3jb8"]
 [ext_resource type="Texture2D" uid="uid://orr5ct2qdrwy" path="res://assets main/scenes/gltf imported/parasite1_parasite_n.png" id="23_ssf1v"]
-[ext_resource type="Texture2D" uid="uid://b7j8ctwkj6sar" path="res://assets main/scenes/gltf imported/infected2_zombieflesh1_n.png" id="23_tndix"]
+[ext_resource type="Texture2D" uid="uid://cf8j6rqspvaji" path="res://assets main/scenes/gltf imported/infected2_zombieflesh1_n.png" id="23_tndix"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="24_0jgpg"]
 [ext_resource type="Texture2D" uid="uid://qnslgixgewe7" path="res://assets main/scenes/gltf imported/infected2_gown.png" id="24_7wmws"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="25_2i8gd"]
@@ -5058,7 +5058,7 @@ mesh = SubResource("ArrayMesh_2tjjk")
 skin = SubResource("Skin_d8pnq")
 
 [node name="Head" type="BoneAttachment3D" parent="infected2/Armature/Skeleton3D"]
-transform = Transform3D(0.9673477, -0.13871121, 0.21212672, -0.19074386, 0.15270245, 0.9696901, -0.16689911, -0.9784894, 0.12125796, -126.667, 418.20142, -1016.94666)
+transform = Transform3D(0.967348, -0.138711, 0.212127, -0.190744, 0.152702, 0.96969, -0.166899, -0.978489, 0.121258, -126.667, 418.201, -1016.95)
 bone_name = "mixamorig_Head"
 bone_idx = 5
 
@@ -5092,7 +5092,7 @@ target_position = Vector3(0, 0, -100)
 debug_shape_custom_color = Color(0.95, 0, 0, 1)
 
 [node name="Chest" type="BoneAttachment3D" parent="infected2/Armature/Skeleton3D"]
-transform = Transform3D(0.971936, -0.22953199, 0.051531527, 0.14138074, 0.7450195, 0.65188766, -0.18802106, -0.6263076, 0.75656265, -36.123726, 88.93618, -827.8818)
+transform = Transform3D(0.971936, -0.229532, 0.0515315, 0.141381, 0.745019, 0.651888, -0.188021, -0.626308, 0.756563, -36.1237, 88.9362, -827.882)
 bone_name = "mixamorig_Spine1"
 bone_idx = 2
 
@@ -5111,12 +5111,12 @@ applied_force_multipler = 10
 damage_multiplier = 1
 
 [node name="Cube" type="MeshInstance3D" parent="infected2/Armature/Skeleton3D/Chest"]
-transform = Transform3D(20.512968, 34.831158, -106.29319, 98.22743, 46.084244, 34.05756, 53.506153, -97.95532, -21.773159, 33.41298, 391.85638, 37.101685)
+transform = Transform3D(20.513, 34.8312, -106.293, 98.2274, 46.0842, 34.0576, 53.5062, -97.9553, -21.7732, 33.413, 391.856, 37.1017)
 mesh = SubResource("ArrayMesh_tndix")
 skin = SubResource("Skin_7wmws")
 
 [node name="arm" type="BoneAttachment3D" parent="infected2/Armature/Skeleton3D"]
-transform = Transform3D(0.15290311, 0.12266208, 0.98059916, 0.96853596, 0.17856361, -0.17335826, -0.19636406, 0.97625256, -0.091499686, -237.02083, 299.64462, -972.8118)
+transform = Transform3D(0.152903, 0.122662, 0.980599, 0.968536, 0.178564, -0.173358, -0.196364, 0.976253, -0.0914997, -237.021, 299.645, -972.812)
 bone_name = "mixamorig_RightArm"
 bone_idx = 32
 
@@ -5143,7 +5143,7 @@ applied_force_multipler = 10
 damage_multiplier = 1
 
 [node name="arm2" type="BoneAttachment3D" parent="infected2/Armature/Skeleton3D"]
-transform = Transform3D(0.4650888, 0.5222841, -0.714781, -0.6331945, -0.3680116, -0.6809054, -0.6186736, 0.76927704, 0.15954936, 19.05333, 344.9323, -1024.3275)
+transform = Transform3D(0.465089, 0.522284, -0.714781, -0.633195, -0.368012, -0.680905, -0.618674, 0.769277, 0.159549, 19.0533, 344.932, -1024.33)
 bone_name = "mixamorig_LeftArm"
 bone_idx = 8
 

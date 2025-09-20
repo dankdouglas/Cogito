@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d3x0vmsoi8827" path="res://assets main/scenes/weapons and items/revolver.tscn" id="6_by05o"]
 [ext_resource type="Script" uid="uid://di15gqemrkk0x" path="res://addons/cogito/InventoryPD/CustomResources/InventorySlotPD.gd" id="7_6ekpq"]
 [ext_resource type="PackedScene" uid="uid://cio4x05ipvslu" path="res://addons/cogito/Components/Interactions/CarryableComponent.tscn" id="8_3xdcv"]
-[ext_resource type="Texture2D" uid="uid://bpgbpigwx3e41" path="res://assets main/scenes/gltf imported/pistolrig1_Pistol2_tex.png" id="9_1xyfx"]
+[ext_resource type="Texture2D" uid="uid://dalwayowx2c0t" path="res://assets main/scenes/gltf imported/pistolrig1_Pistol2_tex.png" id="9_1xyfx"]
 [ext_resource type="PackedScene" uid="uid://b4rujg0yfelby" path="res://assets main/scenes/gltf imported/magnum2.glb" id="10_by05o"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_r6lnb"]

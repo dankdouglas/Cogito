@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfsvgc4n3p4t1"]
+
+[ext_resource type="PackedScene" uid="uid://b6603q15cd0t0" path="res://assets main/scenes/gltf imported/catwalk.glb" id="1_hqd0x"]
+
+[node name="catwalk" instance=ExtResource("1_hqd0x")]
