@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://68fdvedre1fj"]
+[gd_scene load_steps=51 format=4 uid="uid://68fdvedre1fj"]
 
 [ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="1_v6sdu"]
 [ext_resource type="PackedScene" uid="uid://dym3o8in8bexf" path="res://assets main/scenes/csg/light_1.tscn" id="2_36vdw"]
@@ -17,8 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://vb01wkv8ui72" path="res://addons/cogito/Assets/Textures/Prototype Textures/PNG/Dark/texture_12.png" id="14_hdvwx"]
 [ext_resource type="MeshLibrary" uid="uid://c2m2f61yhox7l" path="res://assets main/tres/cryolab.tres" id="15_e4tla"]
 [ext_resource type="PackedScene" uid="uid://ot7stxgq6mp7" path="res://assets main/scenes/gltf imported/level objects/cryolab_cabinets.glb" id="17_hvr5y"]
-[ext_resource type="Texture2D" uid="uid://xaulp88s8y3b" path="res://assets main/scenes/gltf imported/level objects/cryolab_cabinets_cryolab_wall.png" id="18_27ntl"]
+[ext_resource type="Texture2D" uid="uid://bffrqgmbxf85j" path="res://assets main/scenes/gltf imported/level objects/cryolab_cabinets_cryolab_wall.png" id="18_27ntl"]
 [ext_resource type="Texture2D" uid="uid://bp5dthgq17mud" path="res://assets main/scenes/gltf imported/level objects/cryolab_cabinets_cryolab_wall_n.png" id="19_t7oqo"]
+[ext_resource type="MeshLibrary" uid="uid://dh8rkbfhrv1a5" path="res://assets main/tres/vents.tres" id="20_hvr5y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nwr60"]
 sky_top_color = Color(0.696525, 0.329618, 0, 1)
@@ -1262,13 +1263,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3, -12)
 [node name="light8" parent="lights" instance=ExtResource("2_36vdw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3, -16)
 
+[node name="light9" parent="lights" instance=ExtResource("2_36vdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, -21)
+
+[node name="light10" parent="lights" instance=ExtResource("2_36vdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, -27)
+
+[node name="light11" parent="lights" instance=ExtResource("2_36vdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05, 1, -30.4)
+size = Vector3(1.6, 0.0329102, 0.7)
+
 [node name="light3" parent="lights" instance=ExtResource("2_36vdw")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.5, 9, -1.5)
 
 [node name="hallway" type="Node3D" parent="."]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="hallway"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -7.2)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="hallway/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
@@ -1361,6 +1372,12 @@ height = 1.0791
 
 [node name="facade" type="Node3D" parent="."]
 
+[node name="CSGBox3D6" type="CSGBox3D" parent="facade"]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, -4.7, -0.5, -27)
+visible = false
+use_collision = true
+size = Vector3(25, 1, 13)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="facade"]
 transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 4.8, -1.1)
 size = Vector3(1, 10.6, 7.4)
@@ -1372,6 +1389,11 @@ size = Vector3(1, 10.6, 7.4)
 [node name="CSGBox3D2" type="CSGBox3D" parent="facade"]
 transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, -5.2, -13.4)
 size = Vector3(1, 10.6, 18)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="facade"]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 1, -28.4)
+use_collision = true
+size = Vector3(1, 23, 18)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="facade"]
 transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 7.8, -13.4)
@@ -1529,6 +1551,16 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 0, 0.805383)
 mesh = SubResource("ArrayMesh_20n3n")
 skeleton = NodePath("")
+
+[node name="GridMap2" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+mesh_library = ExtResource("20_hvr5y")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65530, 65514, 655360, 65529, 65514, 0, 65530, 65513, 655360, 65529, 65513, 0, 65531, 65512, 1048576, 65528, 65512, 1048576, 65530, 65512, 1048577, 65529, 65512, 1048577, 65532, 65512, 1048578, 65527, 65512, 2, 65532, 65511, 655362, 65531, 65511, 1441792, 65530, 65511, 1441793, 65530, 65510, 655360, 65530, 65509, 655360, 65529, 65511, 1441793, 65529, 65510, 0, 65529, 65509, 0, 65528, 65511, 1441792, 65527, 65511, 1441794, 65530, 65508, 655365, 65529, 65508, 0, 65530, 65507, 655362, 65529, 65507, 1441794, 65531, 65508, 655363, 65532, 65508, 655363, 65533, 65508, 1441796, 65533, 65507, 1441795, 65533, 65506, 1441795, 65531, 65505, 3, 65532, 65505, 3, 65533, 65505, 4)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [connection signal="pressed" from="level stuff/cryoroom/cryotube/GenericButton" to="level stuff/lab1/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
 [connection signal="pressed" from="level stuff/cryoroom/console/GenericButton" to="level stuff/cryoroom/cryotube/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
