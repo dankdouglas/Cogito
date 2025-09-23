@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://txm860b4afxa"]
+
+[ext_resource type="Texture2D" uid="uid://by3en3pjml050" path="res://assets main/materials/facade1_Facade010_1K-JPG_Color.jpg" id="1_mqysd"]
+[ext_resource type="Texture2D" uid="uid://mg631v55f41a" path="res://assets main/materials/facade1_Facade010_1K-JPG_Emission.jpg" id="2_ym40n"]
+[ext_resource type="Texture2D" uid="uid://bjd6n5ikx41l5" path="res://assets main/materials/facade1_Facade010_1K-JPG_Metalness-Facade010_1K-JPG_Roughness.png" id="3_h6jau"]
+[ext_resource type="Texture2D" uid="uid://cokqhoin0x2ao" path="res://assets main/materials/facade1_Facade010_1K-JPG_NormalDX.jpg" id="4_wdbdr"]
+
+[resource]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_mqysd")
+metallic = 1.0
+metallic_texture = ExtResource("3_h6jau")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_h6jau")
+roughness_texture_channel = 1
+emission_enabled = true
+emission_texture = ExtResource("2_ym40n")
+normal_enabled = true
+normal_texture = ExtResource("4_wdbdr")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+texture_filter = 2

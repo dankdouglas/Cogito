@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpehxuxl06w60"]
+
+[ext_resource type="Material" uid="uid://txm860b4afxa" path="res://assets main/materials/facade.tres" id="1_jg3nd"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+size = Vector3(1, 4, 1)
+material = ExtResource("1_jg3nd")
