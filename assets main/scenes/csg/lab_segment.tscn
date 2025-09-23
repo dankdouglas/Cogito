@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cycf6nidv6chq"]
+[gd_scene load_steps=0 format=3 uid="uid://cycf6nidv6chq"]
 
 [node name="lab segment" type="CSGCombiner3D"]
 
