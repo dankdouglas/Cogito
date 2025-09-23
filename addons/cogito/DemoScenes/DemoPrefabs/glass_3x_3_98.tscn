@@ -1,15 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://caex54qny4gvm"]
+[gd_scene load_steps=6 format=3 uid="uid://caex54qny4gvm"]
+
+[ext_resource type="Texture2D" uid="uid://dfq54o7tj7n3f" path="res://addons/cogito/Assets/Textures/Prototype Textures/PNG/Dark/texture_04.png" id="1_yo7sw"]
+[ext_resource type="Texture2D" uid="uid://cfpndqw2csb1k" path="res://assets main/scenes/gltf imported/level/cryolab_cryolab_tile_n.png" id="2_j3in8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_maisj"]
 size = Vector3(3, 0.2, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckgkf"]
 resource_name = "glass"
-transparency = 4
+transparency = 1
 albedo_color = Color(0.853244, 0.919941, 0.89044, 0.5)
+albedo_texture = ExtResource("1_yo7sw")
 emission_enabled = true
+normal_scale = 16.0
+normal_texture = ExtResource("2_j3in8")
 clearcoat_enabled = true
 clearcoat_roughness = 1.0
+uv1_scale = Vector3(3.125, 3.125, 3.125)
+uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v4mur"]
 size = Vector3(3, 0.2, 3)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cknhaj0w7yuyg"]
+[gd_scene load_steps=8 format=4 uid="uid://cknhaj0w7yuyg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6whr4"]
 resource_name = "metalDark"
@@ -70,6 +70,10 @@ size = Vector3(0.313989, 0.0376869, 0.208179)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0h3vs"]
 size = Vector3(0.785477, 0.494311, 0.0478943)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06gmc"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
 [node name="computerScreen" type="StaticBody3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5.60544, 0.7688, -0.194926)
 
@@ -84,3 +88,8 @@ shape = SubResource("BoxShape3D_g34eo")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0.39293, 0.340281, -0.120491)
 shape = SubResource("BoxShape3D_0h3vs")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.5, -6.64048e-09, -5.07342e-10, 6.64048e-09, 0.494197, 0.0759582, -5.07342e-10, -0.0759582, 0.494197, 0.393109, 0.336933, -0.0958094)
+size = Vector3(1.49548, 0.890674, 0.0338867)
+material = SubResource("StandardMaterial3D_06gmc")

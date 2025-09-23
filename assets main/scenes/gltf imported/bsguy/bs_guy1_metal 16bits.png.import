@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bqtcyrcba7hdp"
+path.s3tc="res://.godot/imported/bs_guy1_metal 16bits.png-59bc8192df45a5d891728cd6a252b9dc.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "9ca488a1d3e1c9c3d3c6111f926845e9"
+}
+
+[deps]
+
+source_file="res://assets main/scenes/gltf imported/bsguy/bs_guy1_metal 16bits.png"
+dest_files=["res://.godot/imported/bs_guy1_metal 16bits.png-59bc8192df45a5d891728cd6a252b9dc.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

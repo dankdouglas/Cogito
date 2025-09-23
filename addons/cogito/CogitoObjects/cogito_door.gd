@@ -360,3 +360,11 @@ func save():
 		
 	}
 	return state_dict
+
+
+
+
+
+func _on_generic_button_pressed():
+	open_door(player_interaction_component)
+	unlock_door()

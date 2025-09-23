@@ -5,9 +5,9 @@
 [ext_resource type="AudioStream" uid="uid://bgmr3ccbr5lnf" path="res://assets main/sounds/rifle1.wav" id="3_jj1ah"]
 [ext_resource type="AudioStream" uid="uid://mqdeahqwi8dn" path="res://assets main/sounds/pistolReload.ogg" id="4_wpkwm"]
 [ext_resource type="Script" uid="uid://b361n7ae3ixmn" path="res://addons/cogito/Assets/Shader/ViewmodelSpace.gd" id="5_vaxxc"]
-[ext_resource type="Texture2D" uid="uid://kyk4rncc8nkk" path="res://assets main/scenes/gltf imported/pistolrig1_black 16bits.png" id="6_pjhbi"]
-[ext_resource type="Texture2D" uid="uid://bmj7x6t5gxv4v" path="res://assets main/scenes/gltf imported/pistolrig1_grey 16bits.png" id="7_alkup"]
-[ext_resource type="Texture2D" uid="uid://bpgbpigwx3e41" path="res://assets main/scenes/gltf imported/pistolrig1_Pistol2_tex.png" id="8_n1xot"]
+[ext_resource type="Texture2D" uid="uid://dmwgo3dg0kdb6" path="res://assets main/scenes/gltf imported/pistolrig1_black 16bits.png" id="6_pjhbi"]
+[ext_resource type="Texture2D" uid="uid://de6kru38xht11" path="res://assets main/scenes/gltf imported/pistolrig1_grey 16bits.png" id="7_alkup"]
+[ext_resource type="Texture2D" uid="uid://dalwayowx2c0t" path="res://assets main/scenes/gltf imported/pistolrig1_Pistol2_tex.png" id="8_n1xot"]
 [ext_resource type="Texture2D" uid="uid://cd5bx0nwfltkg" path="res://assets main/scenes/gltf imported/pistolrig1_Pistol2_tex_n.png" id="9_38mgr"]
 [ext_resource type="PackedScene" uid="uid://b4rujg0yfelby" path="res://assets main/scenes/gltf imported/magnum2.glb" id="10_wjg03"]
 

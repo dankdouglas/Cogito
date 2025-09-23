@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://uptlg70h8r22"]
+
+[ext_resource type="PackedScene" uid="uid://bes5a3nc6nkcw" path="res://assets main/scenes/gltf imported/lab2.glb" id="1_a1h1t"]
+
+[node name="lab2" instance=ExtResource("1_a1h1t")]

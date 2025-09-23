@@ -1,0 +1,142 @@
+[gd_scene load_steps=8 format=3 uid="uid://debmn6pi8m548"]
+
+[ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="1_mshhm"]
+[ext_resource type="Texture2D" uid="uid://yc1getv622gc" path="res://addons/cogito/Assets/Textures/Prototype Textures/PNG/Light/texture_02.png" id="1_rtya8"]
+[ext_resource type="PackedScene" uid="uid://c28cijrdsgjln" path="res://assets main/scenes/csg/segment.tscn" id="3_2af20"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mshhm"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_rtya8"]
+sky_material = SubResource("ProceduralSkyMaterial_mshhm")
+
+[sub_resource type="Environment" id="Environment_2af20"]
+background_mode = 2
+sky = SubResource("Sky_rtya8")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2af20"]
+albedo_texture = ExtResource("1_rtya8")
+uv1_triplanar = true
+
+[node name="walkway" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2af20")
+
+[node name="room" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_2af20")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+flip_faces = true
+size = Vector3(3, 2, 3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, -9.5)
+flip_faces = true
+size = Vector3(13, 9, 14)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+flip_faces = true
+size = Vector3(3, 2, 3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+flip_faces = true
+size = Vector3(1, 2, 1)
+
+[node name="CogitoPlayer" parent="." instance=ExtResource("1_mshhm")]
+
+[node name="segment" parent="." instance=ExtResource("3_2af20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5)
+
+[node name="segment8" parent="." instance=ExtResource("3_2af20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5)
+
+[node name="segment7" parent="." instance=ExtResource("3_2af20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.5)
+
+[node name="segment4" parent="." instance=ExtResource("3_2af20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7.5)
+
+[node name="segment2" parent="." instance=ExtResource("3_2af20")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5.5)
+
+[node name="CSGCylinder3D2" parent="segment2" index="2"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 1, 1)
+
+[node name="CSGCylinder3D4" parent="segment2" index="4"]
+transform = Transform3D(1, 0, 0, 0, -0.6, -8.74228e-08, 0, 5.24537e-08, -1, 0, 0.4, 1)
+
+[node name="segment6" parent="." instance=ExtResource("3_2af20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.5)
+
+[node name="CSGCylinder3D2" parent="segment6" index="2"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 1, 1)
+
+[node name="CSGCylinder3D4" parent="segment6" index="4"]
+transform = Transform3D(1, 0, 0, 0, -0.6, -8.74228e-08, 0, 5.24537e-08, -1, 0, 0.4, 1)
+
+[node name="segment9" parent="." instance=ExtResource("3_2af20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -13.5)
+
+[node name="CSGCylinder3D2" parent="segment9" index="2"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 1, 1)
+
+[node name="CSGCylinder3D4" parent="segment9" index="4"]
+transform = Transform3D(1, 0, 0, 0, -0.6, -8.74228e-08, 0, 5.24537e-08, -1, 0, 0.4, 1)
+
+[node name="segment10" parent="." instance=ExtResource("3_2af20")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -6, -2, -13.5)
+
+[node name="CSGCylinder3D2" parent="segment10" index="2"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 1, 1)
+
+[node name="CSGCylinder3D4" parent="segment10" index="4"]
+transform = Transform3D(1, 0, 0, 0, -0.6, -8.74228e-08, 0, 5.24537e-08, -1, 0, 0.4, 1)
+
+[node name="segment3" parent="." instance=ExtResource("3_2af20")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -5.5)
+
+[node name="CSGCylinder3D" parent="segment3" index="1"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 1, -1)
+
+[node name="CSGCylinder3D3" parent="segment3" index="3"]
+transform = Transform3D(1, 0, 0, 0, -0.6, -8.74228e-08, 0, 5.24537e-08, -1, 0, 0.4, -1)
+
+[node name="segment5" parent="." instance=ExtResource("3_2af20")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 2, 0, -9.5)
+
+[node name="CSGCylinder3D" parent="segment5" index="1"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 1, -1)
+
+[node name="CSGCylinder3D3" parent="segment5" index="3"]
+transform = Transform3D(1, 0, 1.77636e-15, 0, -0.6, -8.74228e-08, 0, 5.24537e-08, -1, -2.38419e-07, 0.4, -1)
+
+[node name="pillar" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -7.5)
+size = Vector3(2, 9, 2)
+
+[node name="stairs" type="CSGBox3D" parent="."]
+transform = Transform3D(0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0, 0, 1, -2.8581, -1.99746, -13.5)
+size = Vector3(4, 2, 2)
+
+[node name="stairs2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0, 0, 1, -2.54437, -0.895614, -14.45)
+size = Vector3(4.5, 2, 0.1)
+
+[node name="stairs3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0, 0, 1, -2.49906, -0.874483, -12.45)
+size = Vector3(4.6, 2, 0.1)
+
+[editable path="segment2"]
+[editable path="segment6"]
+[editable path="segment9"]
+[editable path="segment10"]
+[editable path="segment3"]
+[editable path="segment5"]

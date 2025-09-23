@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8f4rxr75nuib"]
+
+[ext_resource type="PackedScene" uid="uid://dpds05cptwhja" path="res://assets main/scenes/gltf imported/level/cryolab.glb" id="1_5jrf3"]
+[ext_resource type="ArrayMesh" uid="uid://c536kvgwyosle" path="res://assets main/tres/new_array_mesh.tres" id="2_0ikvv"]
+
+[node name="cryolab" instance=ExtResource("1_5jrf3")]
+
+[node name="scale2-col" parent="." index="0"]
+mesh = ExtResource("2_0ikvv")
