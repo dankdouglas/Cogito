@@ -61,6 +61,7 @@ pause_menu = NodePath("GUI/Panel/AspectRatioContainer/PauseMenu")
 player_hud = NodePath("GUI/Panel/AspectRatioContainer/Player_HUD")
 item_drop_shapecast = NodePath("Body/Neck/Head/Recoil/Eyes/Camera/ItemDropShapeCast")
 fall_damage = 10
+fall_damage_threshold = -10.0
 inventory_data = ExtResource("2_iyhv4")
 jump_sound = ExtResource("3_7ds3n")
 slide_sound = ExtResource("4_1i2kv")
