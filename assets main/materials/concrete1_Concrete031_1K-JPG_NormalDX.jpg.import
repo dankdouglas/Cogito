@@ -9,7 +9,7 @@ metadata={
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f2041c967c634ea64c883863c9fbd6a4"
+"md5": "ad2ed0b7805c71269edc5d945c54822b"
 }
 
 [deps]
@@ -22,8 +22,6 @@ dest_files=["res://.godot/imported/concrete1_Concrete031_1K-JPG_NormalDX.jpg-c7e
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
-compress/uastc_level=0
-compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=1
 compress/channel_pack=0
@@ -31,10 +29,6 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal="res://assets main/materials/concrete1_Concrete031_1K-JPG_NormalDX.jpg"
-process/channel_remap/red=0
-process/channel_remap/green=1
-process/channel_remap/blue=2
-process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://68fdvedre1fj"]
+[gd_scene load_steps=55 format=4 uid="uid://68fdvedre1fj"]
 
 [ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="1_v6sdu"]
 [ext_resource type="PackedScene" uid="uid://dym3o8in8bexf" path="res://assets main/scenes/csg/light_1.tscn" id="2_36vdw"]
@@ -15,7 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://cvwschvsack1a" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/chairDesk.glb" id="10_gbdlk"]
 [ext_resource type="PackedScene" uid="uid://cmirb5vohoqqe" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/desk.glb" id="12_rn871"]
 [ext_resource type="Texture2D" uid="uid://vb01wkv8ui72" path="res://addons/cogito/Assets/Textures/Prototype Textures/PNG/Dark/texture_12.png" id="14_hdvwx"]
+[ext_resource type="PackedScene" uid="uid://cpehxuxl06w60" path="res://assets main/scenes/level/building1.tscn" id="15_27ntl"]
 [ext_resource type="MeshLibrary" uid="uid://c2m2f61yhox7l" path="res://assets main/tres/cryolab.tres" id="15_e4tla"]
+[ext_resource type="Material" uid="uid://dovfa7j68v41h" path="res://assets main/materials/concrete1.tres" id="15_hrh3t"]
+[ext_resource type="Material" uid="uid://txm860b4afxa" path="res://assets main/materials/facade.tres" id="16_t7oqo"]
 [ext_resource type="PackedScene" uid="uid://ot7stxgq6mp7" path="res://assets main/scenes/gltf imported/level objects/cryolab_cabinets.glb" id="17_hvr5y"]
 [ext_resource type="Texture2D" uid="uid://bffrqgmbxf85j" path="res://assets main/scenes/gltf imported/level objects/cryolab_cabinets_cryolab_wall.png" id="18_27ntl"]
 [ext_resource type="Texture2D" uid="uid://bp5dthgq17mud" path="res://assets main/scenes/gltf imported/level objects/cryolab_cabinets_cryolab_wall_n.png" id="19_t7oqo"]
@@ -432,6 +435,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xbffi")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_27ntl"]
+size = Vector2(2000, 2000)
 
 [node name="level1" type="Node3D"]
 
@@ -1255,7 +1261,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 4, -2)
 
 [node name="light6" parent="lights" instance=ExtResource("2_36vdw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3, -7)
 
 [node name="light7" parent="lights" instance=ExtResource("2_36vdw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3, -12)
@@ -1280,6 +1286,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.5, 
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="hallway"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -7.2)
+material_override = ExtResource("15_hrh3t")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="hallway/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
@@ -1293,6 +1300,7 @@ height = 1.0791
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="hallway"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -5)
+material_override = ExtResource("15_hrh3t")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="hallway/CSGCombiner3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
@@ -1307,6 +1315,7 @@ height = 1.0791
 [node name="CSGCombiner3D3" type="CSGCombiner3D" parent="hallway"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -10)
 visible = false
+material_override = ExtResource("15_hrh3t")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="hallway/CSGCombiner3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
@@ -1320,6 +1329,7 @@ height = 1.0791
 
 [node name="CSGCombiner3D4" type="CSGCombiner3D" parent="hallway"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -12)
+material_override = ExtResource("15_hrh3t")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="hallway/CSGCombiner3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
@@ -1333,6 +1343,7 @@ height = 1.0791
 
 [node name="CSGCombiner3D5" type="CSGCombiner3D" parent="hallway"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -14)
+material_override = ExtResource("15_hrh3t")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="hallway/CSGCombiner3D5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
@@ -1346,6 +1357,7 @@ height = 1.0791
 
 [node name="CSGCombiner3D6" type="CSGCombiner3D" parent="hallway"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -16)
+material_override = ExtResource("15_hrh3t")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="hallway/CSGCombiner3D6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
@@ -1359,6 +1371,7 @@ height = 1.0791
 
 [node name="CSGCombiner3D7" type="CSGCombiner3D" parent="hallway"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -18)
+material_override = ExtResource("15_hrh3t")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="hallway/CSGCombiner3D7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
@@ -1369,6 +1382,48 @@ transform = Transform3D(0.918446, -3.56482e-09, 0.395545, -0.395545, -1.72898e-0
 operation = 2
 radius = 1.9
 height = 1.0791
+
+[node name="CSGCombiner3D8" parent="hallway" instance=ExtResource("15_27ntl")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 88, -167, -66)
+
+[node name="CSGCombiner3D18" parent="hallway" instance=ExtResource("15_27ntl")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 86, -193, -133)
+
+[node name="CSGCombiner3D14" parent="hallway" instance=ExtResource("15_27ntl")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 44, -167, 156)
+
+[node name="CSGCombiner3D13" parent="hallway" instance=ExtResource("15_27ntl")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 30, -151, -168)
+
+[node name="CSGCombiner3D10" parent="hallway" instance=ExtResource("15_27ntl")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 248, -167, 17)
+
+[node name="CSGCombiner3D15" parent="hallway" instance=ExtResource("15_27ntl")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 402, -192, -34)
+
+[node name="CSGCombiner3D16" parent="hallway" instance=ExtResource("15_27ntl")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 402, -208, 43)
+
+[node name="CSGCombiner3D17" parent="hallway" instance=ExtResource("15_27ntl")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 402, -161, 95)
+
+[node name="CSGCombiner3D11" parent="hallway" instance=ExtResource("15_27ntl")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 330, -143.9, -85)
+
+[node name="CSGCombiner3D12" parent="hallway" instance=ExtResource("15_27ntl")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 353, -167, 107)
+
+[node name="CSGCombiner3D9" parent="hallway" instance=ExtResource("15_27ntl")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 91, -167, 37)
+
+[node name="CSGBox3D" parent="hallway/CSGCombiner3D9" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+size = Vector3(1, 5, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="hallway/CSGCombiner3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54, 1.86, 2.26)
+size = Vector3(1, 5, 1)
+material = ExtResource("16_t7oqo")
 
 [node name="facade" type="Node3D" parent="."]
 
@@ -1401,11 +1456,13 @@ size = Vector3(1, 10.6, 18)
 
 [node name="building" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.8, -25.2, 37.9)
+visible = false
 size = Vector3(50, 100, 50)
 material = SubResource("StandardMaterial3D_e4tla")
 
 [node name="building2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.8, -39.2, -72.1)
+visible = false
 size = Vector3(50, 100, 50)
 material = SubResource("StandardMaterial3D_2fpxh")
 
@@ -1562,10 +1619,15 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -188, 0)
+mesh = SubResource("PlaneMesh_27ntl")
+
 [connection signal="pressed" from="level stuff/cryoroom/cryotube/GenericButton" to="level stuff/lab1/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
 [connection signal="pressed" from="level stuff/cryoroom/console/GenericButton" to="level stuff/cryoroom/cryotube/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
 
 [editable path="level stuff/lab1/SlidingDoor"]
 [editable path="level stuff/lab1/SlidingDoor3"]
 [editable path="level stuff/cryoroom/cryotube/SlidingDoor"]
+[editable path="hallway/CSGCombiner3D9"]
 [editable path="cryolab_cabinets"]
