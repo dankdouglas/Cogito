@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://k0i6k7mcajfm" path="res://addons/cogito/EasyMenus/Components/SaveSlotButton.tscn" id="6_s811w"]
 [ext_resource type="PackedScene" uid="uid://bly6wti1q8bsu" path="res://addons/cogito/EasyMenus/Scenes/OptionsTabMenu.tscn" id="8_ig87r"]
 [ext_resource type="Script" uid="uid://dyiaeif1d4pmo" path="res://addons/cogito/Scripts/menu_scene_switcher.gd" id="9_kfsif"]
-[ext_resource type="PackedScene" uid="uid://e31n36p8i6an" path="res://addons/cogito/DemoScenes/COGITO_3_Lobby.tscn" id="10_hdl4c"]
+[ext_resource type="PackedScene" uid="uid://68fdvedre1fj" path="res://assets main/scenes/level_1.tscn" id="10_rrgt0"]
 [ext_resource type="Script" uid="uid://c024i2xgr6uib" path="res://addons/cogito/EasyMenus/Scripts/main_menu_saveslot_manager.gd" id="13_4uenq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n66hi"]
@@ -41,14 +41,14 @@ theme_override_constants/separation = 15
 auto_translate_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
-text = "COGITO"
+text = "Blacksight"
 horizontal_alignment = 1
 
 [node name="SubTitleLabel" type="Label" parent="ContentMain"]
 auto_translate_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Template Project"
+text = "By DankDouglas"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="ContentMain"]
@@ -156,7 +156,7 @@ offset_top = 603.0
 offset_right = 600.0
 offset_bottom = 603.0
 script = ExtResource("13_4uenq")
-new_game_start_scene = ExtResource("10_hdl4c")
+new_game_start_scene = ExtResource("10_rrgt0")
 new_game_world_dict = {
 "lab_power": true
 }

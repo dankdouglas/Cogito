@@ -1,6 +1,115 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4arko3ktkygh"]
+[gd_scene load_steps=17 format=3 uid="uid://c4arko3ktkygh"]
 
 [ext_resource type="PackedScene" uid="uid://dq6tvhqcy2aps" path="res://addons/cogito/EasyMenus/Scenes/main_menu.tscn" id="1_jlj1d"]
+[ext_resource type="PackedScene" uid="uid://nqyrraqwixxy" path="res://addons/cogito/DemoScenes/DemoPrefabs/sliding_door.tscn" id="2_hpmke"]
+[ext_resource type="PackedScene" uid="uid://cs6raqlyejqul" path="res://addons/cogito/DemoScenes/DemoPrefabs/generic_button.tscn" id="3_0xsc2"]
+[ext_resource type="PackedScene" uid="uid://cknhaj0w7yuyg" path="res://addons/cogito/DemoScenes/DemoPrefabs/computer_screen.tscn" id="4_vbc2n"]
+[ext_resource type="PackedScene" uid="uid://bf25uu3piq1by" path="res://addons/cogito/DemoScenes/DemoPrefabs/computer_keyboard.tscn" id="5_sf0om"]
+[ext_resource type="PackedScene" uid="uid://bqe44f6qeagyx" path="res://addons/cogito/DemoScenes/DemoPrefabs/plant_small_2.tscn" id="6_88dyx"]
+[ext_resource type="PackedScene" uid="uid://ul87ljnk0jdo" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/deskCorner.glb" id="7_52ahs"]
+[ext_resource type="PackedScene" uid="uid://cvwschvsack1a" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/chairDesk.glb" id="8_py5vl"]
+[ext_resource type="PackedScene" uid="uid://bx6gsryivfolx" path="res://assets main/scenes/gltf imported/bsguy/bs_guy1.glb" id="9_0xsc2"]
+[ext_resource type="PackedScene" uid="uid://caex54qny4gvm" path="res://addons/cogito/DemoScenes/DemoPrefabs/glass_3x_3_98.tscn" id="10_vbc2n"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hpmke"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_0xsc2"]
+sky_material = SubResource("ProceduralSkyMaterial_hpmke")
+
+[sub_resource type="Environment" id="Environment_vbc2n"]
+background_mode = 2
+sky = SubResource("Sky_0xsc2")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_sf0om"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.788]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../OmniLight3D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.22734, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vbc2n"]
+resource_name = "lightppulse"
+length = 2.0815
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1.3, 2.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.788, 0.0, 0.0, 1.788]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../OmniLight3D2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.166667, 0.266667, 0.566667, 0.766667, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, false, true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.242985, 2.8644, -7.67607e-09), Vector3(-0.262445, 2.22816, -1.54295e-08)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_88dyx"]
+_data = {
+&"RESET": SubResource("Animation_sf0om"),
+&"lightppulse": SubResource("Animation_vbc2n")
+}
 
 [node name="01_MainMenu" type="Control"]
 layout_mode = 3
@@ -10,7 +119,189 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vbc2n")
+
 [node name="MainMenu" parent="." instance=ExtResource("1_jlj1d")]
 layout_mode = 1
 
+[node name="cryoroom" type="Node3D" parent="."]
+
+[node name="cryotube" type="CSGCombiner3D" parent="cryoroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.825, 0)
+radius = 1.0
+height = 3.65
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.1125, 0)
+radius = 0.4
+height = 7.025
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 5.15625, 0)
+radius = 0.4
+height = 10.3125
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.975, 0)
+operation = 2
+radius = 0.9
+height = 3.05
+
+[node name="CSGBox3D" type="CSGBox3D" parent="cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, -1)
+operation = 2
+size = Vector3(1, 2.7, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -1)
+size = Vector3(2, 0.3, 1)
+
+[node name="SlidingDoor" parent="cryoroom/cryotube" instance=ExtResource("2_hpmke")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.6, 0, 1, 0, -4.37114e-08, -0.8, 0, -0.75)
+
+[node name="KSI_door_half" parent="cryoroom/cryotube/SlidingDoor" index="0"]
+is_locked = true
+auto_close_time = 3.0
+open_position = Vector3(0, 3, 0)
+door_speed = 1.0
+
+[node name="CollisionShape3D" parent="cryoroom/cryotube/SlidingDoor/KSI_door_half" index="1"]
+visible = false
+disabled = true
+
+[node name="GenericButton" parent="cryoroom/cryotube" instance=ExtResource("3_0xsc2")]
+transform = Transform3D(4.6, -4.02145e-07, -6.96535e-07, 5.71985e-14, 3.98372, -2.3, 8.0429e-07, 2.3, 3.98372, 0.306206, 1.05692, -5.25606)
+visible = false
+
+[node name="computerScreen" parent="cryoroom/cryotube" instance=ExtResource("4_vbc2n")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.165758, 0.7688, -5.15544)
+
+[node name="Label3D" type="Label3D" parent="cryoroom/cryotube/computerScreen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.4, 0)
+text = "lockdown active
+press to deactivate"
+font_size = 12
+
+[node name="computerKeyboard" parent="cryoroom/cryotube" instance=ExtResource("5_sf0om")]
+transform = Transform3D(0.993704, 0, 0.112041, 0, 1, 0, -0.112041, 0, 0.993704, 0.274542, 0.7688, -4.89789)
+
+[node name="plantSmall2" parent="cryoroom/cryotube" instance=ExtResource("6_88dyx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.24082, 0.7688, -4.94032)
+cogito_name = ""
+
+[node name="deskCorner" parent="cryoroom" instance=ExtResource("7_52ahs")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.460318, 0, -2.55037)
+
+[node name="console" type="CSGBox3D" parent="cryoroom"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -1.25, 0.5, 0.7)
+size = Vector3(0.5, 1, 1)
+
+[node name="GenericButton" parent="cryoroom/console" instance=ExtResource("3_0xsc2")]
+transform = Transform3D(-1, -4.37114e-08, -7.57104e-08, 1.06581e-14, 0.866025, -0.5, 8.74228e-08, -0.5, -0.866025, 0.0719639, 0.58812, -0.40062)
+
+[node name="console3" type="CSGBox3D" parent="cryoroom"]
+transform = Transform3D(1, 0, 0, 0, 0.591479, 0.806321, 0, -0.806321, 0.591479, 0.863008, 1.59688, 0.7)
+size = Vector3(0.5, 1, 1)
+
+[node name="GenericButton" parent="cryoroom/console3" instance=ExtResource("3_0xsc2")]
+transform = Transform3D(-1, -4.37114e-08, -7.57104e-08, 1.06581e-14, 0.866025, -0.5, 8.74228e-08, -0.5, -0.866025, 0.0719639, 0.58812, -0.40062)
+
+[node name="Label3D" type="Label3D" parent="cryoroom/console3"]
+transform = Transform3D(-0.998361, 0.0344444, -0.0457077, -0.0461481, -0.0121019, 0.998861, 0.0338521, 0.999334, 0.0136718, 0, 0.520482, -0.0210021)
+shaded = true
+text = "warning: emergency
+ revival activating"
+font_size = 7
+
+[node name="console2" type="CSGBox3D" parent="cryoroom"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -2.35, 0.5, 1.3)
+size = Vector3(0.3, 1, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="cryoroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0896751, 2.70305, 2.40837)
+size = Vector3(12.4784, 6.03511, 0.5)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="cryoroom"]
+transform = Transform3D(3.01095e-08, 1, 1.49012e-08, 1, -2.79397e-08, -8.9407e-08, -8.09643e-08, 1.49012e-08, -1, -1.49319, 2.75, -4)
+radius = 0.3
+height = 6.3
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="cryoroom"]
+transform = Transform3D(3.01095e-08, 1, 1.49012e-08, 1, -2.79397e-08, -8.9407e-08, -8.09643e-08, 1.49012e-08, -1, -1.49319, 3.25, -4.3)
+radius = 0.3
+height = 6.3
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="cryoroom"]
+transform = Transform3D(-1, -1.51808e-08, 8.60946e-08, 0, 0.984808, 0.173648, -8.74228e-08, 0.173648, -0.984808, -1.24319, 2.95, -4.1)
+size = Vector3(6, 1.9, 1.3)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="cryoroom/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 1.77636e-15, 1, 1.49012e-08, 7.10543e-15, -1.49012e-08, 1, 0, 0.0999999, -0.0499992)
+operation = 2
+size = Vector3(6, 1.3, 1.4)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="cryoroom"]
+transform = Transform3D(-1, -1.51808e-08, 8.60946e-08, -1.51808e-08, 1, 4.47035e-08, -8.60946e-08, 4.47035e-08, -1, -0.843185, 1.9, -3.9)
+size = Vector3(0.2, 4.2, 1.3)
+
+[node name="bed" type="CSGBox3D" parent="cryoroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35, 0.35, 0)
+use_collision = true
+size = Vector3(1.7, 0.7, 3)
+
+[node name="bed2" type="CSGBox3D" parent="cryoroom/bed"]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0.2, 1)
+size = Vector3(1.7, 0.7, 1)
+
+[node name="bed3" type="CSGBox3D" parent="cryoroom/bed"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.05, 0.1, -1.4)
+size = Vector3(1.8, 0.9, 0.2)
+
+[node name="bed4" type="CSGBox3D" parent="cryoroom/bed"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.05, 0.25, 1.2)
+size = Vector3(1.8, 1.2, 0.2)
+
+[node name="chairDesk" parent="cryoroom" instance=ExtResource("8_py5vl")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 0.5, 0, -3.4)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="cryoroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0870705, 3.1783, 1.4473)
+light_color = Color(1, 0, 0, 1)
+light_energy = 1.788
+shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cryoroom/OmniLight3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_88dyx")
+}
+autoplay = "lightppulse"
+speed_scale = 0.3
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="cryoroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57261, 4.05595, -0.997281)
+light_energy = 0.1
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.61038, 0, 0.792108, 0, 1, 0, -0.792108, 0, -0.61038, 3.20451, 3.76907, -3.16737)
+fov = 44.9
+
+[node name="bs_guy1" parent="." instance=ExtResource("9_0xsc2")]
+transform = Transform3D(-0.0441639, 0, -0.00684403, 0, 0.044691, 0, 0.00684403, 0, -0.0441639, -0.0163022, 0.545233, 0.881392)
+
+[node name="Skeleton3D" parent="bs_guy1/root" index="0"]
+bones/7/rotation = Quaternion(-1.008, -0.017, 0.141, 0.99)
+bones/32/rotation = Quaternion(-0.998, 0.017, -0.141, 0.99)
+
+[node name="Glass_3x3_98" parent="." instance=ExtResource("10_vbc2n")]
+transform = Transform3D(0.338805, 0, 0, 0, -4.37114e-08, 0.495547, 0, -1, -2.1661e-08, -0.605213, 1.67191, 0.421083)
+
 [connection signal="start_game_pressed" from="MainMenu" to="." method="_on_main_menu_start_game_pressed"]
+[connection signal="pressed" from="cryoroom/console/GenericButton" to="cryoroom/cryotube/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
+[connection signal="pressed" from="cryoroom/console3/GenericButton" to="cryoroom/cryotube/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
+
+[editable path="cryoroom/cryotube/SlidingDoor"]
+[editable path="bs_guy1"]

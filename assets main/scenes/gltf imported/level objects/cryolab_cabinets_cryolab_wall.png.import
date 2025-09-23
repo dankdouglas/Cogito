@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vb01wkv8ui72"
-path.s3tc="res://.godot/imported/texture_12.png-de190b8629032b0e42f93f4335f6dc5e.s3tc.ctex"
+uid="uid://xaulp88s8y3b"
+path.s3tc="res://.godot/imported/cryolab_cabinets_cryolab_wall.png-d8187b9bb6545cc96a4f8560ddc79491.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "22722aa9a394445595e041b3c96edcf7"
+}
 
 [deps]
 
-source_file="res://addons/cogito/Assets/Textures/Prototype Textures/PNG/Dark/texture_12.png"
-dest_files=["res://.godot/imported/texture_12.png-de190b8629032b0e42f93f4335f6dc5e.s3tc.ctex"]
+source_file="res://assets main/scenes/gltf imported/level objects/cryolab_cabinets_cryolab_wall.png"
+dest_files=["res://.godot/imported/cryolab_cabinets_cryolab_wall.png-d8187b9bb6545cc96a4f8560ddc79491.s3tc.ctex"]
 
 [params]
 

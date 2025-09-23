@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vb01wkv8ui72"
-path.s3tc="res://.godot/imported/texture_12.png-de190b8629032b0e42f93f4335f6dc5e.s3tc.ctex"
+uid="uid://cbid10etqi8sx"
+path.s3tc="res://.godot/imported/bs_guy1_grey 16bits.png-6232b2c6bfb1161edb3dfa33a8f79691.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "1aaf0ac96f170e18ca8925f38049665a"
+}
 
 [deps]
 
-source_file="res://addons/cogito/Assets/Textures/Prototype Textures/PNG/Dark/texture_12.png"
-dest_files=["res://.godot/imported/texture_12.png-de190b8629032b0e42f93f4335f6dc5e.s3tc.ctex"]
+source_file="res://assets main/scenes/gltf imported/bsguy/bs_guy1_grey 16bits.png"
+dest_files=["res://.godot/imported/bs_guy1_grey 16bits.png-6232b2c6bfb1161edb3dfa33a8f79691.s3tc.ctex"]
 
 [params]
 

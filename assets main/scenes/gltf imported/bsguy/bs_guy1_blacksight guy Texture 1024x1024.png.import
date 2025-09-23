@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vb01wkv8ui72"
-path.s3tc="res://.godot/imported/texture_12.png-de190b8629032b0e42f93f4335f6dc5e.s3tc.ctex"
+uid="uid://dr70mbluna1cn"
+path.s3tc="res://.godot/imported/bs_guy1_blacksight guy Texture 1024x1024.png-7ab0ce37b8bde43a31037d301a4c3930.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "586d3b9ce8931c5ba989fc652524e2bc"
+}
 
 [deps]
 
-source_file="res://addons/cogito/Assets/Textures/Prototype Textures/PNG/Dark/texture_12.png"
-dest_files=["res://.godot/imported/texture_12.png-de190b8629032b0e42f93f4335f6dc5e.s3tc.ctex"]
+source_file="res://assets main/scenes/gltf imported/bsguy/bs_guy1_blacksight guy Texture 1024x1024.png"
+dest_files=["res://.godot/imported/bs_guy1_blacksight guy Texture 1024x1024.png-7ab0ce37b8bde43a31037d301a4c3930.s3tc.ctex"]
 
 [params]
 
