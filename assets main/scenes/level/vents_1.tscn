@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdka3g5kc3xgc"]
+
+[ext_resource type="PackedScene" uid="uid://chb1wd4yfilro" path="res://assets main/scenes/gltf imported/vents1.glb" id="1_3tw7r"]
+
+[node name="vents1" instance=ExtResource("1_3tw7r")]

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bgakprh8268bn"]
+
+[node name="ventilation" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+flip_faces = true
+size = Vector3(1, 2, 1)
