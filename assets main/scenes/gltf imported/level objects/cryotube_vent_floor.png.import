@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ro1o3bnjnbew"
-path.s3tc="res://.godot/imported/grate1_SheetMetal001_1K-JPG_Color-SheetMetal001_1K-JPG_Opacity.png-185184643a07bbe4ff76211fb4e4cb46.s3tc.ctex"
+uid="uid://b86hc8wh08ftx"
+path.s3tc="res://.godot/imported/cryotube_vent_floor.png-f9c2e322b3ed2f26e528711acf0e7727.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "4b37bee115b7449aa64c92744c6d8e0f"
+}
 
 [deps]
 
-source_file="res://assets main/materials/grate1_SheetMetal001_1K-JPG_Color-SheetMetal001_1K-JPG_Opacity.png"
-dest_files=["res://.godot/imported/grate1_SheetMetal001_1K-JPG_Color-SheetMetal001_1K-JPG_Opacity.png-185184643a07bbe4ff76211fb4e4cb46.s3tc.ctex"]
+source_file="res://assets main/scenes/gltf imported/level objects/cryotube_vent_floor.png"
+dest_files=["res://.godot/imported/cryotube_vent_floor.png-f9c2e322b3ed2f26e528711acf0e7727.s3tc.ctex"]
 
 [params]
 

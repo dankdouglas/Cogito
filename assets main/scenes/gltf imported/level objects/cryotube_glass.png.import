@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ro1o3bnjnbew"
-path.s3tc="res://.godot/imported/grate1_SheetMetal001_1K-JPG_Color-SheetMetal001_1K-JPG_Opacity.png-185184643a07bbe4ff76211fb4e4cb46.s3tc.ctex"
+uid="uid://dldr4sp2lu4vd"
+path.s3tc="res://.godot/imported/cryotube_glass.png-c2400af2c7fb6d76f323793eaf3291f2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "ee20dd687ec0296fa49c3de79528dacc"
+}
 
 [deps]
 
-source_file="res://assets main/materials/grate1_SheetMetal001_1K-JPG_Color-SheetMetal001_1K-JPG_Opacity.png"
-dest_files=["res://.godot/imported/grate1_SheetMetal001_1K-JPG_Color-SheetMetal001_1K-JPG_Opacity.png-185184643a07bbe4ff76211fb4e4cb46.s3tc.ctex"]
+source_file="res://assets main/scenes/gltf imported/level objects/cryotube_glass.png"
+dest_files=["res://.godot/imported/cryotube_glass.png-c2400af2c7fb6d76f323793eaf3291f2.s3tc.ctex"]
 
 [params]
 
