@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://68fdvedre1fj"]
+[gd_scene load_steps=72 format=4 uid="uid://68fdvedre1fj"]
 
 [ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="1_v6sdu"]
 [ext_resource type="PackedScene" uid="uid://dym3o8in8bexf" path="res://assets main/scenes/csg/light_1.tscn" id="2_36vdw"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cs6raqlyejqul" path="res://addons/cogito/DemoScenes/DemoPrefabs/generic_button.tscn" id="6_yi0hc"]
 [ext_resource type="PackedScene" uid="uid://bqe44f6qeagyx" path="res://addons/cogito/DemoScenes/DemoPrefabs/plant_small_2.tscn" id="8_gbdlk"]
 [ext_resource type="PackedScene" uid="uid://ul87ljnk0jdo" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/deskCorner.glb" id="8_nwr60"]
-[ext_resource type="PackedScene" uid="uid://dy3ouynopgveh" path="res://assets main/scenes/csg/node_3d.tscn" id="8_xobba"]
+[ext_resource type="PackedScene" path="res://assets main/scenes/csg/node_3d.tscn" id="8_xobba"]
 [ext_resource type="PackedScene" uid="uid://6k5rvlwcpys1" path="res://addons/cogito/DemoScenes/DemoPrefabs/generic_switch.tscn" id="9_nwr60"]
 [ext_resource type="PackedScene" uid="uid://cvwschvsack1a" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/chairDesk.glb" id="10_gbdlk"]
 [ext_resource type="PackedScene" uid="uid://cmirb5vohoqqe" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/desk.glb" id="12_rn871"]
@@ -28,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://bjqls2ubjg8qi" path="res://assets main/scenes/gltf imported/level objects/transformerbox1.glb" id="18_wwa60"]
 [ext_resource type="Texture2D" uid="uid://bp5dthgq17mud" path="res://assets main/scenes/gltf imported/level objects/cryolab_cabinets_cryolab_wall_n.png" id="19_t7oqo"]
 [ext_resource type="MeshLibrary" uid="uid://dh8rkbfhrv1a5" path="res://assets main/tres/vents.tres" id="20_hvr5y"]
+[ext_resource type="PackedScene" uid="uid://bsynw53q2lhf8" path="res://assets main/scenes/gltf imported/level objects/beaker1.glb" id="29_tmqds"]
+[ext_resource type="PackedScene" uid="uid://dm7l3r0fmanp0" path="res://assets main/scenes/gltf imported/level objects/tubeholder1.glb" id="30_l80m4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nwr60"]
 sky_top_color = Color(0.9999997, 0.8166952, 0.41176334, 1)
@@ -1821,6 +1823,12 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -188, 0)
 mesh = SubResource("PlaneMesh_27ntl")
+
+[node name="beaker1" parent="." instance=ExtResource("29_tmqds")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.8, 1, -10)
+
+[node name="tubeholder1" parent="." instance=ExtResource("30_l80m4")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.5, 1, -9.5)
 
 [connection signal="pressed" from="level stuff/cryoroom/cryotube/GenericButton" to="level stuff/lab1/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
 [connection signal="pressed" from="level stuff/cryoroom/GenericButton" to="level stuff/cryoroom/cryotube/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
