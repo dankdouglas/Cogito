@@ -16,7 +16,7 @@ warnings/check_invalid_track_paths=false
 
 config/name="Blacksight2.0"
 run/main_scene="res://addons/cogito/DemoScenes/COGITO_0_MainMenu.tscn"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=120
 boot_splash/fullsize=false
 boot_splash/image="res://addons/cogito/COGITO_Card_2025.png"
@@ -59,10 +59,10 @@ folder_colors={
 
 [gui]
 
-theme/default_font_multichannel_signed_distance_field=true
-theme/default_font_generate_mipmaps=true
 theme/default_theme_scale=2.0
 theme/custom="uid://by44nnjeu6u4n"
+theme/default_font_multichannel_signed_distance_field=true
+theme/default_font_generate_mipmaps=true
 
 [importer_defaults]
 
@@ -248,10 +248,6 @@ locale/translations_pot_files=PackedStringArray("res://addons/cogito/EasyMenus/S
 [physics]
 
 3d/physics_engine="Jolt Physics"
-
-[rendering]
-
-anti_aliasing/quality/msaa_3d=1
 
 [shader_globals]
 

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=57 format=4 uid="uid://68fdvedre1fj"]
-=======
-[gd_scene load_steps=57 format=4 uid="uid://dy3p41op2ldvy"]
->>>>>>> d6be7a77e82a266aadda72ab4c0c611489705e5b
 
 [ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="1_v6sdu"]
 [ext_resource type="PackedScene" uid="uid://dym3o8in8bexf" path="res://assets main/scenes/csg/light_1.tscn" id="2_36vdw"]
@@ -14,17 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://cs6raqlyejqul" path="res://addons/cogito/DemoScenes/DemoPrefabs/generic_button.tscn" id="6_yi0hc"]
 [ext_resource type="PackedScene" uid="uid://bqe44f6qeagyx" path="res://addons/cogito/DemoScenes/DemoPrefabs/plant_small_2.tscn" id="8_gbdlk"]
 [ext_resource type="PackedScene" uid="uid://ul87ljnk0jdo" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/deskCorner.glb" id="8_nwr60"]
-[ext_resource type="PackedScene" path="res://assets main/scenes/csg/node_3d.tscn" id="8_xobba"]
+[ext_resource type="PackedScene" uid="uid://dy3ouynopgveh" path="res://assets main/scenes/csg/node_3d.tscn" id="8_xobba"]
 [ext_resource type="PackedScene" uid="uid://6k5rvlwcpys1" path="res://addons/cogito/DemoScenes/DemoPrefabs/generic_switch.tscn" id="9_nwr60"]
 [ext_resource type="PackedScene" uid="uid://cvwschvsack1a" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/chairDesk.glb" id="10_gbdlk"]
-[ext_resource type="PackedScene" uid="uid://ll3xxijcmrc" path="res://assets main/scenes/csg/cryotube.tscn" id="12_ix7io"]
 [ext_resource type="PackedScene" uid="uid://cmirb5vohoqqe" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/desk.glb" id="12_rn871"]
 [ext_resource type="Texture2D" uid="uid://vb01wkv8ui72" path="res://addons/cogito/Assets/Textures/Prototype Textures/PNG/Dark/texture_12.png" id="14_hdvwx"]
-<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://c487m0wpxw2sy" path="res://assets main/scenes/csg/bed.tscn" id="14_kdwx2"]
-=======
-[ext_resource type="PackedScene" uid="uid://bsl6fk2l8x4xt" path="res://assets main/scenes/csg/electricalthing_1.tscn" id="15_6cdp7"]
->>>>>>> d6be7a77e82a266aadda72ab4c0c611489705e5b
 [ext_resource type="PackedScene" uid="uid://cpehxuxl06w60" path="res://assets main/scenes/level/building1.tscn" id="15_27ntl"]
 [ext_resource type="MeshLibrary" uid="uid://c2m2f61yhox7l" path="res://assets main/tres/cryolab.tres" id="15_e4tla"]
 [ext_resource type="Material" uid="uid://dovfa7j68v41h" path="res://assets main/materials/concrete1.tres" id="15_hrh3t"]
@@ -53,13 +44,6 @@ ambient_light_energy = 0.0
 reflected_light_source = 1
 tonemap_mode = 2
 glow_enabled = true
-fog_enabled = true
-fog_light_color = Color(0.95936877, 0.26210952, 0, 1)
-fog_density = 0.0003
-fog_sky_affect = 0.0
-
-[sub_resource type="Animation" id="Animation_rn871"]
-length = 0.001
 
 [sub_resource type="Animation" id="Animation_gbdlk"]
 resource_name = "auto open door"
@@ -92,6 +76,9 @@ tracks/1/keys = {
 "method": &"unlock_door"
 }]
 }
+
+[sub_resource type="Animation" id="Animation_rn871"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yi0hc"]
 _data = {
@@ -615,6 +602,10 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.39747
 [node name="SlidingDoor" parent="level stuff/lab1" instance=ExtResource("3_qbkwl")]
 transform = Transform3D(-4.37114e-08, 0, -1.4, 0, 1, 0, 1, 0, -6.11959e-08, -4, 0, -4.75)
 
+[node name="KSI_door_half" parent="level stuff/lab1/SlidingDoor" index="0"]
+ignore_interaction_raycast = true
+is_locked = true
+
 [node name="SlidingDoor2" parent="level stuff/lab1" instance=ExtResource("3_qbkwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34767, 0, -8.45)
 
@@ -624,38 +615,93 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6, 0, -8.45)
 [node name="KSI_door_half" parent="level stuff/lab1/SlidingDoor3" index="0"]
 is_locked = true
 
-[node name="cryotube" parent="level stuff" instance=ExtResource("12_ix7io")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1)
-
 [node name="cryoroom" type="Node3D" parent="level stuff"]
 
-[node name="GenericButton" parent="level stuff/cryoroom" instance=ExtResource("6_yi0hc")]
-transform = Transform3D(4.6, -4.02145e-07, -6.96535e-07, 5.71985e-14, 3.98372, -2.3, 8.0429e-07, 2.3, 3.98372, 0.306206, 1.05692, -4.15606)
+[node name="cryotube" type="CSGCombiner3D" parent="level stuff/cryoroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1)
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="level stuff/cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.825, 0)
+radius = 1.0
+height = 3.65
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="level stuff/cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.1125, 0)
+radius = 0.4
+height = 7.025
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="level stuff/cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 5.15625, 0)
+radius = 0.4
+height = 10.3125
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.975, 0)
+operation = 2
+radius = 0.9
+height = 3.05
+
+[node name="CSGBox3D" type="CSGBox3D" parent="level stuff/cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, -1)
+operation = 2
+size = Vector3(1, 2.7, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="level stuff/cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -1)
+size = Vector3(2, 0.3, 1)
+
+[node name="SlidingDoor" parent="level stuff/cryoroom/cryotube" instance=ExtResource("3_qbkwl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.6, 0, 1, 0, -4.37114e-08, -0.8, 0, -0.75)
+
+[node name="KSI_door_half" parent="level stuff/cryoroom/cryotube/SlidingDoor" index="0"]
+is_locked = true
+auto_close_time = 3.0
+open_position = Vector3(0, 3, 0)
+door_speed = 1.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="level stuff/cryoroom/cryotube/SlidingDoor/KSI_door_half" index="4"]
+transform = Transform3D(3.72529e-08, -1, 4.37114e-08, 1, 7.45058e-08, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, 0.0607942, 2.76845, -0.8)
+size = Vector3(1.3, 1.1, 0.6)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="level stuff/cryoroom/cryotube/SlidingDoor/KSI_door_half" index="5"]
+transform = Transform3D(3.72529e-08, -1, 4.37114e-08, 1, 7.45058e-08, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, 0.510794, 2.46845, 0.5)
+size = Vector3(0.3, 1.2, 2)
+
+[node name="GenericButton" parent="level stuff/cryoroom/cryotube" instance=ExtResource("6_yi0hc")]
+transform = Transform3D(4.6, -4.02145e-07, -6.96535e-07, 5.71985e-14, 3.98372, -2.3, 8.0429e-07, 2.3, 3.98372, 0.306206, 1.05692, -5.25606)
 visible = false
 
-[node name="computerScreen" parent="level stuff/cryoroom" instance=ExtResource("4_6k85m")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.165758, 0.7688, -4.05544)
+[node name="computerScreen" parent="level stuff/cryoroom/cryotube" instance=ExtResource("4_6k85m")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.165758, 0.7688, -5.15544)
 
-[node name="Label3D" type="Label3D" parent="level stuff/cryoroom/computerScreen"]
+[node name="Label3D" type="Label3D" parent="level stuff/cryoroom/cryotube/computerScreen"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.4, 0)
 text = "lockdown active
 press to deactivate"
 font_size = 12
 
-[node name="computerKeyboard" parent="level stuff/cryoroom" instance=ExtResource("5_gbdlk")]
-transform = Transform3D(0.993704, 0, 0.112041, 0, 1, 0, -0.112041, 0, 0.993704, 0.274542, 0.7688, -3.7978902)
+[node name="computerKeyboard" parent="level stuff/cryoroom/cryotube" instance=ExtResource("5_gbdlk")]
+transform = Transform3D(0.993704, 0, 0.112041, 0, 1, 0, -0.112041, 0, 0.993704, 0.274542, 0.7688, -4.89789)
 
-[node name="plantSmall2" parent="level stuff/cryoroom" instance=ExtResource("8_gbdlk")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.24082, 0.7688, -3.84032)
+[node name="plantSmall2" parent="level stuff/cryoroom/cryotube" instance=ExtResource("8_gbdlk")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.24082, 0.7688, -4.94032)
 cogito_name = ""
 
-[node name="OmniLight3D" type="OmniLight3D" parent="level stuff/cryoroom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25533, 0.76369107)
+[node name="OmniLight3D" type="OmniLight3D" parent="level stuff/cryoroom/cryotube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25533, -0.336309)
 light_color = Color(1, 0, 0, 1)
 shadow_enabled = true
 
 [node name="deskCorner" parent="level stuff/cryoroom" instance=ExtResource("8_nwr60")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.460318, 0, -2.55037)
+
+[node name="console" type="CSGBox3D" parent="level stuff/cryoroom"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -1.25, 0.5, 0.7)
+size = Vector3(0.5, 1, 1)
+
+[node name="GenericButton" parent="level stuff/cryoroom/console" instance=ExtResource("6_yi0hc")]
+transform = Transform3D(-1, -4.37114e-08, -7.57104e-08, 1.06581e-14, 0.866025, -0.5, 8.74228e-08, -0.5, -0.866025, 0.0719639, 0.58812, -0.40062)
 
 [node name="console2" type="CSGBox3D" parent="level stuff/cryoroom"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -2.35, 0.5, 1.3)
@@ -694,11 +740,333 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35, 0.35, 0)
 [node name="chairDesk" parent="level stuff/cryoroom" instance=ExtResource("10_gbdlk")]
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 0.5, 0, -3.4)
 
-[node name="electricalthing1" parent="level stuff/cryoroom" instance=ExtResource("15_6cdp7")]
+[node name="electricalthing1" type="CSGBox3D" parent="level stuff/cryoroom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 2.9, -1.1)
+size = Vector3(0.5, 1.2, 1.2)
 
-[node name="electricalthing4" parent="level stuff/cryoroom" instance=ExtResource("15_6cdp7")]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1"]
+transform = Transform3D(-1, -8.74228e-08, 7.64274e-15, -8.74228e-08, 1, -8.74228e-08, 0, -8.74228e-08, -1, 0, -0.8, -0.2)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D4"]
+transform = Transform3D(1, -8.47033e-22, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.38419e-07, -0.5, 1.675)
+radius = 0.1
+height = 3.35
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1"]
+transform = Transform3D(-1, -8.74228e-08, 7.64274e-15, -8.74228e-08, 1, -8.74228e-08, 0, -8.74228e-08, -1, 0, -0.6, -0.4)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0.2)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0.4)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.48, 0)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1"]
+transform = Transform3D(1, 1.74846e-07, -1.52855e-14, 1.74846e-07, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.28, -0.2)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1"]
+transform = Transform3D(1, 1.74846e-07, -1.52855e-14, 1.74846e-07, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.0800004, -0.4)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.28, 0.2)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D9"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0800004, 0.4)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D10"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing1/CSGCylinder3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="electricalthing2" type="CSGBox3D" parent="level stuff/cryoroom"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.55, 1.8, 1.4)
+size = Vector3(0.5, 1.2, 1.2)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2"]
+transform = Transform3D(-1, -8.74228e-08, 7.64274e-15, -8.74228e-08, 1, -8.74228e-08, 0, -8.74228e-08, -1, 0, -0.8, -0.2)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D4"]
+transform = Transform3D(1, -8.47033e-22, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.38419e-07, -0.5, 1.675)
+radius = 0.1
+height = 3.35
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2"]
+transform = Transform3D(-1, -8.74228e-08, 7.64274e-15, -8.74228e-08, 1, -8.74228e-08, 0, -8.74228e-08, -1, 0, -0.6, -0.4)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0.2)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0.4)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.48, 0)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2"]
+transform = Transform3D(1, 1.74846e-07, -1.52855e-14, 1.74846e-07, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.28, -0.2)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2"]
+transform = Transform3D(1, 1.74846e-07, -1.52855e-14, 1.74846e-07, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.0800004, -0.4)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.28, 0.2)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D9"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0800004, 0.4)
+radius = 0.1
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D10"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.5, 1.25)
+radius = 0.1
+height = 2.5
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="level stuff/cryoroom/electricalthing2/CSGCylinder3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+radius = 0.1
+radial_segments = 8
+rings = 4
 
 [node name="electricalthing3" type="CSGBox3D" parent="level stuff/cryoroom"]
 transform = Transform3D(1.91069e-15, -1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1, 0, -4.37114e-08, -1.95, 7.7, 1.4)
@@ -1108,9 +1476,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -9.3)
 [node name="CSGBox3D32" parent="cryolab_cabinets" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45, 1.5, -2.5)
 
-[node name="CSGBox3D32_001" parent="cryolab_cabinets/CSGBox3D32" index="0"]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -0.35000014, -0.75, 0.493865)
-
 [node name="CSGBox3D42" parent="cryolab_cabinets" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45, -3)
 
@@ -1253,9 +1618,11 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -188, 0)
 mesh = SubResource("PlaneMesh_27ntl")
 
-[connection signal="pressed" from="level stuff/cryoroom/GenericButton" to="level stuff/lab1/SlidingDoor3/KSI_door_half" method="_on_generic_button_pressed"]
+[connection signal="pressed" from="level stuff/cryoroom/cryotube/GenericButton" to="level stuff/lab1/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
+[connection signal="pressed" from="level stuff/cryoroom/console/GenericButton" to="level stuff/cryoroom/cryotube/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
 
 [editable path="level stuff/lab1/SlidingDoor"]
 [editable path="level stuff/lab1/SlidingDoor3"]
+[editable path="level stuff/cryoroom/cryotube/SlidingDoor"]
 [editable path="hallway/CSGCombiner3D9"]
 [editable path="cryolab_cabinets"]
