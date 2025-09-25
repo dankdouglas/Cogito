@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp2qqvoapmsh6"
+uid="uid://d0oriwao4che7"
 path.s3tc="res://.godot/imported/cryolab_cryolab_wall.png-2184e1a2e8fa052f92ce6b90844d381f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "22722aa9a394445595e041b3c96edcf7"
 }
 
 [deps]

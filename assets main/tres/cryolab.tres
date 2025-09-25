@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://o1fddb46nlcv" path="res://assets main/scenes/gltf imported/level/cryolab_cryolab_tile.png" id="1_v7sxj"]
 [ext_resource type="Texture2D" uid="uid://bcaumf5sk5nfs" path="res://assets main/scenes/gltf imported/level/cryolab_cryolab_tile_n.png" id="2_hdqsa"]
-[ext_resource type="Texture2D" uid="uid://dp2qqvoapmsh6" path="res://assets main/scenes/gltf imported/level/cryolab_cryolab_wall.png" id="3_88mvq"]
+[ext_resource type="Texture2D" uid="uid://d0oriwao4che7" path="res://assets main/scenes/gltf imported/level/cryolab_cryolab_wall.png" id="3_88mvq"]
 [ext_resource type="Texture2D" uid="uid://c0jtosu6d0lvj" path="res://assets main/scenes/gltf imported/level/cryolab_cryolab_wall_n.png" id="4_hmnoo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbqkc"]

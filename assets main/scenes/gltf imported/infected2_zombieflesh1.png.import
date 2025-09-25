@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://35ulq0xga0or"
+uid="uid://6f5n58tx1tjg"
 path.s3tc="res://.godot/imported/infected2_zombieflesh1.png-457b1cafe5cbce91af8325b50cce87be.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "2e5ac0949b55c2bd52967f2b8d5a7756"
 }
 
 [deps]
