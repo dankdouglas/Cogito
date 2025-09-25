@@ -44,6 +44,13 @@ ambient_light_energy = 0.0
 reflected_light_source = 1
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(1, 0.666743, 0.632533, 1)
+fog_density = 0.0003
+fog_sky_affect = 0.0
+
+[sub_resource type="Animation" id="Animation_rn871"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_gbdlk"]
 resource_name = "auto open door"
@@ -76,9 +83,6 @@ tracks/1/keys = {
 "method": &"unlock_door"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_rn871"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yi0hc"]
 _data = {

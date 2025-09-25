@@ -1,19 +1,28 @@
-[gd_scene format=3 uid="uid://c487m0wpxw2sy"]
+[gd_scene load_steps=2 format=3 uid="uid://c487m0wpxw2sy"]
+
+[ext_resource type="PackedScene" uid="uid://cakqhyh514hpg" path="res://assets main/scenes/gltf imported/level objects/hopstital bed1.glb" id="1_vu38q"]
 
 [node name="Node3D" type="Node3D"]
 
+[node name="hopstital bed1" parent="." instance=ExtResource("1_vu38q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
 [node name="bed" type="CSGBox3D" parent="."]
+visible = false
 use_collision = true
 size = Vector3(1.7, 0.7, 3)
 
 [node name="bed2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0.2, 1)
+visible = false
 size = Vector3(1.7, 0.7, 1)
 
 [node name="bed3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.05, 0.1, -1.4)
+visible = false
 size = Vector3(1.8, 0.9, 0.2)
 
 [node name="bed4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.05, 0.25, 1.2)
+visible = false
 size = Vector3(1.8, 1.2, 0.2)
