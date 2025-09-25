@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://68fdvedre1fj"]
+[gd_scene load_steps=57 format=4 uid="uid://68fdvedre1fj"]
 
 [ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="1_v6sdu"]
 [ext_resource type="PackedScene" uid="uid://dym3o8in8bexf" path="res://assets main/scenes/csg/light_1.tscn" id="2_36vdw"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cvwschvsack1a" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/chairDesk.glb" id="10_gbdlk"]
 [ext_resource type="PackedScene" uid="uid://cmirb5vohoqqe" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/desk.glb" id="12_rn871"]
 [ext_resource type="Texture2D" uid="uid://vb01wkv8ui72" path="res://addons/cogito/Assets/Textures/Prototype Textures/PNG/Dark/texture_12.png" id="14_hdvwx"]
+[ext_resource type="PackedScene" uid="uid://c487m0wpxw2sy" path="res://assets main/scenes/csg/bed.tscn" id="14_kdwx2"]
 [ext_resource type="PackedScene" uid="uid://cpehxuxl06w60" path="res://assets main/scenes/level/building1.tscn" id="15_27ntl"]
 [ext_resource type="MeshLibrary" uid="uid://c2m2f61yhox7l" path="res://assets main/tres/cryolab.tres" id="15_e4tla"]
 [ext_resource type="Material" uid="uid://dovfa7j68v41h" path="res://assets main/materials/concrete1.tres" id="15_hrh3t"]
@@ -29,6 +30,8 @@ sky_top_color = Color(0.696525, 0.329618, 0, 1)
 sky_horizon_color = Color(0.493953, 0.402226, 0.319822, 1)
 ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0.493953, 0.402226, 0.319822, 1)
+sun_angle_max = 360.0
+sun_curve = 0.00331456
 
 [sub_resource type="Sky" id="Sky_hdvwx"]
 sky_material = SubResource("ProceduralSkyMaterial_nwr60")
@@ -436,13 +439,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xbffi")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrh3t"]
+albedo_color = Color(0.314316, 0.314316, 0.314316, 1)
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.01
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_27ntl"]
+material = SubResource("StandardMaterial3D_hrh3t")
 size = Vector2(2000, 2000)
 
 [node name="level1" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, -0.214735, 0.976672, 0, 0.976672, 0.214735, -1, 9.38638e-09, -4.26917e-08, 0, 0, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -725,22 +734,8 @@ size = Vector3(6, 1.3, 1.4)
 transform = Transform3D(-1, -1.51808e-08, 8.60946e-08, -1.51808e-08, 1, 4.47035e-08, -8.60946e-08, 4.47035e-08, -1, -0.843185, 1.9, -3.9)
 size = Vector3(0.2, 4.2, 1.3)
 
-[node name="bed" type="CSGBox3D" parent="level stuff/cryoroom"]
+[node name="bed" parent="level stuff/cryoroom" instance=ExtResource("14_kdwx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35, 0.35, 0)
-use_collision = true
-size = Vector3(1.7, 0.7, 3)
-
-[node name="bed2" type="CSGBox3D" parent="level stuff/cryoroom/bed"]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0.2, 1)
-size = Vector3(1.7, 0.7, 1)
-
-[node name="bed3" type="CSGBox3D" parent="level stuff/cryoroom/bed"]
-transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.05, 0.1, -1.4)
-size = Vector3(1.8, 0.9, 0.2)
-
-[node name="bed4" type="CSGBox3D" parent="level stuff/cryoroom/bed"]
-transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.05, 0.25, 1.2)
-size = Vector3(1.8, 1.2, 0.2)
 
 [node name="chairDesk" parent="level stuff/cryoroom" instance=ExtResource("10_gbdlk")]
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 0.5, 0, -3.4)

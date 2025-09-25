@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c487m0wpxw2sy"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="bed" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(1.7, 0.7, 3)
+
+[node name="bed2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0.2, 1)
+size = Vector3(1.7, 0.7, 1)
+
+[node name="bed3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.05, 0.1, -1.4)
+size = Vector3(1.8, 0.9, 0.2)
+
+[node name="bed4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0.05, 0.25, 1.2)
+size = Vector3(1.8, 1.2, 0.2)
