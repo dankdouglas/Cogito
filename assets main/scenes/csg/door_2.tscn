@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cqunl68ia1ca3"]
+[gd_scene load_steps=0 format=3 uid="uid://cqunl68ia1ca3"]
 
 [node name="door2" type="CSGBox3D"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
