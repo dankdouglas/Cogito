@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://68fdvedre1fj"]
+[gd_scene load_steps=91 format=4 uid="uid://68fdvedre1fj"]
 
 [ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="1_v6sdu"]
 [ext_resource type="PackedScene" uid="uid://dym3o8in8bexf" path="res://assets main/scenes/csg/light_1.tscn" id="2_36vdw"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bp5dthgq17mud" path="res://assets main/scenes/gltf imported/level objects/cryolab_cabinets_cryolab_wall_n.png" id="19_t7oqo"]
 [ext_resource type="PackedScene" uid="uid://bsynw53q2lhf8" path="res://assets main/scenes/gltf imported/level objects/beaker1.glb" id="29_tmqds"]
 [ext_resource type="PackedScene" uid="uid://dm7l3r0fmanp0" path="res://assets main/scenes/gltf imported/level objects/tubeholder1.glb" id="30_l80m4"]
+[ext_resource type="MeshLibrary" uid="uid://duwvd4qkicu4g" path="res://assets main/tres/catwalk.tres" id="36_4150n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nwr60"]
 sky_top_color = Color(0.9999997, 0.8166952, 0.41176334, 1)
@@ -749,7 +750,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xbffi")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrh3t"]
-albedo_color = Color(0.314316, 0.314316, 0.314316, 1)
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.01
 
@@ -761,6 +763,7 @@ size = Vector2(2000, 2000)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-4.371139e-08, -0.1633259, 0.9865718, 0, 0.9865718, 0.1633259, -1, 7.139202e-09, -4.3124423e-08, 0, 0, 0)
+light_color = Color(0.9960498, 0.9999998, 0.85679215, 1)
 light_energy = 3.804
 shadow_enabled = true
 
@@ -841,6 +844,15 @@ transform = Transform3D(-4.37114e-08, -1.215, 0, 1, -5.31093e-08, 0, 0, 0, 1, -4
 
 [node name="Glass_3x3_99" parent="level stuff/lab1" instance=ExtResource("3_yi0hc")]
 transform = Transform3D(-4.37114e-08, -1.215, 0, 1, -5.31093e-08, 0, 0, 0, 1, -4.6, 0, -12.9)
+
+[node name="Glass_3x3_100" parent="level stuff/lab1" instance=ExtResource("3_yi0hc")]
+transform = Transform3D(-1.4424762e-07, -1.2149999, 0, 3.3000002, -5.3109297e-08, 0, 0, 0, 2.6, 1.3000001, -0.7, -56.9)
+
+[node name="Glass_3x3_104" parent="level stuff/lab1" instance=ExtResource("3_yi0hc")]
+transform = Transform3D(-1.4424762e-07, -1.2149999, 0, 3.3000002, -5.3109297e-08, 0, 0, 0, 2.6, 1.3000001, -0.7, -49.100002)
+
+[node name="Glass_3x3_105" parent="level stuff/lab1" instance=ExtResource("3_yi0hc")]
+transform = Transform3D(-1.4424762e-07, -1.2149999, 0, 3.3000002, -5.3109297e-08, 0, 0, 0, 2.6, 1.3000001, -0.7, -41.300003)
 
 [node name="Glass_3x3_101" parent="level stuff/lab1" instance=ExtResource("3_yi0hc")]
 transform = Transform3D(-4.37114e-08, -0.45, 0, 1, -1.96701e-08, 0, 0, 0, 1, -8.5, 0, -8.5)
@@ -924,6 +936,12 @@ transform = Transform3D(-4.37114e-08, 0, -1.4, 0, 1, 0, 1, 0, -6.11959e-08, -4, 
 ignore_interaction_raycast = true
 is_locked = true
 
+[node name="SlidingDoor2" parent="level stuff/lab1" instance=ExtResource("3_qbkwl")]
+transform = Transform3D(1, 0, 4.2632564e-14, 0, 1, 0, 1.0658141e-14, 0, 1.4, 1.7, 0, -25.45)
+
+[node name="object_029" parent="level stuff/lab1/SlidingDoor2/KSI_door_half" index="0"]
+material_override = ExtResource("15_hrh3t")
+
 [node name="SlidingDoor4" type="Node3D" parent="level stuff/lab1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6000004, 0, -8.45)
 
@@ -1002,6 +1020,85 @@ volume_db = -13.0
 bus = &"SFX"
 
 [node name="BasicInteraction" parent="level stuff/lab1/SlidingDoor4/KSI_door_half2" instance=ExtResource("16_5o1pk")]
+
+[node name="SlidingDoor6" type="Node3D" parent="level stuff/lab1"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.700001, 0, -28.85)
+
+[node name="KSI_door_half" type="AnimatableBody3D" parent="level stuff/lab1/SlidingDoor6"]
+collision_layer = 3
+script = ExtResource("12_pnepj")
+open_sound = ExtResource("13_4150n")
+close_sound = ExtResource("14_pkvq5")
+doors_to_sync_with = Array[NodePath]([NodePath("../KSI_door_half2")])
+auto_close_time = 2.0
+door_type = 1
+open_position = Vector3(0, 2, 0)
+door_speed = 0.6
+
+[node name="door1" type="Node3D" parent="level stuff/lab1/SlidingDoor6/KSI_door_half"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099999905, 0, -0.8000002)
+
+[node name="door2_001" type="MeshInstance3D" parent="level stuff/lab1/SlidingDoor6/KSI_door_half/door1"]
+mesh = SubResource("ArrayMesh_vj6vp")
+skeleton = NodePath("")
+
+[node name="Glass_3x3_100" parent="level stuff/lab1/SlidingDoor6/KSI_door_half/door1" instance=ExtResource("3_yi0hc")]
+transform = Transform3D(-1.7484556e-08, -0.30375, 0, 0.39999995, -1.3277325e-08, 0, 0, 5.3290705e-15, 0.465788, -0.029412746, 0.70000005, -0.6499996)
+
+[node name="object_029" type="MeshInstance3D" parent="level stuff/lab1/SlidingDoor6/KSI_door_half"]
+visible = false
+mesh = SubResource("ArrayMesh_d0li4")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level stuff/lab1/SlidingDoor6/KSI_door_half"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099999905, 1.3499999, -0.75)
+visible = false
+shape = SubResource("BoxShape3D_w6tyf")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="level stuff/lab1/SlidingDoor6/KSI_door_half"]
+volume_db = -13.0
+bus = &"SFX"
+
+[node name="BasicInteraction" parent="level stuff/lab1/SlidingDoor6/KSI_door_half" instance=ExtResource("16_5o1pk")]
+
+[node name="KSI_door_half2" type="AnimatableBody3D" parent="level stuff/lab1/SlidingDoor6"]
+collision_layer = 3
+script = ExtResource("12_pnepj")
+open_sound = ExtResource("13_4150n")
+close_sound = ExtResource("14_pkvq5")
+doors_to_sync_with = Array[NodePath]([NodePath("../KSI_door_half")])
+auto_close_time = 2.0
+door_type = 1
+open_position = Vector3(0, -1, 0)
+door_speed = 0.6
+
+[node name="door1" type="Node3D" parent="level stuff/lab1/SlidingDoor6/KSI_door_half2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099999905, 0, -0.8000002)
+
+[node name="door2" type="MeshInstance3D" parent="level stuff/lab1/SlidingDoor6/KSI_door_half2/door1"]
+mesh = SubResource("ArrayMesh_ovxed")
+skeleton = NodePath("")
+
+[node name="door2_001" type="MeshInstance3D" parent="level stuff/lab1/SlidingDoor6/KSI_door_half2/door1"]
+visible = false
+mesh = SubResource("ArrayMesh_vj6vp")
+skeleton = NodePath("")
+
+[node name="object_029" type="MeshInstance3D" parent="level stuff/lab1/SlidingDoor6/KSI_door_half2"]
+visible = false
+mesh = SubResource("ArrayMesh_d0li4")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level stuff/lab1/SlidingDoor6/KSI_door_half2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099999905, 0.25, -0.75)
+visible = false
+shape = SubResource("BoxShape3D_pnepj")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="level stuff/lab1/SlidingDoor6/KSI_door_half2"]
+volume_db = -13.0
+bus = &"SFX"
+
+[node name="BasicInteraction" parent="level stuff/lab1/SlidingDoor6/KSI_door_half2" instance=ExtResource("16_5o1pk")]
 
 [node name="SlidingDoor5" type="Node3D" parent="level stuff/lab1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6, 0, -8.45)
@@ -1804,6 +1901,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3, -26.5)
 [node name="light12" parent="lights" instance=ExtResource("2_36vdw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 3, -30.5)
 
+[node name="light13" parent="lights" instance=ExtResource("2_36vdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 3, -27.5)
+
+[node name="light14" parent="lights" instance=ExtResource("2_36vdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 9, -46.5)
+
+[node name="OmniLight3D" parent="lights/light14" index="0"]
+omni_range = 17.599
+
 [node name="light3" parent="lights" instance=ExtResource("2_36vdw")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.5, 9, -1.5)
 
@@ -1946,9 +2052,11 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 353, -167, 107)
 
 [node name="CSGCombiner3D9" parent="hallway" instance=ExtResource("15_27ntl")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 91, -167, 37)
+material_override = ExtResource("16_t7oqo")
 
 [node name="CSGBox3D" parent="hallway/CSGCombiner3D9" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+visible = false
 size = Vector3(1, 5, 1)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="hallway/CSGCombiner3D9"]
@@ -1956,7 +2064,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54, 1.86, 2.26)
 size = Vector3(1, 5, 1)
 material = ExtResource("16_t7oqo")
 
-[node name="facade" type="Node3D" parent="."]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="hallway/CSGCombiner3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+height = 5.5
+
+[node name="facade" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("15_hrh3t")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="facade"]
 transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, -4.7, -0.5, -27)
@@ -1973,8 +2086,8 @@ transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 4.8, -18.45)
 size = Vector3(1, 10.6, 12.1)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="facade"]
-transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 4.8, -34.4)
-size = Vector3(1, 10.6, 12)
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 4.8, -32.9)
+size = Vector3(1, 10.6, 9)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="facade"]
 transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, -5.2, -20.9)
@@ -1984,6 +2097,19 @@ size = Vector3(1, 10.6, 33)
 transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 7.75, -28.4)
 use_collision = true
 size = Vector3(1, 9.5, 18)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="facade"]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 1.5, -24.949999)
+size = Vector3(1, 3, 0.90000004)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="facade"]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 1.5, -27.949999)
+size = Vector3(1, 3, 0.90000004)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="facade"]
+transform = Transform3D(0.3, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.8, 2.7, -26.449999)
+use_collision = true
+size = Vector3(1, 3, 0.90000004)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="facade"]
 transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 7.8, -13.4)
@@ -2156,6 +2282,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.5, 1, -9.5)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -19)
+material_override = ExtResource("2_e4tla")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -2164,9 +2291,19 @@ flip_faces = true
 size = Vector3(4, 3, 4)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.5, -11.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.5, -14)
 flip_faces = true
-size = Vector3(4, 3, 12)
+size = Vector3(4, 3, 7)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 4.5, -27.5)
+flip_faces = true
+size = Vector3(14, 9, 20)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.5, -7.5)
+flip_faces = true
+size = Vector3(4, 3, 4)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.5, -7.5)
@@ -2174,9 +2311,19 @@ flip_faces = true
 size = Vector3(10, 3, 4)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6, 1.5, -7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6, 1.15, -7.5)
 operation = 2
-size = Vector3(1, 3, 4)
+size = Vector3(1, 2.3, 2.2)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7, 1.15, -27.900002)
+operation = 2
+size = Vector3(0.6, 2.3, 19)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6, 5.15, -27.900002)
+operation = 2
+size = Vector3(1, 2.3, 19)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.950001, 2.2351742e-08, -7.5)
@@ -2195,6 +2342,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -5)
 flip_faces = true
 size = Vector3(2, 2, 1)
 
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5499992, 1, -10)
+flip_faces = true
+size = Vector3(1.5, 2, 1)
+
 [node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1.5, -2.5)
 flip_faces = true
@@ -2205,12 +2357,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -5)
 flip_faces = true
 size = Vector3(2, 2, 1)
 
+[node name="GridMap2" type="GridMap" parent="."]
+mesh_library = ExtResource("36_4150n")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(3, 65510, 5, 3, 65508, 1048581, 196611, 65508, 1048581, 196611, 65510, 5, 196602, 65498, 1048576, 327678, 65498, 1048576, 327678, 65488, 1048577, 327676, 65488, 1048577, 327674, 65488, 1048577, 327672, 65488, 1048577, 327670, 65488, 1048577, 327668, 65488, 1048577, 262144, 65499, 1048580, 262144, 65498, 1048580, 262144, 65496, 1441796, 262144, 65494, 1441796, 262144, 65492, 1441796, 262144, 65490, 1441796, 262144, 65488, 1048580, 262144, 65486, 1441796, 262144, 65484, 1441796, 262144, 65482, 1441796, 262144, 65480, 1441796)
+}
+metadata/_editor_floor_ = Vector3(0, 4, 0)
+
 [connection signal="pressed" from="level stuff/cryoroom/cryotube/GenericButton" to="level stuff/lab1/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
 [connection signal="pressed" from="level stuff/cryoroom/GenericButton" to="level stuff/cryoroom/cryotube/SlidingDoor/KSI_door_half" method="_on_generic_button_pressed"]
 
 [editable path="level stuff/lab1/SlidingDoor"]
+[editable path="level stuff/lab1/SlidingDoor2"]
 [editable path="level stuff/cryoroom/cryotube/SlidingDoor"]
 [editable path="level stuff/cryoroom/deskCorner"]
 [editable path="lights/light2"]
+[editable path="lights/light14"]
 [editable path="hallway/CSGCombiner3D9"]
 [editable path="cryolab_cabinets"]
