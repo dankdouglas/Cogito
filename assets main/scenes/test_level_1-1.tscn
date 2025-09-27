@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2kkj7vhsd1oi" path="res://addons/cogito/SceneManagement/cogito_scene.gd" id="1_jdjrf"]
 [ext_resource type="PackedScene" uid="uid://kicjwmh02uwf" path="res://addons/cogito/PackedScenes/cogito_player.tscn" id="2_l5o60"]
-[ext_resource type="MeshLibrary" uid="uid://b6puy8xehqan2" path="res://assets main/tres/tileset1.tres" id="3_5107b"]
+[ext_resource type="MeshLibrary" path="res://assets main/tres/tileset1.tres" id="3_5107b"]
 [ext_resource type="PackedScene" uid="uid://caex54qny4gvm" path="res://addons/cogito/DemoScenes/DemoPrefabs/glass_3x_3_98.tscn" id="4_2cio4"]
 [ext_resource type="PackedScene" uid="uid://dhaxm80r7h60v" path="res://assets main/scenes/level/glass_3x_3_101.tscn" id="5_0i3si"]
 [ext_resource type="PackedScene" uid="uid://dym3o8in8bexf" path="res://assets main/scenes/csg/light_1.tscn" id="5_c4bi5"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://xpda5m48i57o"]
+
+[ext_resource type="Material" uid="uid://dovfa7j68v41h" path="res://assets main/materials/concrete1.tres" id="1_0rtct"]
+
+[node name="whitewall" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.124854, 0.043810308, 1.1503757, 0.1432873)
+size = Vector3(0.1, 0.5, 1)
+material = ExtResource("1_0rtct")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 4.124854, 0.043810308, 1.75, 0.1432873)
+size = Vector3(0.1, 0.5, 1)
+material = ExtResource("1_0rtct")

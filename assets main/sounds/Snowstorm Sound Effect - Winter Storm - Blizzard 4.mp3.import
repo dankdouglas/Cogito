@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5wqmr1iwql87"
+path="res://.godot/imported/Snowstorm Sound Effect - Winter Storm - Blizzard 4.mp3-751d87f648de5a886d58bb9cd6b8df08.mp3str"
+
+[deps]
+
+source_file="res://assets main/sounds/Snowstorm Sound Effect - Winter Storm - Blizzard 4.mp3"
+dest_files=["res://.godot/imported/Snowstorm Sound Effect - Winter Storm - Blizzard 4.mp3-751d87f648de5a886d58bb9cd6b8df08.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

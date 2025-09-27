@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://el81615f2g4n"]
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D"]
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.2, 1.5, 1)
+radius = 0.25
+radial_segments = 8
+rings = 4
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.3711385e-08, 1, -1, 4.371139e-08, 0, -1.7, 1.5, 1)
+radius = 0.25
+height = 1.0
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.2, 1.5, -0.25)
+radius = 0.25
+height = 2.5
