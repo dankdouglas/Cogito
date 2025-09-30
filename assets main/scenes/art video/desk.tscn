@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://013fp6pv36ar"]
+
+[ext_resource type="PackedScene" uid="uid://cknhaj0w7yuyg" path="res://addons/cogito/DemoScenes/DemoPrefabs/computer_screen.tscn" id="1_2ygsy"]
+[ext_resource type="PackedScene" uid="uid://cvwschvsack1a" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/chairDesk.glb" id="2_ncyv7"]
+[ext_resource type="PackedScene" uid="uid://cmirb5vohoqqe" path="res://addons/cogito/Assets/Models/Kenney/Furniture/GLTF format/desk.glb" id="3_go2q1"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="computerScreen2" parent="." instance=ExtResource("1_2ygsy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.925352, 0.7688, -6.67334)
+
+[node name="chairDesk2" parent="." instance=ExtResource("2_ncyv7")]
+transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -1.89747, 0, -6.04626)
+
+[node name="desk" parent="." instance=ExtResource("3_go2q1")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.39747, 0, -6.84626)
